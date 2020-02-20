@@ -52,6 +52,16 @@ ICEBOX
 - bcrypt
 
 *endpoints*
+<br/>
+
+auth:
+- login: => /auth/login
+- register: => /auth/register
+- logout: => /auth/logout
+- userSession: => /auth/user_session
+<br/>
+
+logCtrl:
 
 
 ***Database***
