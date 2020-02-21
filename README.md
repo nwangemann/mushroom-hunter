@@ -14,7 +14,7 @@ MVP (minimum viable product):
 
 ICEBOX
 
-- User is able to geotag location of found mushroom
+- User is able to geotag location of found mushroom using the Google Maps API (and corresponding geotagging API available through Google Maps)
 - User is able to select species of mushroom from list and have information pulled from Trefle (plant API) display, giving specifics regarding species
 
 
@@ -31,6 +31,10 @@ ICEBOX
 <br/>
 
 *routes*
+- Main(/)
+- User Profile (/user)
+- Login (/login)
+- Create New Post (/create)
 
 
 *file structure*
@@ -44,7 +48,10 @@ ICEBOX
         - reducer 
     - Components/
         - Header.js /.css
+        - Main.js /.css 
         - Login.js /.css
+        - Post.js /.css
+        
 
 
 ***Server*** 
@@ -67,6 +74,34 @@ auth:
 <br/>
 
 logCtrl:
+(app.get) getUserPosts: => /api/user_posts
+(app.post) submitPost: => /api/post
+(app.delete) deletePost: => /api/delete/:id
+(app.put) editPost: => /api/edit/:id
 
 
 ***Database***
+
+```sql
+CREATE TABLE users (
+    user_id SERIAL PRIMARY KEY,
+    username VARCHAR(30) NOT NULL,
+    password TEXT NOT NULL,
+    email VARCHAR(50) NOT NULL,
+);
+
+INSERT INTO users(username, password, email)
+VALUES 
+('t', 't', 't')
+('test', 'test', 'test');
+
+CREATE TABLE posts (
+    post_id SERIAL PRIMARY KEY,
+    image_url TEXT,
+    species TEXT,
+    location TEXT,
+    edidble TEXT,
+    description TEXT,
+    user_id INT REFERENCES users(user_id)
+);
+```
