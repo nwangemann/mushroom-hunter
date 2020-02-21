@@ -84,18 +84,18 @@ Total 80 Points
 *endpoints*
 <br/>
 
-auth:
+authCtrl:
 - login: => /auth/login
 - register: => /auth/register
 - logout: => /auth/logout
 - userSession: => /auth/user_session
 <br/>
 
-logCtrl:
-(app.get) getUserPosts: => /api/user_posts
-(app.post) submitPost: => /api/post
-(app.delete) deletePost: => /api/delete/:id
-(app.put) editPost: => /api/edit/:id
+postCtrl:
+- (app.get) getUserPosts: => /api/user_posts
+- (app.post) submitPost: => /api/post
+- (app.delete) deletePost: => /api/delete/:id
+- (app.put) editPost: => /api/edit/:id
 
 
 ***Database***
