@@ -1,0 +1,17 @@
+.loginParent {
+    display: flex;
+    flex-direction: column;
+    border-radius: 15px;
+    background-color: burlywood;
+    width: 75vw;
+    height: 75vh;
+}
+
+.loginBoundaryFlex {
+    display: flex;
+    width: 100vw;
+    height: 90vh;
+    justify-content: center;
+    align-items: center;
+    background-color: cadetblue;
+}

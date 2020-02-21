@@ -7,7 +7,7 @@ class Post extends Component {
   }
   render() {
     return (
-      <div id="headerParent" >
+      <div>
         <h1>Post!</h1>
       </div>
     );
