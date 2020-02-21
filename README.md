@@ -118,6 +118,7 @@ CREATE TABLE posts (
     species TEXT,
     location TEXT,
     edible TEXT,
+    date TEXT,
     description TEXT,
     image_url TEXT,
     user_id INT REFERENCES users(user_id)
