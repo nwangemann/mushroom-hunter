@@ -2,11 +2,23 @@ import axios from "axios";
 
 let initialState = {
   user: {},
-  loading: false
+  loading: false,
+  loginView: true
 };
 
+const LOGOUT = "LOGOUT"
+const ADD_LOGIN_VIEW = "ADD_LOGIN_VIEW"
+const REMOVE_LOGIN_VIEW = "REMOVE_LOGIN_VIEW"
 const SUBMIT_USER = "SUBMIT_USER";
 const GET_SESSION = "GET_SESSION";
+
+export function logout() {
+  axios.get('/auth/logout')
+  return {
+    type: LOGOUT,
+    payload: {}
+  };
+}
 
 export function submitUser(user) {
   return {
@@ -14,6 +26,22 @@ export function submitUser(user) {
     payload: user
   };
 }
+
+export function removeLoginView() {
+  return {
+    type: REMOVE_LOGIN_VIEW,
+    payload: {loginView: false}
+  };
+}
+
+export function addLoginView() {
+  return {
+    type: ADD_LOGIN_VIEW,
+    payload: {loginView: true}
+  };
+}
+
+
 
 export function getSession() {
   let user = axios.get("/auth/userSession");
@@ -26,6 +54,12 @@ export function getSession() {
 
 export default function reducer(state = initialState, action) {
   switch (action.type) {
+    case LOGOUT:
+      return { ...state, user: {}, loginView: true }
+    case REMOVE_LOGIN_VIEW: 
+    return {...state, loginView: false};
+    case ADD_LOGIN_VIEW: 
+    return {...state, loginView: true};
     case SUBMIT_USER:
       return { ...state, user: action.payload };
     case GET_SESSION + "_PENDING":

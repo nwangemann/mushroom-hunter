@@ -1,10 +1,18 @@
 import React, { Component } from "react";
 import './Post.css'
+import { connect } from "react-redux";
+import { removeLoginView } from "../../redux/reducer";
+
 
 class Post extends Component {
-  constructor() {
-    super();
+  constructor(props) {
+    super(props);
   }
+
+  componentDidMount(){
+    this.props.removeLoginView()
+  }
+
   render() {
     return (
       <div>
@@ -14,4 +22,11 @@ class Post extends Component {
   }
 }
 
-export default Post;
+const mapStateToProps = state => state;
+
+const mapDispatchToProps = {
+  removeLoginView
+};
+
+export default connect(mapStateToProps, mapDispatchToProps)(Post);
+

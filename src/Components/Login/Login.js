@@ -2,17 +2,24 @@ import React, { Component } from "react";
 import "./Login.css";
 import axios from "axios";
 import { connect } from "react-redux";
-import { submitUser } from "../../redux/reducer";
+import { submitUser, addLoginView, logout } from "../../redux/reducer";
 
 class Login extends Component {
-  constructor() {
-    super();
+  constructor(props) {
+    super(props);
     this.state = {
       username: "",
       email: "",
       password: "",
       register: false
     };
+  }
+
+  componentDidMount(){
+    this.props.logout();
+    this.props.addLoginView()
+
+    console.log('this.props.user', this.props.user)
   }
 
   changeHandler = e => {
@@ -36,7 +43,6 @@ class Login extends Component {
   };
 
   render() {
-    console.log(this.props.user);
     return (
       <div className="loginBoundaryFlex">
         {!this.state.register ? (
@@ -131,7 +137,9 @@ class Login extends Component {
 const mapStateToProps = state => state;
 
 const mapDispatchToProps = {
-  submitUser
+  submitUser,
+  addLoginView,
+  logout
 };
 
 export default connect(mapStateToProps, mapDispatchToProps)(Login);
