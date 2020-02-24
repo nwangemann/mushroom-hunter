@@ -14,3 +14,9 @@
 #buttonParent {
     display: flex;
 }
+
+#welcomeBox {
+    display: flex;
+    width: 500px;
+    justify-content: space-between;
+}

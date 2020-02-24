@@ -22,7 +22,14 @@ class Header extends Component {
   render() {
     return (
       <div id="headerParent">
-        <h1>Header!</h1>
+        {this.props.loginView ? 
+        <h1>Mushroom Hunter</h1>
+        :
+        <div id="welcomeBox" >
+           <h1>Mushroom Hunter</h1>
+        <h3>Welcome, {this.props.user.username}</h3>
+        </div>
+        }
         {this.props.loginView ? (
           <h1>Login</h1>
         ) : (
