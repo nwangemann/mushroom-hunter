@@ -12,15 +12,16 @@ class Login extends Component {
       email: "",
       password: "",
       register: false,
-      registerFail: false
+      registerFail: false,
+      loginFail: false
     };
   }
 
-  componentDidMount(){
+  componentDidMount() {
     this.props.logout();
-    this.props.addLoginView()
+    this.props.addLoginView();
 
-    console.log('this.props.user', this.props.user)
+    console.log("this.props.user", this.props.user);
   }
 
   changeHandler = e => {
@@ -29,23 +30,36 @@ class Login extends Component {
     });
   };
 
-  login = async (email, password) => {
+  login = (email, password) => {
     let body = { email, password };
-    const res = await axios.post("/auth/login", body);
-    this.props.submitUser(res.data);
-    this.props.history.push("/main");
+    const res = axios
+      .post("/auth/login", body)
+      .then(res => {
+        this.props.submitUser(res.data);
+        this.props.history.push("/main");
+      })
+      .catch(err => {
+        this.setState({
+          loginFail: true
+        });
+        console.log(err);
+      });
   };
 
   register = (username, email, password) => {
     let newUser = { username, email, password };
-    axios.post("/auth/register", newUser).then(res => {
-      this.props.submitUser(res.data);
-      this.props.history.push("/main");
-    }).catch(err => {
-      this.setState({
-        registerFail: true
+    axios
+      .post("/auth/register", newUser)
+      .then(res => {
+        this.props.submitUser(res.data);
+        this.props.history.push("/main");
       })
-    })
+      .catch(err => {
+        this.setState({
+          registerFail: true
+        });
+        console.log(err);
+      });
   };
 
   render() {
@@ -69,15 +83,31 @@ class Login extends Component {
                   value={this.state.email}
                 />
               </div>
-              <div className="formElem">
-                <label>Password:</label>
-                <input
-                  onChange={this.changeHandler}
-                  type="password"
-                  name="password"
-                  value={this.state.password}
-                />
-              </div>
+              {this.state.loginFail ? (
+                <div className="formElem">
+                  <label>Password:</label>
+                  <input
+                    onChange={this.changeHandler}
+                    type="password"
+                    name="password"
+                    value={this.state.password}
+                  />
+                  <p className="errorFail">
+                    Incorrect username and/or password
+                  </p>
+                </div>
+              ) : (
+                <div className="formElem">
+                  <label>Password:</label>
+                  <input
+                    onChange={this.changeHandler}
+                    type="password"
+                    name="password"
+                    value={this.state.password}
+                  />
+                </div>
+              )}
+
               <div className="formElem">
                 <input type="submit" value="Login" />
               </div>
@@ -118,30 +148,32 @@ class Login extends Component {
                   value={this.state.email}
                 />
               </div>
-              <div className="formElem">
-                {this.state.registerFail ?
+              {this.state.registerFail ? (
                 <div>
-                 <label>Password:</label>
-                 <input
-                   onChange={this.changeHandler}
-                   type="password"
-                   name="password"
-                   value={this.state.password}
-                 />
-                <p id="registerFail">Incorrect email/username password</p>
+                  <div className="formElem">
+                    <label>Password:</label>
+                    <input
+                      onChange={this.changeHandler}
+                      type="password"
+                      name="password"
+                      value={this.state.password}
+                    />
+                  </div>
+                  <p className="errorFail">This email already exists. Please register with an alternate email.</p>
                 </div>
-                :
+              ) : (
                 <div>
-                <label>Password:</label>
-                <input
-                  onChange={this.changeHandler}
-                  type="password"
-                  name="password"
-                  value={this.state.password}
-                />
+                  <div className="formElem">
+                    <label>Password:</label>
+                    <input
+                      onChange={this.changeHandler}
+                      type="password"
+                      name="password"
+                      value={this.state.password}
+                    />
+                  </div>
                 </div>
-              }
-              </div>
+              )}
               <input type="submit" value="Register" />
             </form>
             <label>Already have an account?</label>

@@ -1,6 +1,5 @@
 module.exports = {
     getUserPosts: (req, res, next) => {
-        //id will be sent as a param, taken from the store through the this.props.user.user_id object and sent as an arguement when this function is invoked. 
         let {user_id} = req.params
         const db = req.app.get("db");
         db.get_user_posts(user_id).then(posts => {

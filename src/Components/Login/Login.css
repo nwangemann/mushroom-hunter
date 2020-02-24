@@ -20,6 +20,6 @@
     margin: 15px;
 }
 
-#registerFail {
+.errorFail {
     color: red
 }

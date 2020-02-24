@@ -16,30 +16,36 @@ class Main extends Component {
   componentDidMount() {
     this.props.removeLoginView();
     this.props.getSession();
-    this.getUserPosts(this.props.user.user_id)
+    console.log('userid', this.props.user.user_id)
+    this.getUserPosts(this.props.user.user_id);
+    console.log(this.state.posts)
   }
 
-  getUserPosts = (user_id) => {
+  getUserPosts = user_id => {
     axios.get(`/api/posts/${user_id}`).then(posts => {
+      console.log('inside getuserposts', posts)
       this.setState({
         posts: posts.data
-      })
-    })
+      });
+    }).catch(err => console.log('catch error', err))
   };
 
   render() {
     const mappedPosts = this.state.posts.map(post => {
-      return <div key={post.post_id} className="postContainer">
-    <h2>Species: {post.species}</h2>
-    <h2>Species: {post.edible}</h2>
-    <h2>Species: {post.date}</h2>
-    <p>Description: {post.description}</p>
-    <img className="postPhoto" alt="mushroom" src={post.image_url} />
-      </div>
-    })
+      return (
+        <div className="postContainer">
+          <h2>Species: {post.species}</h2>
+          <h2>Edible: {post.edible}</h2>
+          <h2>Date: {post.date}</h2>
+          <p>Description: {post.description}</p>
+          <img className="postPhoto" alt="mushroom" src={post.image_url} />
+        </div>
+      );
+    });
     return (
       <div>
         <h1>Main!</h1>
+        {mappedPosts}
       </div>
     );
   }
