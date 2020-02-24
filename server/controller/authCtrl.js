@@ -29,7 +29,7 @@ module.exports = {
     if (foundUser.length) {
       res
         .status(409)
-        .send(
+        .json(
           "That user exists already, please register with another email address."
         );
     } else {

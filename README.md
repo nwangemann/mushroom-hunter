@@ -92,10 +92,10 @@ authCtrl:
 <br/>
 
 postCtrl:
-- (app.get) getUserPosts: => /api/user_posts
-- (app.post) submitPost: => /api/post
-- (app.delete) deletePost: => /api/delete/:id
-- (app.put) editPost: => /api/edit/:id
+- (app.get) getUserPosts: => /api/posts/:user_id
+- (app.post) submitPost: => /api/post/:user_id
+- (app.delete) deletePost: => /api/delete/:post_id
+- (app.put) editPost: => /api/edit/:post_id
 
 
 ***Database***

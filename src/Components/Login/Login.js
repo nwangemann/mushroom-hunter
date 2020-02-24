@@ -11,7 +11,8 @@ class Login extends Component {
       username: "",
       email: "",
       password: "",
-      register: false
+      register: false,
+      registerFail: false
     };
   }
 
@@ -35,11 +36,16 @@ class Login extends Component {
     this.props.history.push("/main");
   };
 
-  register = async (username, email, password) => {
+  register = (username, email, password) => {
     let newUser = { username, email, password };
-    const res = await axios.post("/auth/register", newUser);
-    this.props.submitUser(res.data);
-    this.props.history.push("/main");
+    axios.post("/auth/register", newUser).then(res => {
+      this.props.submitUser(res.data);
+      this.props.history.push("/main");
+    }).catch(err => {
+      this.setState({
+        registerFail: true
+      })
+    })
   };
 
   render() {
@@ -113,6 +119,19 @@ class Login extends Component {
                 />
               </div>
               <div className="formElem">
+                {this.state.registerFail ?
+                <div>
+                 <label>Password:</label>
+                 <input
+                   onChange={this.changeHandler}
+                   type="password"
+                   name="password"
+                   value={this.state.password}
+                 />
+                <p id="registerFail">Incorrect email/username password</p>
+                </div>
+                :
+                <div>
                 <label>Password:</label>
                 <input
                   onChange={this.changeHandler}
@@ -120,6 +139,8 @@ class Login extends Component {
                   name="password"
                   value={this.state.password}
                 />
+                </div>
+              }
               </div>
               <input type="submit" value="Register" />
             </form>

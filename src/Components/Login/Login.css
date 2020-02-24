@@ -19,3 +19,7 @@
 .formElem {
     margin: 15px;
 }
+
+#registerFail {
+    color: red
+}
