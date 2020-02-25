@@ -10,8 +10,10 @@
     display: flex;
     justify-content: space-around;
     align-items: center;
-    width: 65vw;
-    height: 70vh;
+    width: 85vw;
+    height: 80vh;
+    border-radius: 50px;
+    margin-top: 20px;
 }
 
 #descriptionInputField {
@@ -20,4 +22,11 @@
     width: 300px;
     padding: 10px;
     margin: 10px;
+}
+
+#uberAlles {
+    display: flex;
+    width: 100vw;
+    height: 85vh;
+    justify-content: center;
 }

@@ -4,7 +4,7 @@ const massive = require("massive");
 const session = require("express-session");
 const { SERVER_PORT, SESSION_SECRET, CONNECTION_STRING } = process.env;
 const {login, registerUser, logout, userSession} = require('./controller/authCtrl')
-const {getUserPosts, deletePost, createPost, editPost} = require('./controller/postCtrl')
+const {getUserPosts, deletePost, createPost, editPost, getPostDetails} = require('./controller/postCtrl')
 const app = express();
 app.use(express.json());
 
@@ -32,6 +32,7 @@ app.get('/auth/logout', logout);
 
 //post endpoints
 app.get('/api/posts/:user_id', getUserPosts);
+app.get('/api/detail/:post_id', getPostDetails)
 app.delete('/api/delete/:post_id', deletePost);
 app.post('/api/post/:user_id', createPost);
 app.put('/api/edit/:post_id', editPost);

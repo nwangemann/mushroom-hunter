@@ -3,7 +3,7 @@ import "./Header.css";
 import axios from 'axios';
 import { connect } from "react-redux";
 import { Link } from "react-router-dom";
-import {getSession} from '../../redux/reducer'
+import {getSession, logout} from '../../redux/reducer'
 
 class Header extends Component {
   constructor(props) {
@@ -14,9 +14,9 @@ class Header extends Component {
     };
   }
 
-  logout = () => {
-    console.log(this.props)
-    axios.get("/auth/logout")
+  logout = async () => {
+    await axios.get("/auth/logout")
+    this.props.history.push('/')
   };
 
   render() {
@@ -60,7 +60,8 @@ class Header extends Component {
 const mapStateToProps = state => state
 
 const mapDispatchToProps = {
-  getSession
+  getSession,
+  logout
 };
 
 export default connect(mapStateToProps, mapDispatchToProps)(Header);

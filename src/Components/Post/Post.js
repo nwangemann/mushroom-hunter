@@ -50,7 +50,7 @@ class Post extends Component {
 
   render() {
     return (
-      <div>
+      <div id="uberAlles">
         <div id="postParent">
           <div id="formParent">
             <form

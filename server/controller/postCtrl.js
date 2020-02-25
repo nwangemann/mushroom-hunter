@@ -18,7 +18,9 @@ module.exports = {
         const db = req.app.get("db")
         let {user_id} = req.params
         const {species, location, edible, date, description, image_url} = req.body
-        db.create_post(species, location, edible, date, description, image_url, user_id).then(updatedPosts => {
+        let newDate = date.split('T', 1)
+        let newestDate = newDate[0]
+        db.create_post(species, location, edible, newestDate, description, image_url, user_id).then(updatedPosts => {
             res.status(200).send(updatedPosts)
         })
     },
@@ -28,6 +30,13 @@ module.exports = {
         const {species, location, edible, date, description, image_url, user_id} = req.body
         db.edit_post(species, location, edible, date, description, image_url, post_id, user_id).then(updatedPosts => {
             res.status(200).send(updatedPosts)
+        })
+    }, 
+    getPostDetails: (req, res, next) => {
+        const db = req.app.get('db')
+        let {post_id} = req.params
+        db.get_post(post_id).then(post => {
+            res.status(200).send(post)
         })
     }
 }

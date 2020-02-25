@@ -24,3 +24,7 @@
     width: 100vw;
     background-color: honeydew;
 }
+
+.deleteButton {
+    width: 60px;
+}

@@ -3,20 +3,29 @@ import axios from "axios";
 let initialState = {
   user: {},
   loading: false,
-  loginView: true
+  loginView: true,
+  detailViewPostID: ""
 };
 
-const LOGOUT = "LOGOUT"
-const ADD_LOGIN_VIEW = "ADD_LOGIN_VIEW"
-const REMOVE_LOGIN_VIEW = "REMOVE_LOGIN_VIEW"
+const LOGOUT = "LOGOUT";
+const ADD_LOGIN_VIEW = "ADD_LOGIN_VIEW";
+const REMOVE_LOGIN_VIEW = "REMOVE_LOGIN_VIEW";
 const SUBMIT_USER = "SUBMIT_USER";
 const GET_SESSION = "GET_SESSION";
+const SET_DETAIL_ID = "SET_DETAIL_ID";
+
+export function getDetailViewID(id) {
+  return {
+    type: SET_DETAIL_ID,
+    payload: { detailViewPostID: id }
+  };
+}
 
 export function logout() {
-  axios.get('/auth/logout')
+  axios.get("/auth/logout");
   return {
     type: LOGOUT,
-    payload: {}
+    payload: { loginView: true }
   };
 }
 
@@ -30,18 +39,16 @@ export function submitUser(user) {
 export function removeLoginView() {
   return {
     type: REMOVE_LOGIN_VIEW,
-    payload: {loginView: false}
+    payload: { loginView: false }
   };
 }
 
 export function addLoginView() {
   return {
     type: ADD_LOGIN_VIEW,
-    payload: {loginView: true}
+    payload: { loginView: true }
   };
 }
-
-
 
 export function getSession() {
   let user = axios.get("/auth/userSession");
@@ -55,11 +62,13 @@ export function getSession() {
 export default function reducer(state = initialState, action) {
   switch (action.type) {
     case LOGOUT:
-      return { ...state, user: {}, loginView: true }
-    case REMOVE_LOGIN_VIEW: 
-    return {...state, loginView: false};
-    case ADD_LOGIN_VIEW: 
-    return {...state, loginView: true};
+      return { ...state, loginView: true };
+    case SET_DETAIL_ID:
+      return { ...state, detailViewPostID: action.payload };
+    case REMOVE_LOGIN_VIEW:
+      return { ...state, loginView: false };
+    case ADD_LOGIN_VIEW:
+      return { ...state, loginView: true };
     case SUBMIT_USER:
       return { ...state, user: action.payload };
     case GET_SESSION + "_PENDING":

@@ -18,10 +18,9 @@ class Login extends Component {
   }
 
   componentDidMount() {
+    console.log('user', this.props.user)
     this.props.logout();
     this.props.addLoginView();
-
-    console.log("this.props.user", this.props.user);
   }
 
   changeHandler = e => {
@@ -32,7 +31,7 @@ class Login extends Component {
 
   login = (email, password) => {
     let body = { email, password };
-    const res = axios
+    axios
       .post("/auth/login", body)
       .then(res => {
         this.props.submitUser(res.data);
@@ -48,10 +47,13 @@ class Login extends Component {
 
   register = (username, email, password) => {
     let newUser = { username, email, password };
-    axios.post("/auth/register", newUser).then(res => {
+    axios
+      .post("/auth/register", newUser)
+      .then(res => {
         this.props.submitUser(res.data);
         this.props.history.push("/main");
-      }).catch(err => {
+      })
+      .catch(err => {
         this.setState({
           registerFail: true
         });
@@ -156,7 +158,10 @@ class Login extends Component {
                       value={this.state.password}
                     />
                   </div>
-                  <p className="errorFail">This email already exists. Please register with an alternate email.</p>
+                  <p className="errorFail">
+                    This email already exists. Please register with an alternate
+                    email.
+                  </p>
                 </div>
               ) : (
                 <div>

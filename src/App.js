@@ -6,7 +6,7 @@ import Main from './Components/Main/Main'
 import Post from './Components/Post/Post'
 import Login from './Components/Login/Login'
 import Detail from './Components/Detail/Detail'
-import { Switch, Route } from 'react-router-dom'
+import { Switch, Route, Link, withRouter } from 'react-router-dom'
 
 
 class App extends React.Component {
@@ -23,4 +23,4 @@ class App extends React.Component {
   }
 }
 
-export default App;
+export default withRouter(App);
