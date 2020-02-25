@@ -32,7 +32,7 @@ class Post extends Component {
     });
   };
 
-  submitPost = () => {
+  submitPost = async () => {
     const {species, location, edible, date, description, image_url, user_id} = this.state
     let newPost = {
       species, 
@@ -42,9 +42,7 @@ class Post extends Component {
       description,
       image_url
     }
-    axios.post(`/api/post/${user_id}`, newPost).then(res => {
-      res.status(200).send(res)
-    }).catch(err => console.log(err))
+    await axios.post(`/api/post/${user_id}`, newPost)
     this.props.history.push('/main')
   }
 
