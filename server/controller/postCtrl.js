@@ -27,9 +27,9 @@ module.exports = {
     editPost: (req, res, next) => {
         const db = req.app.get("db")
         let {post_id} = req.params
-        const {species, location, edible, date, description, image_url, user_id} = req.body
-        db.edit_post(species, location, edible, date, description, image_url, post_id, user_id).then(updatedPosts => {
-            res.status(200).send(updatedPosts)
+        const {species, location, edible, date, description, image_url} = req.body
+        db.edit_post(species, location, edible, date, description, image_url, post_id).then(updatedPost => {
+            res.status(200).send(updatedPost)
         })
     }, 
     getPostDetails: (req, res, next) => {

@@ -18,7 +18,6 @@ class Login extends Component {
   }
 
   componentDidMount() {
-    console.log('user', this.props.user)
     this.props.logout();
     this.props.addLoginView();
   }

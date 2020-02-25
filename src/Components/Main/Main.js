@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import "./Main.css";
 import { connect } from "react-redux";
-import { Link, Redirect } from "react-router-dom";
+import { Redirect } from "react-router-dom";
 import { removeLoginView, getSession, getDetailViewID } from "../../redux/reducer";
 import axios from "axios";
 
@@ -25,7 +25,6 @@ class Main extends Component {
     axios
       .get(`/api/posts/${this.props.user.user_id}`)
       .then(posts => {
-        console.log(posts)
         this.setState({
           posts: posts.data
         });
