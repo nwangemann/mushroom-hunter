@@ -36,18 +36,18 @@ class Header extends Component {
           <div id="buttonParent">
             <div className="headerElem">
               <Link to="/post" className="subnav_links">
-                <button>Create New Post</button>
+               Create New Post
               </Link>
             </div>
             <div className="headerElem">
               <Link to="/main" className="subnav_links">
-                <button>My Posts</button>
+                My Posts
               </Link>
             </div>
             <div className="headerElem">
               <Link to="/" className="subnav_links">
-                <button
-                onClick={this.props.logout} >Logout</button>
+                <p
+                onClick={this.props.logout} >Logout</p>
               </Link>
             </div>
           </div>

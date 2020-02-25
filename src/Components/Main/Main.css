@@ -1,12 +1,26 @@
-.postParent {
+.postContainer {
     display: flex;
     border: 3px solid black;
     border-radius: 15px;
     justify-content: center;
     align-items: center;
     margin: 15px;
+    width: 500px;
 }
 
 .postPhoto {
     max-width: 250px;
+}
+
+.dashboardText {
+    display: flex;
+    flex-direction: column;
+}
+
+.postParent {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    width: 100vw;
+    background-color: honeydew;
 }

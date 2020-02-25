@@ -9,21 +9,19 @@ class Main extends Component {
     super(props);
 
     this.state = {
-      posts: []
+      posts: [],
+      user_id: this.props.user.user_id
     };
   }
 
   componentDidMount() {
     this.props.removeLoginView();
-    this.props.getSession();
-    console.log('userid', this.props.user.user_id)
+    // this.props.getSession();
     this.getUserPosts(this.props.user.user_id);
-    console.log(this.state.posts)
   }
 
-  getUserPosts = user_id => {
-    axios.get(`/api/posts/${user_id}`).then(posts => {
-      console.log('inside getuserposts', posts)
+  getUserPosts = () => {
+    axios.get(`/api/posts/${this.props.user.user_id}`).then(posts => {
       this.setState({
         posts: posts.data
       });
@@ -34,17 +32,20 @@ class Main extends Component {
     const mappedPosts = this.state.posts.map(post => {
       return (
         <div className="postContainer">
+          <div className="dashboardText">
           <h2>Species: {post.species}</h2>
           <h2>Edible: {post.edible}</h2>
           <h2>Date: {post.date}</h2>
           <p>Description: {post.description}</p>
+          </div>
+          <div>
           <img className="postPhoto" alt="mushroom" src={post.image_url} />
+          </div>
         </div>
       );
     });
     return (
-      <div>
-        <h1>Main!</h1>
+      <div className="postParent">
         {mappedPosts}
       </div>
     );

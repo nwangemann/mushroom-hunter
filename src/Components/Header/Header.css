@@ -20,3 +20,8 @@
     width: 500px;
     justify-content: space-between;
 }
+
+.subnav_links {
+    text-decoration: none;
+    color: black;
+}

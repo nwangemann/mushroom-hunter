@@ -48,13 +48,10 @@ class Login extends Component {
 
   register = (username, email, password) => {
     let newUser = { username, email, password };
-    axios
-      .post("/auth/register", newUser)
-      .then(res => {
+    axios.post("/auth/register", newUser).then(res => {
         this.props.submitUser(res.data);
         this.props.history.push("/main");
-      })
-      .catch(err => {
+      }).catch(err => {
         this.setState({
           registerFail: true
         });
