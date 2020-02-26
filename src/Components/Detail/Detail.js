@@ -98,7 +98,6 @@ class Detail extends Component {
   deletePost = async e => {
     let id = e.target.value;
     await axios.delete(`/api/delete/${id}`);
-    this.getUserPosts(this.props.user.user_id);
     this.props.history.push("/main");
   };
 
