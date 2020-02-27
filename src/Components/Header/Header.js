@@ -65,7 +65,7 @@ class Header extends Component {
             <img
             className="hamburger"
             alt="hammy"
-            src="./hamburger.png"
+            src="./hamburger.ico"
             onClick={() => this.toggleMenuFunc()}
           />
           </div>
