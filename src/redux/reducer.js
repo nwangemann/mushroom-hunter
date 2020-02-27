@@ -4,7 +4,9 @@ let initialState = {
   user: {},
   loading: false,
   loginView: true,
-  detailViewPostID: ""
+  detailViewPostID: "",
+  x: 0,
+  y: 0
 };
 
 const LOGOUT = "LOGOUT";
@@ -13,6 +15,8 @@ const REMOVE_LOGIN_VIEW = "REMOVE_LOGIN_VIEW";
 const SUBMIT_USER = "SUBMIT_USER";
 const GET_SESSION = "GET_SESSION";
 const SET_DETAIL_ID = "SET_DETAIL_ID";
+const SAVE_MAP_COORDS = "SAVE_MAP_COORDS";
+const RETURN_MAP_COORDS = "RETURN_MAP_COORDS"
 
 export function getDetailViewID(id) {
   return {
@@ -59,10 +63,28 @@ export function getSession() {
   };
 }
 
+export function saveMapCoords(x, y) {
+  return {
+    type: SAVE_MAP_COORDS,
+    payload: {
+      x: x,
+      y: y
+    }
+  };
+}
+
+export function getMapCoords() {
+  return {
+    type: RETURN_MAP_COORDS
+  };
+}
+
 export default function reducer(state = initialState, action) {
   switch (action.type) {
     case LOGOUT:
       return { ...state, loginView: true };
+    case SAVE_MAP_COORDS:
+      return { ...state, x: action.payload.x, y: action.payload.y };
     case SET_DETAIL_ID:
       return { ...state, detailViewPostID: action.payload };
     case REMOVE_LOGIN_VIEW:

@@ -1,9 +1,12 @@
 import React, { Component } from "react";
-import "./Post.css";
+import "./Post.scss";
 import { connect } from "react-redux";
 import { removeLoginView } from "../../redux/reducer";
 import Calendar from "react-calendar";
 import axios from "axios";
+import { ReactBingmaps } from 'react-bingmaps';
+
+
 
 class Post extends Component {
   constructor(props) {
@@ -110,6 +113,9 @@ class Post extends Component {
           <div id="calendarParent">
             <Calendar onChange={this.handleChange} />
           </div>
+          <ReactBingmaps 
+  bingmapKey = "Am2OnpX3kB6IK4-niMK6g2lUwPJn2_DdoXRPUhLs0eo2JFFmwtgRLSxDkLdNxHmJ" > 
+</ReactBingmaps>
         </div>
       </div>
     );

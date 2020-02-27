@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import "./Login.css";
+import "./Login.scss";
 import axios from "axios";
 import { connect } from "react-redux";
 import { submitUser, addLoginView, logout } from "../../redux/reducer";
@@ -65,7 +65,7 @@ class Login extends Component {
       <div className="loginBoundaryFlex">
         {!this.state.register ? (
           <div className="loginParent">
-            <h1>Login</h1>
+            <h1 className="loginTitleText">Login</h1>
             <form
               onSubmit={e => {
                 e.preventDefault();
@@ -107,17 +107,22 @@ class Login extends Component {
               )}
 
               <div className="formElem">
-                <input type="submit" value="Login" />
+                <input type="submit" value="Login" className="loginButton" />
               </div>
             </form>
             <label>Don't have an account?</label>
-            <button onClick={() => this.setState({ register: true })}>
-              Register
-            </button>
+            <div className="formElem">
+              <button
+                className="loginButton"
+                onClick={() => this.setState({ register: true })}
+              >
+                Register
+              </button>
+            </div>
           </div>
         ) : (
           <div className="loginParent">
-            <h1>Register</h1>
+            <h1 className="loginTitleText" >Register</h1>
             <form
               onSubmit={e => {
                 e.preventDefault();
@@ -175,12 +180,19 @@ class Login extends Component {
                   </div>
                 </div>
               )}
-              <input type="submit" value="Register" />
+              <div className="formElem">
+                <input className="loginButton" type="submit" value="Register" />
+              </div>
             </form>
             <label>Already have an account?</label>
-            <button onClick={() => this.setState({ register: false })}>
+            <div className="formElem">
+            <button
+              className="loginButton"
+              onClick={() => this.setState({ register: false })}
+            >
               Login
             </button>
+            </div>
           </div>
         )}
       </div>

@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import "./Detail.css";
+import "./Detail.scss";
 import axios from "axios";
 import { connect } from "react-redux";
 import { Redirect, Link } from "react-router-dom";
@@ -102,7 +102,6 @@ class Detail extends Component {
   };
 
   render() {
-    //   console.log('state', this.state)
     const mappedPost = this.state.post.map(post => {
       return (
         <div key={post.post_id} className="postContainer">

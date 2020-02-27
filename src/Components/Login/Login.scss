@@ -1,0 +1,102 @@
+@import '../../variables.scss';
+
+input {
+    margin: 5px;
+    border: 2px inset white;
+    border-radius: 10px;
+    width: 200px;
+}
+
+.loginParent {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    border-radius: 15px;
+    border: 3px solid white;
+    background-color: $primary-login-color;
+    margin-top: -150px;
+    width: 55vw;
+    height: 50vh;
+    opacity: 70%;
+    padding: 25px;
+    font-family: $font-stack;
+    color: $login-text-color;
+}
+
+.loginParent:hover {
+    opacity: 100%;
+}
+
+
+.loginButton {
+    height: 30px;
+    width: 100px;
+    background-color: $primary-login-color;
+    border: 3px inset white;
+    color: $login-text-color;
+    font-weight: 300;
+    border-radius: 15px;
+    font-family: $font-stack;
+}
+
+.loginBoundaryFlex {
+    display: flex;
+    width: 100vw;
+    height: 90vh;
+    justify-content: center;
+    align-items: center;
+    background-image: url(../../images/image6.jpg);
+    background-attachment: fixed;
+    background-size: cover;
+}
+
+.formElem {
+    margin: 15px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.errorFail {
+    color: red
+}
+
+.loginTitleText {
+    font-size: 30px;
+}
+
+@media screen and (max-width: 900px){
+    .loginParent {
+    width: 65vw;
+    height: 60vh;
+    }
+}
+
+@media screen and (max-height: 650px){
+    .loginParent {
+    height: 65vh;
+    margin-top: 5vh;
+    }
+}
+@media screen and (max-width: 700px){
+    .loginParent {
+        width: 100vw;
+        height: 90vh;
+        margin: 0px;
+        border: 0px;
+        opacity: 100%;
+        background-color: transparent;
+        border-radius: 0px;
+    }
+    .loginBoundaryFlex {
+        width: 100vw;
+        height: 90vh;
+        margin: 0px;
+        border: 0px;
+        border-radius: 0px;
+        background-image: url(../../images/image2.jpg);
+        background-attachment: fixed;
+    background-size: cover;
+    }
+}

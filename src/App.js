@@ -1,13 +1,12 @@
 import React from "react";
 import './reset.css'
-import "./App.css";
+import "./App.scss";
 import Header from './Components/Header/Header'
 import Main from './Components/Main/Main'
 import Post from './Components/Post/Post'
 import Login from './Components/Login/Login'
 import Detail from './Components/Detail/Detail'
 import { Switch, Route, withRouter } from 'react-router-dom'
-
 
 class App extends React.Component {
   render() {

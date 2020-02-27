@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import "./Main.css";
+import "./Main.scss";
 import { connect } from "react-redux";
 import { Redirect } from "react-router-dom";
 import { removeLoginView, getSession, getDetailViewID } from "../../redux/reducer";
@@ -16,8 +16,9 @@ class Main extends Component {
   }
 
   componentDidMount() {
+    this.props.getSession();
     this.props.removeLoginView();
-    // this.props.getSession();
+    // console.log('main user session check', this.props)
     this.getUserPosts(this.props.user.user_id);
   }
 

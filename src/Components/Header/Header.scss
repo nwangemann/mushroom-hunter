@@ -1,0 +1,52 @@
+@import '../../variables.scss';
+
+#headerParent {
+    width: 100vw;
+    height: 10vh;
+    background-color: $primary-login-color;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    font-family: $font-stack;
+    font-weight: 800;
+}
+
+.headerPerm {
+    font-size: 35px;
+    color: $login-text-color;
+}
+
+.headerLogo {
+    width: 50px;
+}
+
+.headerElem {
+    margin: 0px 15px;
+}
+
+.headerText {
+    font-size: 15px;
+    color: $login-text-color;
+}
+
+#buttonParent {
+    display: flex;
+}
+
+.welcomeBox {
+    display: flex;
+    width: 500px;
+    align-items: center;
+    justify-content: center;
+}
+
+.subnav_links {
+    text-decoration: none;
+    color: black;
+}
+
+@media screen and (max-width: 700px){
+    #headerParent {
+        font-size: 25px;
+    }
+}
