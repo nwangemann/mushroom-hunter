@@ -5,14 +5,22 @@
     height: 10vh;
     background-color: $primary-login-color;
     display: flex;
-    justify-content: space-around;
+    justify-content: space-between;
     align-items: center;
     font-family: $font-stack;
     font-weight: 800;
+    position: fixed;
+    z-index: 2
 }
 
 .headerPerm {
-    font-size: 35px;
+    font-size: 30px;
+    color: $login-text-color;
+}
+
+.headerWelcome {
+    margin-left: 65px;
+    font-size: 15px;
     color: $login-text-color;
 }
 
@@ -31,6 +39,8 @@
 
 #buttonParent {
     display: flex;
+    justify-content: flex-end;
+    align-items: center;
 }
 
 .welcomeBox {
@@ -45,8 +55,34 @@
     color: black;
 }
 
+h3{
+    font-size: 25px;
+}
+
+
+@media screen and (max-width: 900px){
+    #headerParent {
+        font-size: 25px;
+    }
+    h3 {
+        display: none;
+    }
+}
+
 @media screen and (max-width: 700px){
     #headerParent {
         font-size: 25px;
+    }
+    h3 {
+        display: none;
+    }
+    .headerPerm{
+        display: none;
+    }
+    .hamburger{
+        display: inline;
+    }
+    .notMobile{
+        display: none;
     }
 }

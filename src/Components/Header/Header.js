@@ -10,7 +10,8 @@ class Header extends Component {
     super(props);
 
     this.state = {
-      loginView: this.props.loginView
+      loginView: this.props.loginView,
+      toggleMenu: false
     };
   }
 
@@ -19,42 +20,54 @@ class Header extends Component {
     this.props.history.push("/");
   };
 
+  toggleMenuFunc = () => {
+    this.setState({
+      toggleMenu: !this.state.toggleMenu
+    });
+  }
+
   render() {
     return (
       <div id="headerParent">
         {this.props.loginView ? (
           <div className="welcomeBox" >
-            <img className="headerLogo" alt="logo" src="./favicon.ico" />
-            <h1 className="headerPerm" >Mushroom Hunter</h1>
+            <img className="headerLogo mobile" alt="logo" src="./favicon.ico" />
+            <h1 className="headerPerm notMobile" >Mushroom Hunter</h1>
           </div>
         ) : (
           <div className="welcomeBox">
-             <img className="headerLogo" alt="logo" src="./favicon.ico" />
-             <div className="welcomeText">
+             <img className="headerLogo mobile" alt="logo" src="./favicon.ico" />
+             <div className="welcomeText notMobile">
             <h1 className="headerPerm" >Mushroom Hunter</h1>
             </div>
             <div className="welcomeText">
-            <h3 className="headerPerm">Welcome, {this.props.user.username}</h3>
+            <h3 className="headerWelcome notMobile">Welcome, {this.props.user.username}</h3>
             </div>
           </div>
         )}
         {this.props.loginView ? null : (
           <div id="buttonParent">
-            <div className="headerElem">
+            <div className="headerElem notMobile">
               <Link to="/post" className="subnav_links">
                 <p className="headerText" >Create New Post</p>
               </Link>
             </div>
-            <div className="headerElem">
+            <div className="headerElem notMobile">
               <Link to="/main" className="subnav_links">
                 <p className="headerText" >My Posts</p>
               </Link>
             </div>
-            <div className="headerElem">
+            <div className="headerElem notMobile">
               <Link to="/" className="subnav_links">
                 <p className="headerText"  onClick={this.props.logout}>Logout</p>
               </Link>
             </div>
+            <img
+            className="hamburger"
+            alt="hammy"
+            src="./hamburger.png"
+            onClick={() => this.toggleMenuFunc()}
+          />
           </div>
         )}
       </div>

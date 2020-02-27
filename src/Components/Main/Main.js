@@ -56,13 +56,13 @@ class Main extends Component {
             <h2>Date: {post.date}</h2>
             <p>Description: {post.description}</p>
             <button
-              className="deleteButton"
+              className="mainViewButton"
               onClick={this.deletePost}
               value={post.post_id}
             >
               Delete
             </button>
-              <button value={post.post_id} onClick={this.setDetail} >Post Details</button>
+              <button className="mainViewButton" value={post.post_id} onClick={this.setDetail} >Post Details</button>
           </div>
           <div>
             <img className="postPhoto" alt="mushroom" src={post.image_url} />
@@ -71,6 +71,9 @@ class Main extends Component {
       );
     });
     return <div>
+      <div id="spaceTaker">
+
+      </div>
     {this.props.user
       ?
     <div className="postParent">{mappedPosts}</div>
