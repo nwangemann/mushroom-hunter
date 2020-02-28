@@ -13,7 +13,31 @@
     width: 65vw;
     height: 30vw;
     font-family: 'Spartan';
-    margin-top: 90px;
+    margin-top: 15vh;
+}
+
+.detailContainer:hover {
+    opacity: 100%;
+}
+
+.hamburger{
+    height: 10vh;
+    display: none;
+}
+
+#descriptionElem{
+    width: 400px;
+}
+
+.formParent {
+    background-color: $detail-view-primary;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    width: 65vw;
+    height: 60vh;
+    border-radius: 50px;
+    margin-top: 20px;
 }
 
 .formElem {
@@ -56,10 +80,6 @@
     margin: 0px 10px;
 }
 
-.deleteButton{
-    background-color: $primary-login-color;
-}
-
 .flexParent{
 display: flex;
 flex-direction: column;
@@ -77,11 +97,6 @@ align-items: center;
     margin: 15px 15px;
 }
 
-.hamburger{
-    height: 50px;
-    display: none;
-}
-
 .detailParent {
     display: flex;
     justify-content: center;
@@ -93,43 +108,36 @@ align-items: center;
     background-size: cover;
 }
 
-.detailParent:hover {
-    opacity: 100%;
-}
-
-@media screen and (max-width: 1250px){
-    .detailParent {
-    width: 100vw;
-    height: 100vh;
-    }
+@media screen and (max-width: 1350px){
     .detailContainer {
-        width: 65vw;
+        width: 75vw;
         height: 65vh;
+        margin-top: 15vh;
         }
 }
-@media screen and (max-width: 900px){
-    .detailParent {
-    width: 100vw;
-    height: 100vh;
-    }
+@media screen and (max-width: 1150px){
     .detailContainer {
-        width: 70vw;
+        width: 80vw;
         height: 70vh;
-        }
+        margin-top: 15vh;
+   }
 }
 
-@media screen and (max-height: 750px){
-    .detailParent {
-    height: 100vh;
-    width: 100vw;
-    }
+@media screen and (max-width: 1000px){
+    .detailContainer {
+        width: 90vw;
+        height: 70vh;
+        margin-top: 15vh;
+   }
 }
 @media screen and (max-width: 700px){
     .hamburger {
         display: inline-block;
-        text-shadow: 5px 5px 15px white;
+        border: 10px solid white;
+        -webkit-filter: invert(100%);
+        filter: invert(100%);
     }
-    .detailParent {
+    .detailContainer {
         width: 100vw;
         height: 100vh;
         margin: 0px;

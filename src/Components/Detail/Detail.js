@@ -49,8 +49,15 @@ class Detail extends Component {
   };
 
   editPost = () => {
-    const { species, location, edible, date, description, image_url} = this.state;
-    let post_id = this.state.post[0].post_id
+    const {
+      species,
+      location,
+      edible,
+      date,
+      description,
+      image_url
+    } = this.state;
+    let post_id = this.state.post[0].post_id;
     let updatedPost = {
       species,
       location,
@@ -59,9 +66,9 @@ class Detail extends Component {
       description,
       image_url
     };
-    console.log('pre-submit post body', updatedPost)
-    console.log('pre-submit post_id', post_id)
-    console.log('this.state.post', this.state.post)
+    console.log("pre-submit post body", updatedPost);
+    console.log("pre-submit post_id", post_id);
+    console.log("this.state.post", this.state.post);
 
     axios
       .put(`/api/edit/${post_id}`, updatedPost)
@@ -109,14 +116,22 @@ class Detail extends Component {
             <h2>Species: {post.species}</h2>
             <h2>Edible: {post.edible}</h2>
             <h2>Date: {post.date}</h2>
-            <p>Description: {post.description}</p>
+            <p id="descriptionElem">Description: {post.description}</p>
             <button
-              className="deleteButton detailButton"
+              className="detailButton"
               onClick={this.deletePost}
               value={post.post_id}
             >
               Delete
             </button>
+            <button className="detailButton" onClick={this.editToggle}>
+              Edit Post
+            </button>
+            <Link to="/main">
+              <div className="flexParent">
+                <button id="exitButton">Exit Detail View</button>
+              </div>
+            </Link>
           </div>
           <div>
             <img className="postPhoto" alt="mushroom" src={post.image_url} />
@@ -131,7 +146,7 @@ class Detail extends Component {
             {this.state.editPostToggle ? (
               <div className="uberAlles">
                 <div id="detailParent">
-                  <div id="formParent">
+                  <div className="formParent">
                     <form
                       onSubmit={e => {
                         e.preventDefault();
@@ -185,7 +200,11 @@ class Detail extends Component {
                           value={this.state.description}
                         />
                       </div>
-                      <input className="detailButton" type="submit" value="Submit Post" />
+                      <input
+                        className="detailButton"
+                        type="submit"
+                        value="Submit Post"
+                      />
                     </form>
                     <button onClick={this.cancelToggle}>Cancel</button>
                   </div>
@@ -195,15 +214,7 @@ class Detail extends Component {
                 </div>
               </div>
             ) : (
-              <div className="flexParent">
-                {mappedPost}
-                <button className="detailButton" onClick={this.editToggle}>Edit Post</button>
-                <Link to="/main">
-                <div className="flexParent">
-                  <button id="exitButton">Exit Detail View</button>
-                  </div>
-                </Link>
-              </div>
+              <div className="flexParent">{mappedPost}</div>
             )}
           </div>
         ) : (
