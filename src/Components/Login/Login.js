@@ -90,9 +90,11 @@ class Login extends Component {
                     name="password"
                     value={this.state.password}
                   />
+                  <div>
                   <p className="errorFail">
                     Incorrect username and/or password
                   </p>
+                  </div>
                 </div>
               ) : (
                 <div className="formElem">
@@ -162,10 +164,12 @@ class Login extends Component {
                       value={this.state.password}
                     />
                   </div>
+                  <div>
                   <p className="errorFail">
                     This email already exists. Please register with an alternate
                     email.
                   </p>
+                  </div>
                 </div>
               ) : (
                 <div>

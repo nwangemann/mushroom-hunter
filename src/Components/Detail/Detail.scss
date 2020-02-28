@@ -1,0 +1,151 @@
+@import '../../variables.scss';
+
+
+.detailContainer {
+    display: flex;
+    border: 10px outset $main-view-primary;
+    background-color: $detail-view-primary;
+    opacity: 90%;
+    color: $login-text-color;
+    border-radius: 15px;
+    justify-content: center;
+    align-items: center;
+    width: 65vw;
+    height: 30vw;
+    font-family: 'Spartan';
+    margin-top: 90px;
+}
+
+.formElem {
+    margin: 15px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.uberAlles{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100vw;
+}
+
+.detailButton{
+    width: 120px;
+    height: 30px;
+    border: 3px inset $main-view-primary;
+    color: $login-text-color;
+    font-weight: 300;
+    font-family: $font-stack;
+    border-radius: 15px;
+    font-size: 15px;
+    background-color: $detail-view-primary;
+    margin: 30px 10px;
+}
+
+#exitButton{
+    width: 190px;
+    height: 30px;
+    border: 3px inset $main-view-primary;
+    color: $login-text-color;
+    font-weight: 300;
+    font-family: $font-stack;
+    border-radius: 15px;
+    font-size: 15px;
+    background-color: $detail-view-primary;
+    margin: 0px 10px;
+}
+
+.deleteButton{
+    background-color: $primary-login-color;
+}
+
+.flexParent{
+display: flex;
+flex-direction: column;
+justify-content: center;
+align-items: center;
+}
+
+.dashboardText {
+    display: flex;
+    flex-direction: column;
+    height: inherit;
+    padding-top: 30px;
+    align-items: center;
+    justify-content: center;
+    margin: 15px 15px;
+}
+
+.hamburger{
+    height: 50px;
+    display: none;
+}
+
+.detailParent {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100vw;
+    height: 100vh;
+    background-image: url(../../images/image3.jpg);
+    background-attachment: fixed;
+    background-size: cover;
+}
+
+.detailParent:hover {
+    opacity: 100%;
+}
+
+@media screen and (max-width: 1250px){
+    .detailParent {
+    width: 100vw;
+    height: 100vh;
+    }
+    .detailContainer {
+        width: 65vw;
+        height: 65vh;
+        }
+}
+@media screen and (max-width: 900px){
+    .detailParent {
+    width: 100vw;
+    height: 100vh;
+    }
+    .detailContainer {
+        width: 70vw;
+        height: 70vh;
+        }
+}
+
+@media screen and (max-height: 750px){
+    .detailParent {
+    height: 100vh;
+    width: 100vw;
+    }
+}
+@media screen and (max-width: 700px){
+    .hamburger {
+        display: inline-block;
+        text-shadow: 5px 5px 15px white;
+    }
+    .detailParent {
+        width: 100vw;
+        height: 100vh;
+        margin: 0px;
+        border: 0px;
+        opacity: 100%;
+        background-color: transparent;
+        border-radius: 0px;
+    }
+    .detailBoundaryFlex {
+        width: 100vw;
+        height: 100vh;
+        margin: 0px;
+        border: 0px;
+        border-radius: 0px;
+        background-image: url(../../images/image2.jpg);
+        background-attachment: fixed;
+    background-size: cover;
+    }
+}

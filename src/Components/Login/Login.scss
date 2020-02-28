@@ -2,7 +2,7 @@
 
 input {
     margin: 5px;
-    border: 2px inset white;
+    border: 2px inset $main-view-primary;
     border-radius: 10px;
     width: 200px;
 }
@@ -17,7 +17,7 @@ label {
     align-items: center;
     justify-content: center;
     border-radius: 15px;
-    border: 3px solid white;
+    border: 5px inset $main-view-primary;
     background-color: $primary-login-color;
     width: 55vw;
     height: 50vh;
@@ -36,7 +36,7 @@ label {
     height: 30px;
     width: 100px;
     background-color: $primary-login-color;
-    border: 3px inset white;
+    border: 3px inset $main-view-primary;
     color: $login-text-color;
     font-size: 15px;
     font-weight: 300;

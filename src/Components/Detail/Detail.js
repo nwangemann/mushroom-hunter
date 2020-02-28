@@ -104,14 +104,14 @@ class Detail extends Component {
   render() {
     const mappedPost = this.state.post.map(post => {
       return (
-        <div key={post.post_id} className="postContainer">
+        <div key={post.post_id} className="detailContainer">
           <div className="dashboardText">
             <h2>Species: {post.species}</h2>
             <h2>Edible: {post.edible}</h2>
             <h2>Date: {post.date}</h2>
             <p>Description: {post.description}</p>
             <button
-              className="deleteButton"
+              className="deleteButton detailButton"
               onClick={this.deletePost}
               value={post.post_id}
             >
@@ -127,10 +127,10 @@ class Detail extends Component {
     return (
       <div>
         {this.props.user ? (
-          <div id="detailParent">
+          <div className="detailParent">
             {this.state.editPostToggle ? (
-              <div id="uberAlles">
-                <div id="postParent">
+              <div className="uberAlles">
+                <div id="detailParent">
                   <div id="formParent">
                     <form
                       onSubmit={e => {
@@ -185,7 +185,7 @@ class Detail extends Component {
                           value={this.state.description}
                         />
                       </div>
-                      <input type="submit" value="Submit Post" />
+                      <input className="detailButton" type="submit" value="Submit Post" />
                     </form>
                     <button onClick={this.cancelToggle}>Cancel</button>
                   </div>
@@ -195,11 +195,13 @@ class Detail extends Component {
                 </div>
               </div>
             ) : (
-              <div>
+              <div className="flexParent">
                 {mappedPost}
-                <button onClick={this.editToggle}>Edit Post</button>
+                <button className="detailButton" onClick={this.editToggle}>Edit Post</button>
                 <Link to="/main">
-                  <button>Exit Detail View</button>
+                <div className="flexParent">
+                  <button id="exitButton">Exit Detail View</button>
+                  </div>
                 </Link>
               </div>
             )}
