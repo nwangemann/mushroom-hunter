@@ -4,32 +4,35 @@
 .detailContainer {
     display: flex;
     border: 10px outset $main-view-primary;
-    background-color: $detail-view-primary;
+    background-color: $primary-login-color;
     opacity: 90%;
-    color: $login-text-color;
     border-radius: 15px;
     justify-content: center;
     align-items: center;
     width: 65vw;
     height: 30vw;
     font-family: 'Spartan';
-    margin-top: 15vh;
+    margin-top: 85px;
 }
 
 .detailContainer:hover {
     opacity: 100%;
 }
 
-.hamburger{
-    height: 10vh;
-    display: none;
+.calendarParent{
+    border: 10px outset $main-view-primary;
 }
 
 #descriptionElem{
     width: 400px;
 }
 
-.formParent {
+#buttonContain{
+    display: flex;
+    justify-content: center;
+}
+
+.detailFormParent {
     background-color: $detail-view-primary;
     display: flex;
     justify-content: space-around;
@@ -37,7 +40,9 @@
     width: 65vw;
     height: 60vh;
     border-radius: 50px;
-    margin-top: 20px;
+    margin-top: 200px;
+    color: $login-text-color;
+    border: 10px outset $main-view-primary;
 }
 
 .formElem {
@@ -88,6 +93,7 @@ align-items: center;
 }
 
 .dashboardText {
+    color: $login-text-color;
     display: flex;
     flex-direction: column;
     height: inherit;
@@ -106,6 +112,20 @@ align-items: center;
     background-image: url(../../images/image3.jpg);
     background-attachment: fixed;
     background-size: cover;
+}
+
+button:hover,
+button:focus {
+    background: rgb(17, 17, 17);
+}
+
+button:focus {
+    outline: 1px solid #fff;
+    outline-offset: -4px;
+}
+
+button:active {
+    transform: scale(0.99);
 }
 
 @media screen and (max-width: 1350px){
@@ -131,12 +151,6 @@ align-items: center;
    }
 }
 @media screen and (max-width: 700px){
-    .hamburger {
-        display: inline-block;
-        border: 10px solid white;
-        -webkit-filter: invert(100%);
-        filter: invert(100%);
-    }
     .detailContainer {
         width: 100vw;
         height: 100vh;
@@ -154,6 +168,9 @@ align-items: center;
         border-radius: 0px;
         background-image: url(../../images/image2.jpg);
         background-attachment: fixed;
-    background-size: cover;
+        background-size: cover;
+    }
+    .body{
+        background-color: $main-view-primary;
     }
 }

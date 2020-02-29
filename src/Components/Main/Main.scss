@@ -50,7 +50,7 @@
 
 
 #spaceTaker {
-    height: 10vh;
+    height: 85px;
     width: 100vw;
 }
 
@@ -65,6 +65,27 @@
     font-size: 15px;
     background-color: $primary-login-color;
     margin: 0px 10px;
+}
+
+button:hover,
+button:focus {
+    background: rgb(17, 17, 17);
+}
+
+button:focus {
+    outline: 1px solid #fff;
+    outline-offset: -4px;
+}
+
+button:active {
+    transform: scale(0.99);
+}
+
+@media screen and (max-width: 1150px){
+    .postContainer {
+        width: 75vw;
+        height: 50vh;
+    }
 }
 
 @media screen and (max-width: 900px){

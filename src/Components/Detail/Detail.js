@@ -113,10 +113,10 @@ class Detail extends Component {
       return (
         <div key={post.post_id} className="detailContainer">
           <div className="dashboardText">
-            <h2>Species: {post.species}</h2>
-            <h2>Edible: {post.edible}</h2>
-            <h2>Date: {post.date}</h2>
-            <p id="descriptionElem">Description: {post.description}</p>
+            <h2>Species:   {post.species}</h2>
+            <h2>Edible:   {post.edible}</h2>
+            <h2>Date:   {post.date}</h2>
+            <p id="descriptionElem">Description:   {post.description}</p>
             <button
               className="detailButton"
               onClick={this.deletePost}
@@ -146,7 +146,7 @@ class Detail extends Component {
             {this.state.editPostToggle ? (
               <div className="uberAlles">
                 <div id="detailParent">
-                  <div className="formParent">
+                  <div className="detailFormParent">
                     <form
                       onSubmit={e => {
                         e.preventDefault();
@@ -200,15 +200,17 @@ class Detail extends Component {
                           value={this.state.description}
                         />
                       </div>
+                      <div id="buttonContain">
                       <input
                         className="detailButton"
                         type="submit"
                         value="Submit Post"
                       />
+                    <button className="detailButton" onClick={this.cancelToggle}>Cancel</button>
+                    </div>
                     </form>
-                    <button onClick={this.cancelToggle}>Cancel</button>
                   </div>
-                  <div id="calendarParent">
+                  <div className="calendarParent">
                     <Calendar onChange={this.handleChange} />
                   </div>
                 </div>
