@@ -1,6 +1,10 @@
 @import '../../variables.scss';
 
 
+body {
+    background-color: $primary-login-color;
+}
+
 .detailContainer {
     display: flex;
     border: 10px outset $main-view-primary;
@@ -115,6 +119,7 @@ align-items: center;
     background-size: cover;
 }
 
+
 button:hover,
 button:focus {
     background: rgb(17, 17, 17);
@@ -186,6 +191,7 @@ button:active {
         flex-direction: column;
         border: none;
         background-color: transparent;
+        padding-top: 185px;
    }
     .detailFormParent {
         width: 95vw;
@@ -207,17 +213,34 @@ button:active {
         background-color: transparent;
         border-radius: 0px;
     }
-    .detailBoundaryFlex {
+    .detailParent {
+        width: 100vw;
+        height: 100vh;
+        padding-top: 0;
+        margin: 0px;
+        border: 0px;
+        border-radius: 0px;
+        background-image: url(../../images/image3.jpg);
+        background-attachment: fixed;
+        background-size: cover;
+        background-color: $main-view-primary;
+    }
+    .uberAlles {
         width: 100vw;
         height: 100vh;
         margin: 0px;
         border: 0px;
         border-radius: 0px;
-        background-image: url(../../images/image2.jpg);
-        background-attachment: fixed;
-        background-size: cover;
+        background-color: transparent;
+        padding-top: 185px;
     }
-    .body{
-        background-color: $main-view-primary;
+    .calendarParent{
+        width: 325px;
+    }
+    #descriptionInputField{
+        width: 250px;
+    }
+    body {
+        background-color: $primary-login-color;
     }
 }
