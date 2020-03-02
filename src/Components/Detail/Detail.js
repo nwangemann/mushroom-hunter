@@ -129,7 +129,7 @@ class Detail extends Component {
             </button>
             <Link to="/main">
               <div className="flexParent">
-                <button id="exitButton">Exit Detail View</button>
+                <button className="detailButton" id="exitButton">Exit Detail View</button>
               </div>
             </Link>
           </div>
@@ -209,9 +209,9 @@ class Detail extends Component {
                     <button className="detailButton" onClick={this.cancelToggle}>Cancel</button>
                     </div>
                     </form>
-                  </div>
                   <div className="calendarParent">
                     <Calendar onChange={this.handleChange} />
+                  </div>
                   </div>
                 </div>
               </div>

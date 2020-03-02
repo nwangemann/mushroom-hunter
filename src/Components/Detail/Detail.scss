@@ -4,7 +4,7 @@
 .detailContainer {
     display: flex;
     border: 10px outset $main-view-primary;
-    background-color: $primary-login-color;
+    background-color: $detail-view-primary;
     opacity: 90%;
     border-radius: 15px;
     justify-content: center;
@@ -20,6 +20,7 @@
 }
 
 .calendarParent{
+    width: 370px;
     border: 10px outset $main-view-primary;
 }
 
@@ -128,8 +129,27 @@ button:active {
     transform: scale(0.99);
 }
 
+#exitButton:hover,
+#exitButton:focus {
+    background: rgb(17, 17, 17);
+}
+
+#exitButton:focus {
+    outline: 1px solid #fff;
+    outline-offset: -4px;
+}
+
+#exitButton:active {
+    transform: scale(0.99);
+}
+
 @media screen and (max-width: 1350px){
     .detailContainer {
+        width: 75vw;
+        height: 65vh;
+        margin-top: 15vh;
+        }
+    .detailFormParent {
         width: 75vw;
         height: 65vh;
         margin-top: 15vh;
@@ -141,6 +161,11 @@ button:active {
         height: 70vh;
         margin-top: 15vh;
    }
+    .detailFormParent {
+        width: 85vw;
+        height: 70vh;
+        margin-top: 15vh;
+   }
 }
 
 @media screen and (max-width: 1000px){
@@ -148,6 +173,28 @@ button:active {
         width: 90vw;
         height: 70vh;
         margin-top: 15vh;
+   }
+    .detailFormParent {
+        width: 95vw;
+        height: 70vh;
+        margin-top: 15vh;
+   }
+}
+@media screen and (max-width: 950px){
+    .detailParent {
+        display: flex;
+        flex-direction: column;
+        border: none;
+        background-color: transparent;
+   }
+    .detailFormParent {
+        width: 95vw;
+        height: 70vh;
+        margin-top: 15vh;
+        display: flex;
+        flex-direction: column;
+        border: none;
+        background-color: transparent;
    }
 }
 @media screen and (max-width: 700px){
