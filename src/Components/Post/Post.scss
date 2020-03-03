@@ -39,21 +39,21 @@
 }
 
 .postButton{
-    width: 120px;
-    height: 30px;
+    width: 150px;
+    height: 40px;
     border: 3px inset $main-view-primary;
     color: $login-text-color;
     font-weight: 300;
     font-family: $font-stack;
     border-radius: 15px;
-    font-size: 15px;
+    font-size: 18px;
     background-color: $primary-login-color;
     margin: 30px 10px;
 }
 
 .postButton:hover,
 .postButton:focus {
-    background: rgb(17, 17, 17);
+    background: rgb(29, 29, 29);
 }
 
 .postButton:focus {

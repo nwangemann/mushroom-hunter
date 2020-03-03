@@ -56,19 +56,20 @@ class Main extends Component {
         <div key={post.post_id} className="postContainer">
           <div className="dashboardText">
             <div>
-              <h2 className="textBoxElem" >Species: {post.species}</h2>
-              <h2 className="textBoxElem" >Edible: {post.edible}</h2>
-              <h2 className="textBoxElem" >Date: {post.date}</h2>
-              <p className="textBoxElem" >Description: {post.description}</p>
+              <h2 className="textBoxElem">Species: {post.species}</h2>
+              <h2 className="textBoxElem">Edible: {post.edible}</h2>
+              <h2 className="textBoxElem">Date: {post.date}</h2>
+              <p className="textBoxElem">Description: {post.description}</p>
             </div>
-            <div className="textBoxElem" >
+            <div className="textBoxElem">
               <button
                 className="mainViewButton"
                 onClick={this.deletePost}
                 value={post.post_id}
               >
                 Delete
-              </button><button
+              </button>
+              <button
                 className="mainViewButton"
                 value={post.post_id}
                 onClick={this.setDetail}
@@ -85,9 +86,11 @@ class Main extends Component {
     });
     return (
       <div>
-        <div id="spaceTaker"></div>
         {this.props.user ? (
-          <div className="postParent">{mappedPosts}</div>
+          <div>
+            <div id="spaceTaker"></div>
+            <div className="postParent">{mappedPosts}</div>
+          </div>
         ) : (
           <Redirect to="/" />
         )}
