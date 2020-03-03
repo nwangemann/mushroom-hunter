@@ -114,7 +114,7 @@ class Post extends Component {
                     value={this.state.description}
                   />
                 </div>
-                <input type="submit" value="Submit Post" />
+                <input className="postButton" type="submit" value="Submit Post" />
               </form>
             </div>
             <div id="calendarParent">

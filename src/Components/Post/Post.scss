@@ -13,7 +13,7 @@
     color: $login-text-color;
     font-family: $font-stack;
     display: flex;
-    opacity: 70%;
+    opacity: 80%;
     justify-content: space-around;
     align-items: center;
     width: 80vw;
@@ -37,6 +37,35 @@
     padding: 10px;
     margin: 10px;
 }
+
+.postButton{
+    width: 120px;
+    height: 30px;
+    border: 3px inset $main-view-primary;
+    color: $login-text-color;
+    font-weight: 300;
+    font-family: $font-stack;
+    border-radius: 15px;
+    font-size: 15px;
+    background-color: $primary-login-color;
+    margin: 30px 10px;
+}
+
+.postButton:hover,
+.postButton:focus {
+    background: rgb(17, 17, 17);
+}
+
+.postButton:focus {
+    outline: 1px solid #fff;
+    outline-offset: -4px;
+}
+
+.postButton:active {
+    transform: scale(0.99);
+}
+
+
 
 body {
     background-color: $primary-login-color;
@@ -62,14 +91,12 @@ body {
     #postParent {
         width: 85vw;
         height: 80vh;
-        opacity: 1;
         }
 }
 @media screen and (max-width: 1150px){
     #postParent {
         width: 90vw;
         height: 80vh;
-        opacity: 1;
         }
 }
 
