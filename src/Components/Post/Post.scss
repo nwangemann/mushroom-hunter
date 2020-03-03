@@ -38,6 +38,10 @@
     margin: 10px;
 }
 
+body {
+    background-color: $primary-login-color;
+}
+
 #uberAlles {
     display: flex;
     width: 100vw;
@@ -51,4 +55,67 @@
 #spacer{
     height: 85px;
     width: 100vw;
+}
+
+
+@media screen and (max-width: 1350px){
+    #postParent {
+        width: 85vw;
+        height: 80vh;
+        }
+}
+@media screen and (max-width: 1150px){
+    #postParent {
+        width: 90vw;
+        height: 80vh;
+        }
+}
+
+@media screen and (max-width: 1000px){
+    #postParent {
+        width: 95vw;
+        height: 80vh;
+        }
+}
+@media screen and (max-width: 950px){
+    #postParent {
+        display: flex;
+        flex-direction: column;
+        border: none;
+        background-color: transparent;
+        padding-top: 185px;
+   }
+}
+@media screen and (max-width: 700px){
+    #postParent {
+        width: 100vw;
+        height: 100vh;
+        margin: 0px;
+        border: 0px;
+        opacity: 100%;
+        background-color: transparent;
+        border-radius: 0px;
+    }
+
+    #uberAlles {
+        width: 100vw;
+        height: 100vh;
+        margin: 0px;
+        border: 0px;
+        border-radius: 0px;
+        background-color: transparent;
+        padding-top: 185px;
+        background-image: url(../../images/image3.jpg);
+        background-attachment: fixed;
+        background-size: cover;
+    }
+    #calendarParent{
+        width: 325px;
+    }
+    #descriptionInputField{
+        width: 250px;
+    }
+    body {
+        background-color: $primary-login-color;
+    }
 }

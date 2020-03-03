@@ -92,6 +92,10 @@ button:active {
     .postPhoto {
         display: none;
     }
+    .postContainer {
+        width: 85vw;
+        height: 60vh;
+    }
 }
 
 @media screen and (max-width: 700px){
@@ -101,16 +105,26 @@ button:active {
     .postContainer {
         display: flex;
         border: 10px outset $main-view-primary;
-        background-color: $primary-login-color;
+        background-color: transparent;
         opacity: 90%;
         color: $login-text-color;
         border-radius: 15px;
         justify-content: center;
         align-items: center;
         margin: 35px;
-        width: 85vw;
+        width: 100vw;
         height: 60vw;
         font-family: 'Spartan';
+    }
+    
+}
+
+@media screen and (max-width: 550px){
+    .postPhoto {
+        display: none;
+    }
+    .postContainer {
+        height: 90vw;
     }
     
 }
