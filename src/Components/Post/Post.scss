@@ -62,12 +62,14 @@ body {
     #postParent {
         width: 85vw;
         height: 80vh;
+        opacity: 1;
         }
 }
 @media screen and (max-width: 1150px){
     #postParent {
         width: 90vw;
         height: 80vh;
+        opacity: 1;
         }
 }
 
@@ -75,6 +77,7 @@ body {
     #postParent {
         width: 95vw;
         height: 80vh;
+        opacity: 1;
         }
 }
 @media screen and (max-width: 950px){
@@ -84,6 +87,7 @@ body {
         border: none;
         background-color: transparent;
         padding-top: 185px;
+        opacity: 1;
    }
 }
 @media screen and (max-width: 700px){
@@ -104,8 +108,7 @@ body {
         border: 0px;
         border-radius: 0px;
         background-color: transparent;
-        padding-top: 185px;
-        background-image: url(../../images/image3.jpg);
+        background-image: url(../../images/image4.jpg);
         background-attachment: fixed;
         background-size: cover;
     }
