@@ -27,6 +27,10 @@ class Header extends Component {
   redirectToCreate = () => {
     this.props.history.push("/post");
   }
+
+  redirectToGuide = () => {
+    this.props.history.push("/guide");
+  }
   
   redirectToMyPosts = () => {
     this.props.history.push("/main");
@@ -71,6 +75,11 @@ class Header extends Component {
         {this.props.loginView ? null : (
           <div id="buttonParent">
             <div className="headerElem notMobile">
+              <Link to="/guide" className="subnav_links">
+                <p className="headerText">Identification Guide</p>
+              </Link>
+            </div>
+            <div className="headerElem notMobile">
               <Link to="/post" className="subnav_links">
                 <p className="headerText">Create New Post</p>
               </Link>
@@ -103,12 +112,14 @@ class Header extends Component {
           }
         >
 
+
             <button onClick={this.redirectToCreate} className="navButton" >New Post</button>
 
        
           
             <button onClick={this.redirectToMyPosts} className="navButton" >My Posts</button>
       
+            <button onClick={this.redirectToGuide} className="navButton" >Identification Guide</button>
        
             <button className="navButton"  onClick={this.logout}>
               Logout

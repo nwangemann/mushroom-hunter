@@ -6,6 +6,7 @@ import Main from './Components/Main/Main'
 import Post from './Components/Post/Post'
 import Login from './Components/Login/Login'
 import Detail from './Components/Detail/Detail'
+import Guide from './Components/Guide/Guide'
 import { Switch, Route, withRouter } from 'react-router-dom'
 
 class App extends React.Component {
@@ -17,6 +18,7 @@ class App extends React.Component {
         <Route path="/main" component={Main} />
         <Route path="/post" component={Post} />
         <Route path="/detail" component={Detail} />
+        <Route path="/guide" component={Guide} />
       </Switch>
     </div>;
   }
