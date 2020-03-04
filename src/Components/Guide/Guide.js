@@ -3,6 +3,7 @@ import "./Guide.scss";
 import axios from "axios";
 import { connect } from "react-redux";
 import { getSession } from "../../redux/reducer";
+import logo1 from '../../images/logo1.png'
 
 class Guide extends Component {
   constructor(props) {
@@ -39,14 +40,14 @@ class Guide extends Component {
         <div className="entryParent">
           <div className="displayedTextParent">
             <h1>{entry.species}</h1>
-            <p>Latin name: {entry.scientific_name}</p>
-            <p>Edibility: {entry.edible}</p>
-            <p>Eating Notes: {entry.eating_notes}</p>
-            <p>Season: {entry.season}</p>
-            <p>Frequency: {entry.frequency}</p>
+            <p><span>Latin name:</span> {entry.scientific_name}</p>
+            <p><span>Edibility:</span> {entry.edible}</p>
+            <p><span>Eating Notes:</span> {entry.eating_notes}</p>
+            <p><span>Season:</span> {entry.season}</p>
+            <p><span>Frequency:</span> {entry.frequency}</p>
             <p>
-              Description:
-              <div>{entry.description}</div>
+            <span>Description:</span>
+              <div className="description">{entry.description}</div>
             </p>
           </div>
           <div className="photoParent">
@@ -63,6 +64,11 @@ class Guide extends Component {
       <div className="guideContainer">
         <div className="searchBar">
           <div className="searchBarInner">
+          <img
+              src={logo1}
+              alt="mushroomIDExample"
+              className="guideLogo"
+            />
             <label>Search:</label>
             <input
               onChange={this.changeHandler}
@@ -70,6 +76,11 @@ class Guide extends Component {
               type="text"
               name="search"
               value={this.state.search}
+            />
+             <img
+              src={logo1}
+              alt="mushroomIDExample"
+              className="guideLogo"
             />
           </div>
         </div>
