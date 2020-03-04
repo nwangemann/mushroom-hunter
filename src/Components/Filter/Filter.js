@@ -12,7 +12,7 @@ class Filter extends Component {
     this.state = {
       guide: [],
       search: "",
-      filterBySpecies: false,
+      filterBySpecies: true,
       filterByScientific: false,
       filterByEdible: false
     };
@@ -33,9 +33,27 @@ class Filter extends Component {
           console.log(err);
         });
     } else if(this.state.filterByScientific){
-        console.log('this will be the get request for latin name')
+        axios
+        .get(`/api/search_scientific/${search}`)
+        .then(res => {
+          this.setState({
+            guide: res.data
+          });
+        })
+        .catch(err => {
+          console.log(err);
+        });
     } else if (this.state.filterByEdible){
-        console.log('this will be the get request for edible endpoint')
+        axios
+        .get(`/api/search_edible/${search}`)
+        .then(res => {
+          this.setState({
+            guide: res.data
+          });
+        })
+        .catch(err => {
+          console.log(err);
+        });
     }
    
   };
@@ -120,7 +138,7 @@ class Filter extends Component {
             }}>
               <div className="flexContain">
             <div>
-            <p>Filter By:</p>
+            <p id="searchHeader">Filter By:</p>
             <div className="buttonFlex">
             <button onClick={this.toggleSpecies}
               className={
@@ -128,7 +146,7 @@ class Filter extends Component {
                   ?
                   "currentFilterButton"
                   :
-                  "submitButton"
+                  "toggleButton"
               } >Species</button>
             <button onClick={this.toggleScientific}
                 className={
@@ -136,7 +154,7 @@ class Filter extends Component {
                     ?
                     "currentFilterButton"
                     :
-                    "submitButton"
+                    "toggleButton"
                 } >Latin Name</button>
             <button onClick={this.toggleEdible}
                className={
@@ -144,7 +162,7 @@ class Filter extends Component {
                 ?
                 "currentFilterButton"
                 :
-                "submitButton"
+                "toggleButton"
             } >Edibility</button>
               </div>
             </div>
@@ -161,7 +179,7 @@ class Filter extends Component {
               </div>
               <div>
               <input
-                className="submitButton"
+                id="mainSubmitButton"
                 type="submit"
                 value="Search"
               ></input>

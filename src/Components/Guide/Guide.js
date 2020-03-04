@@ -108,7 +108,7 @@ class Guide extends Component {
               <input
               className="inputField"
                 onChange={this.changeHandler}
-                placeholder="Try searching by species name, edibility, etc!"
+                placeholder="Enter species name or try a filtered search!"
                 type="text"
                 name="search"
                 value={this.state.search}

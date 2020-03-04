@@ -49,32 +49,6 @@
 }
 
 
-.toggleButton{
-  width: 160px;
-  height: 37px;
-  border: 5px inset $main-view-primary;
-  color: $login-text-color;
-  font-weight: 500;
-  font-family: $font-stack;
-  border-radius: 15px;
-  font-size: 20px;
-  background-color: $detail-view-primary;
-  margin: 10px 10px;
-}
-
-.currentFilterButton{
-  width: 160px;
-  height: 37px;
-  border: 5px inset $main-view-primary;
-  color: $main-view-primary;
-  font-weight: 500;
-  font-family: $font-stack;
-  border-radius: 15px;
-  font-size: 20px;
-  background-color: $login-text-color;
-  margin: 10px 10px;
-}
-
 .buttonFlex{
  display: flex;
  justify-content: space-evenly;
