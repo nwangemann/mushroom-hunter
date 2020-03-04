@@ -5,6 +5,10 @@ body {
     background-color: $primary-login-color;
 }
 
+form {
+    margin-top: 15px;
+}
+
 .detailContainer {
     display: flex;
     border: 10px outset $main-view-primary;
@@ -122,7 +126,7 @@ align-items: center;
 
 button:hover,
 button:focus {
-    background: rgb(17, 17, 17);
+    background: $detail-view-hover;
 }
 
 button:focus {
@@ -136,7 +140,7 @@ button:active {
 
 #exitButton:hover,
 #exitButton:focus {
-    background: rgb(17, 17, 17);
+    background: $detail-view-hover;
 }
 
 #exitButton:focus {
@@ -145,6 +149,20 @@ button:active {
 }
 
 #exitButton:active {
+    transform: scale(0.99);
+}
+
+.detailButton:hover,
+.detailButton:focus {
+    background: $detail-view-hover;
+}
+
+.detailButton:focus {
+    outline: 1px solid #fff;
+    outline-offset: -4px;
+}
+
+.detailButton:active {
     transform: scale(0.99);
 }
 
