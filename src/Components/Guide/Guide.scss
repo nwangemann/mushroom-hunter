@@ -32,7 +32,8 @@
 .searchBarInner {
   width: 750px;
   height: 115px;
-  border: 10px groove $main-view-primary;
+  border-top: 10px groove $main-view-primary;
+  border-bottom: 10px groove $main-view-primary;
   border-radius: 15px;
   display: flex;
   justify-content: center;
