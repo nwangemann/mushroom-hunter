@@ -82,14 +82,11 @@ h3{
     font-size: 25px;
 }
 
-.mobile-menu-show a {
-    text-decoration: none;
-    color: $login-text-color;
-}
+
 
 .mobile-menu-show {
     position: relative;
-    top: 85px;
+    top: 90px;
     width: 200px;
     background-color: $primary-login-color;
     width: 300px;
@@ -109,6 +106,10 @@ h3{
     // animation-name: dropdown;
     // animation-duration: 0.05s;
     // animation-timing-function: ease-in;
+    a {
+        text-decoration: none;
+        color: $login-text-color;
+    }
 }
 
 .mobile-menu-hide {
@@ -144,6 +145,37 @@ h3{
 }
 
 
+
+@media screen and (max-width: 1100px){
+    #headerParent {
+        font-size: 22px;
+    }
+    .headerElem {
+        margin: 0px 10px;
+    }
+}
+
+@media screen and (max-width: 1000px){
+    #headerParent {
+        font-size: 20px;
+    }
+    .headerElem {
+        margin: 0px 5px;
+    }
+}
+
+@media screen and (max-width: 950px){
+    #headerParent {
+        font-size: 20px;
+    }
+    .headerElem {
+        margin: 0px 5px;
+    }
+    .welcomeBox {
+        width: 400px;
+        font-size: 20px;
+    }
+}
 
 @media screen and (max-width: 900px){
     #headerParent {
@@ -198,8 +230,8 @@ h3{
         display: none;
     }
     .mobile-menu-show {
-        width: 350px;
-        height: 100px;
+        width: 500px;
+        height: 120px;
         font-size: 20px;
     }
     .hamburgerShowing{
@@ -240,6 +272,11 @@ h3{
         position: relative;
         left: 75px;
      }
+     .mobile-menu-show {
+        width: 450px;
+        height: 120px;
+        font-size: 20px;
+    }
 }
 
 @media screen and (max-width: 425px){
@@ -255,6 +292,11 @@ h3{
         position: relative;
         left: 68px;
      }
+     .mobile-menu-show {
+        width: 400px;
+        height: 120px;
+        font-size: 20px;
+    }
 }
 
 
@@ -271,5 +313,10 @@ h3{
     .headerLogoShowing {
        position: relative;
        left: 55px;
+    }
+    .mobile-menu-show {
+        width: 300px;
+        height: 120px;
+        font-size: 20px;
     }
 }
