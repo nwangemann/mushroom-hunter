@@ -1,31 +1,22 @@
 import React, { Component } from "react";
-import "./Guide.scss";
+import "./Filter.scss";
 import axios from "axios";
 import { connect } from "react-redux";
 import { getSession } from "../../redux/reducer";
 import logo1 from "../../images/logo1.png";
 
-class Guide extends Component {
+class Filter extends Component {
   constructor(props) {
     super(props);
 
     this.state = {
       guide: [],
-      search: ""
+      search: "",
+      filterBySpecies: false,
+      filterByScientific: false,
+      filterByEdible: false
     };
   }
-
-  componentDidMount() {
-    this.getGuideSortName();
-  }
-
-  getGuideSortName = () => {
-    axios.get("/api/guide").then(res => {
-      this.setState({
-        guide: res.data
-      });
-    });
-  };
 
   search = () => {
     let { search } = this.state;
@@ -42,16 +33,34 @@ class Guide extends Component {
       });
   };
 
-  toFilter = () => {
-    this.props.history.push('/filter')
-  }
-
   changeHandler = e => {
     this.setState({
       [e.target.name]: e.target.value
     });
     console.log("state", this.state);
   };
+
+  toggleSpecies = () => {
+      this.setState({
+        filterBySpecies: true,
+        filterByScientific: false,
+        filterByEdible: false
+      })
+  }
+  toggleScientific = () => {
+      this.setState({
+        filterBySpecies: false,
+        filterByScientific: true,
+        filterByEdible: false
+      })
+  }
+  toggleEdible = () => {
+      this.setState({
+        filterBySpecies: false,
+        filterByScientific: false,
+        filterByEdible: true
+      })
+  }
 
   render() {
     const mappedGuide = this.state.guide.map(entry => {
@@ -85,16 +94,16 @@ class Guide extends Component {
             <img
               src={entry.image_url}
               alt="mushroomIDExample"
-              className="guidePhoto"
+              className="filterPhoto"
             />
           </div>
         </div>
       );
     });
     return (
-      <div className="guideContainer">
-        <div className="searchBar">
-          <div className="searchBarInner">
+      <div className="filterContainer">
+        <div className="filterSearchBar">
+          <div className="filterSearchBarInner">
             <img src={logo1} alt="mushroomIDExample" className="guideLogo" />
             <div>
             <form
@@ -103,6 +112,35 @@ class Guide extends Component {
               this.search();
             }}>
               <div className="flexContain">
+            <div>
+            <p>Filter By:</p>
+            <div className="buttonFlex">
+            <button onClick={this.toggleSpecies}
+              className={
+                  this.state.filterBySpecies
+                  ?
+                  "currentFilterButton"
+                  :
+                  "submitButton"
+              } >Species</button>
+            <button onClick={this.toggleScientific}
+                className={
+                    this.state.filterByScientific
+                    ?
+                    "currentFilterButton"
+                    :
+                    "submitButton"
+                } >Latin Name</button>
+            <button onClick={this.toggleEdible}
+               className={
+                this.state.filterByEdible
+                ?
+                "currentFilterButton"
+                :
+                "submitButton"
+            } >Edibility</button>
+              </div>
+            </div>
               <div>
               {/* <label>Search:</label> */}
               <input
@@ -120,8 +158,6 @@ class Guide extends Component {
                 type="submit"
                 value="Search"
               ></input>
-              <button onClick={this.toFilter}
-              className="submitButton" >Show Filters</button>
               </div>
               </div>
             </form>
@@ -141,4 +177,4 @@ const mapDispatchToProps = {
   getSession
 };
 
-export default connect(mapStateToProps, mapDispatchToProps)(Guide);
+export default connect(mapStateToProps, mapDispatchToProps)(Filter);

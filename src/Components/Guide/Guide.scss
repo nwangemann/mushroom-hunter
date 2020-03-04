@@ -30,14 +30,55 @@
 }
 
 .searchBarInner {
-  width: 650px;
-  height: 95px;
+  width: 750px;
+  height: 115px;
   border: 10px groove $main-view-primary;
   border-radius: 15px;
   display: flex;
   justify-content: center;
   align-items: center;
   padding: 15px;
+}
+
+.inputField {
+  height: 35px;
+  width: 375px;
+  font-family: $font-secondary;
+  border: 4px inset $main-view-primary;
+  padding-left: 5px;
+}
+
+
+.toggleButton{
+  width: 160px;
+  height: 37px;
+  border: 5px inset $main-view-primary;
+  color: $login-text-color;
+  font-weight: 500;
+  font-family: $font-stack;
+  border-radius: 15px;
+  font-size: 20px;
+  background-color: $detail-view-primary;
+  margin: 10px 10px;
+}
+
+.currentFilterButton{
+  width: 160px;
+  height: 37px;
+  border: 5px inset $main-view-primary;
+  color: $main-view-primary;
+  font-weight: 500;
+  font-family: $font-stack;
+  border-radius: 15px;
+  font-size: 20px;
+  background-color: $login-text-color;
+  margin: 10px 10px;
+}
+
+.buttonFlex{
+ display: flex;
+ justify-content: space-evenly;
+ align-items: center;
 }
 
 .searchBar {
@@ -47,19 +88,35 @@
     font-weight: 500;
     font-size: 25px;
   }
-  input {
-    height: 35px;
-    width: 425px;
-    font-family: $font-secondary;
-    border: 4px inset $main-view-primary;
-    padding-left: 5px;
-  }
   img {
-    width: 100px;
+    width: 130px;
     -webkit-filter: invert(100%);
     filter: invert(100%);
     margin: 0px 5px;
+    
   }
+}
+
+.submitButton{
+  width: 160px;
+  height: 37px;
+  border: 5px inset $main-view-primary;
+  color: $login-text-color;
+  font-weight: 500;
+  font-family: $font-stack;
+  border-radius: 15px;
+  font-size: 20px;
+  background-color: $detail-view-primary;
+  margin: 10px 10px;
+}
+
+.flexContain{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  top: 25px;
 }
 
 .guideContainer {
@@ -95,9 +152,9 @@
 }
 
 @media screen and (max-width: 1000px) {
-  ::-webkit-input-placeholder {
-    color: transparent;
-} 
+//   ::-webkit-input-placeholder {
+//     color: transparent;
+// } 
   .entryParent {
     display: flex;
     flex-direction: column;
@@ -117,19 +174,20 @@
     max-height: 300px;
     border: 0;
   }
+  .inputField {
+    height: 30px;
+    width: 275px;
+    font-family: $font-secondary;
+    border: 4px inset $main-view-primary;
+    padding-left: 3px;
+  }
+
   .searchBar {
     width: 100vw;
     margin-left: 0px;
 
     label {
       font-size: 25px;
-    }
-    input {
-      height: 30px;
-      width: 275px;
-      font-family: $font-secondary;
-      border: 4px inset $main-view-primary;
-      padding-left: 3px;
     }
     img {
       width: 100px;
@@ -161,19 +219,21 @@
     max-height: 200px;
     border: 0;
   }
+  .inputField {
+    height: 30px;
+    width: 350px;
+    font-family: $font-secondary;
+    border: 4px inset $main-view-primary;
+    padding-left: 3px;
+  }
+
   .searchBar {
     width: 100vw;
 
     label {
       font-size: 20px;
     }
-    input {
-      height: 30px;
-      width: 350px;
-      font-family: $font-secondary;
-      border: 4px inset $main-view-primary;
-      padding-left: 3px;
-    }
+  
     img {
       width: 100px;
       -webkit-filter: invert(100%);
@@ -183,6 +243,7 @@
   } 
   .searchBarInner {
     width: 500px;
+    border: 0;
   }
 }
 
@@ -193,15 +254,8 @@
     label {
       font-size: 20px;
     }
-    input {
-      height: 30px;
-      width: 300px;
-      font-family: $font-secondary;
-      border: 4px inset $main-view-primary;
-      padding-left: 3px;
-    }
     img {
-      width: 80px;
+      width: 70px;
       -webkit-filter: invert(100%);
       filter: invert(100%);
       margin: 0px 5px;
@@ -210,6 +264,23 @@
   .searchBarInner {
     width: 400px;
   }
+  .inputField {
+    height: 30px;
+    width: 300px;
+    font-family: $font-secondary;
+    border: 4px inset $main-view-primary;
+    padding-left: 3px;
+  }
+
+}
+
+@media screen and (max-width: 480px) {
+  .searchBar {
+    width: 100vw;
+    img {
+     width: 50px;
+    }
+  } 
 }
 
 @media screen and (max-width: 420px) {
@@ -219,18 +290,27 @@
     label {
       font-size: 20px;
     }
-    input {
-      height: 30px;
-      width: 250px;
-      font-family: $font-secondary;
-      border: 4px inset $main-view-primary;
-      padding-left: 3px;
-    }
     img {
-     display: none;
+     width: 40px;
     }
   } 
   .searchBarInner {
     width: 300px;
   }
+  .inputField {
+    height: 30px;
+    width: 250px;
+    font-family: $font-secondary;
+    border: 4px inset $main-view-primary;
+    padding-left: 3px;
+  }
+}
+
+@media screen and (max-width: 350px) {
+  .searchBar {
+    width: 100vw;
+    img {
+     display: none;
+    }
+  } 
 }
