@@ -18,19 +18,26 @@ class Filter extends Component {
     };
   }
 
-  search = () => {
+  searchBy = () => {
     let { search } = this.state;
     console.log("search", search);
-    axios
-      .get(`/api/search/${search}`)
-      .then(res => {
-        this.setState({
-          guide: res.data
+    if(this.state.filterBySpecies){
+        axios
+        .get(`/api/search/${search}`)
+        .then(res => {
+          this.setState({
+            guide: res.data
+          });
+        })
+        .catch(err => {
+          console.log(err);
         });
-      })
-      .catch(err => {
-        console.log(err);
-      });
+    } else if(this.state.filterByScientific){
+        console.log('this will be the get request for latin name')
+    } else if (this.state.filterByEdible){
+        console.log('this will be the get request for edible endpoint')
+    }
+   
   };
 
   changeHandler = e => {
@@ -109,7 +116,7 @@ class Filter extends Component {
             <form
              onSubmit={e => {
               e.preventDefault();
-              this.search();
+              this.searchBy();
             }}>
               <div className="flexContain">
             <div>

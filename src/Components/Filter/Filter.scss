@@ -19,7 +19,8 @@
   .filterSearchBarInner {
     width: 750px;
     height: 215px;
-    border: 10px groove $main-view-primary;
+    border-top: 10px groove $main-view-primary;
+    border-bottom: 10px groove $main-view-primary;
     border-radius: 15px;
     display: flex;
     justify-content: center;
@@ -89,7 +90,5 @@
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    position: relative;
-    top: 25px;
   }
   
