@@ -34,7 +34,8 @@ class Guide extends Component {
       .get(`/api/search/${search}`)
       .then(res => {
         this.setState({
-          guide: res.data
+          guide: res.data,
+          search: ''
         });
       })
       .catch(err => {

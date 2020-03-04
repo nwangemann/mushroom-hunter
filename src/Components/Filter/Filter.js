@@ -48,7 +48,8 @@ class Filter extends Component {
         .get(`/api/search_edible/${search}`)
         .then(res => {
           this.setState({
-            guide: res.data
+            guide: res.data,
+            search: ''
           });
         })
         .catch(err => {
