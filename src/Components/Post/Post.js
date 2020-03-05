@@ -54,6 +54,10 @@ class Post extends Component {
     this.props.history.push("/main");
   };
 
+  cancel = () => {
+    this.props.history.push('/main')
+  }
+
   render() {
     return (
       <div>
@@ -117,6 +121,7 @@ class Post extends Component {
                 <div className="formElem">
                 <input className="postButton" type="submit" value="Submit Post" />
                 </div>
+                <button onClick={this.cancel} className="postButton">Cancel</button>
               </form>
             </div>
             <div id="calendarParent">
