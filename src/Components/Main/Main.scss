@@ -105,8 +105,8 @@
     .postContainer {
         display: flex;
         border: 10px outset $main-view-primary;
-        background-color: transparent;
-        opacity: 90%;
+        background-color: $primary-login-color;
+        opacity: 85%;
         color: $login-text-color;
         border-radius: 15px;
         justify-content: center;
