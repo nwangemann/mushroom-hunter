@@ -2,7 +2,7 @@ import React, { Component } from "react";
 import "./Guide.scss";
 import axios from "axios";
 import { connect } from "react-redux";
-import { getSession } from "../../redux/reducer";
+import { getSession, addGuideView, removeGuideView } from "../../redux/reducer";
 import logo2 from "../../images/logo2.png";
 
 class Guide extends Component {
@@ -17,8 +17,13 @@ class Guide extends Component {
 
   componentDidMount() {
     this.getGuideSortName();
+    this.props.addGuideView();
   }
 
+  componentWillUnmount(){
+    this.props.removeGuideView();
+  }
+ 
   getGuideSortName = () => {
     axios.get("/api/guide").then(res => {
       this.setState({
@@ -139,7 +144,9 @@ class Guide extends Component {
 const mapStateToProps = state => state;
 
 const mapDispatchToProps = {
-  getSession
+  getSession,
+  addGuideView,
+  removeGuideView
 };
 
 export default connect(mapStateToProps, mapDispatchToProps)(Guide);

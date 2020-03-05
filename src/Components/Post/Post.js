@@ -121,7 +121,9 @@ class Post extends Component {
                 <div className="formElem">
                 <input className="postButton" type="submit" value="Submit Post" />
                 </div>
+                <div className="formElem">
                 <button onClick={this.cancel} className="postButton">Cancel</button>
+                </div>
               </form>
             </div>
             <div id="calendarParent">

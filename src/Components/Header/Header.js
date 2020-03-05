@@ -11,9 +11,10 @@ class Header extends Component {
 
     this.state = {
       loginView: this.props.loginView,
-      toggleMenu: false
+      toggleMenu: false,
+      guideView: this.props.guideView
     };
-    this.logout = this.logout.bind(this)
+    this.logout = this.logout.bind(this);
   }
 
   logout = () => {
@@ -26,28 +27,27 @@ class Header extends Component {
 
   redirectToCreate = () => {
     this.props.history.push("/post");
-  }
+  };
 
   redirectToGuide = () => {
     this.props.history.push("/guide");
-  }
-  
+  };
+
   redirectToMyPosts = () => {
     this.props.history.push("/main");
-  }
-
+  };
 
   toggleMenuFunc = () => {
     this.setState({ toggleMenu: !this.state.toggleMenu }, () => {
-      document.addEventListener('click', this.closeMenu);
+      document.addEventListener("click", this.closeMenu);
     });
   };
 
   closeMenu = () => {
     this.setState({ toggleMenu: false }, () => {
-      document.removeEventListener('click', this.closeMenu);
+      document.removeEventListener("click", this.closeMenu);
     });
-  }
+  };
 
   render() {
     return (
@@ -59,9 +59,13 @@ class Header extends Component {
           </div>
         ) : (
           <div className="welcomeBox">
-            <img className={
+            <img
+              className={
                 this.state.toggleMenu ? "headerLogoShowing" : "headerLogo"
-              } alt="logo" src="./favicon.ico" />
+              }
+              alt="logo"
+              src="./favicon.ico"
+            />
             <div className="welcomeText notMobile">
               <h1 className="headerPerm">Mushroom Hunter</h1>
             </div>
@@ -106,25 +110,50 @@ class Header extends Component {
             />
           </div>
         )}
+        {this.props.guideView ? (
+          <div id="buttonParent">
+            <div className="headerElem notMobile">
+              <Link to="/main" className="subnav_links">
+                <p className="headerText">Exit Guide</p>
+              </Link>
+            </div>
+            <div className="headerElem notMobile">
+              <Link to="/" className="subnav_links">
+                <p className="headerText" onClick={this.props.logout}>
+                  Logout
+                </p>
+              </Link>
+            </div>
+            <img
+              className={
+                this.state.toggleMenu ? "hamburgerShowing" : "hamburger"
+              }
+              alt="hammy"
+              src="https://cdn4.iconfinder.com/data/icons/wirecons-free-vector-icons/32/menu-alt-512.png"
+              onClick={() => this.toggleMenuFunc()}
+            />
+          </div>
+        ) : null}
         <div
           className={
             this.state.toggleMenu ? "mobile-menu-show" : "mobile-menu-hide"
           }
         >
+          <button onClick={this.redirectToCreate} className="navButton">
+            New Post
+          </button>
 
+          <button onClick={this.redirectToMyPosts} className="navButton">
+            My Posts
+          </button>
 
-            <button onClick={this.redirectToCreate} className="navButton" >New Post</button>
+          <button onClick={this.redirectToGuide} className="navButton">
+            Identification Guide
+          </button>
 
-       
-          
-            <button onClick={this.redirectToMyPosts} className="navButton" >My Posts</button>
-      
-            <button onClick={this.redirectToGuide} className="navButton" >Identification Guide</button>
-       
-            <button className="navButton"  onClick={this.logout}>
-              Logout
-            </button>
-          
+          <button className="navButton" onClick={this.logout}>
+            Logout
+          </button>
         </div>
       </div>
     );

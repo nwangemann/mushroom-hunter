@@ -2,7 +2,7 @@ import React, { Component } from "react";
 import "./Filter.scss";
 import axios from "axios";
 import { connect } from "react-redux";
-import { getSession } from "../../redux/reducer";
+import { getSession, addGuideView, removeGuideView } from "../../redux/reducer";
 import logo2 from "../../images/logo2.png";
 
 class Filter extends Component {
@@ -17,6 +17,14 @@ class Filter extends Component {
       filterByEdible: false,
       filterBySeason: false
     };
+  }
+
+  componentDidMount() {
+    this.props.addGuideView();
+  }
+
+  componentWillUnmount() {
+    this.props.removeGuideView();
   }
 
   searchBy = () => {
@@ -109,6 +117,10 @@ class Filter extends Component {
     });
   };
 
+  redirectToGuide = () => {
+    this.props.history.push('/guide')
+  }
+
   render() {
     const mappedGuide = this.state.guide.map(entry => {
       return (
@@ -160,7 +172,7 @@ class Filter extends Component {
                 }}
               >
                 <div className="flexContain">
-                  <div>
+                  <div id="extraFlex">
                     <p id="searchHeader">Filter By:</p>
                     <div className="buttonFlex">
                       <button
@@ -204,8 +216,13 @@ class Filter extends Component {
                         Season
                       </button>
                     </div>
+                    <div id="imRealBadAtFlexBox">
+                      <button 
+                      onClick={this.redirectToGuide}
+                      id="hideFilterButton">Hide Filters</button>
+                    </div>
                   </div>
-                  <div>
+                  <div className="inputFieldParent">
                     <input
                       className="inputField"
                       onChange={this.changeHandler}
@@ -237,7 +254,9 @@ class Filter extends Component {
 const mapStateToProps = state => state;
 
 const mapDispatchToProps = {
-  getSession
+  getSession,
+  addGuideView,
+  removeGuideView
 };
 
 export default connect(mapStateToProps, mapDispatchToProps)(Filter);
