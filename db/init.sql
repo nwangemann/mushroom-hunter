@@ -67,3 +67,15 @@ Flesh:
 Thin and lilac coloured.
 Habitat:
 On the ground in mixed woodland', 'https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fi.pinimg.com%2Foriginals%2F4a%2F59%2F61%2F4a59610a2d9e1262786b8d6c1226a204.jpg&f=1&nofb=1');
+
+
+ALTER TABLE guide 
+ADD COLUMN season_search TEXT;
+
+
+UPDATE guide
+SET season_search = 'July, August, September'
+WHERE season = 'July-September';
+
+SELECT * FROM guide
+WHERE season_search ILIKE 'July%';

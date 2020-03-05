@@ -4,7 +4,7 @@ const massive = require("massive");
 const session = require("express-session");
 const { SERVER_PORT, SESSION_SECRET, CONNECTION_STRING } = process.env;
 const {login, registerUser, logout, userSession} = require('./controller/authCtrl')
-const {getGuideSortName, searchGuide, searchGuideByScientific, searchGuideByEdible } = require('./controller/guideCtrl')
+const {getGuideSortName, searchGuide, searchGuideByScientific, searchGuideByEdible, searchGuideBySeason } = require('./controller/guideCtrl')
 const {getUserPosts, deletePost, createPost, editPost, getPostDetails} = require('./controller/postCtrl')
 const app = express();
 app.use(express.json());
@@ -44,6 +44,7 @@ app.get('/api/guide', getGuideSortName)
 app.get('/api/search/:search_term', searchGuide)
 app.get('/api/search_scientific/:search_term', searchGuideByScientific)
 app.get('/api/search_edible/:search_term', searchGuideByEdible)
+app.get('/api/search_season/:search_term', searchGuideBySeason)
 
 app.listen(SERVER_PORT, () =>
   console.log(`Servin' up some 🔥 🔥 🔥 on Port ${SERVER_PORT}`)

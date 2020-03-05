@@ -33,5 +33,13 @@ module.exports = {
         db.search_guide_by_edible(search).then(searchResults => {
             res.status(200).send(searchResults)
         })
+    },
+    searchGuideBySeason: (req, res, next) => {
+        const db = req.app.get('db')
+        let {search_term} = req.params
+        let search = '%' + search_term + '%'
+        db.search_guide_by_season(search).then(searchResults => {
+            res.status(200).send(searchResults)
+        })
     }
 }

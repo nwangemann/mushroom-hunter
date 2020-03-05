@@ -47,11 +47,11 @@ label {
 
 .loginBoundaryFlex {
     display: flex;
-    width: 100vw;
-    height: 100vh;
+    width: $fill-w;
+    height: $fill-h;
     justify-content: center;
     align-items: center;
-    background-image: url(../../images/image5.jpg);
+    background-image: $back5;
     background-attachment: fixed;
     background-size: cover;
 }
@@ -64,7 +64,7 @@ label {
 }
 
 .errorFail {
-    color: red
+    color: $error;
 }
 
 .loginTitleText {
@@ -86,21 +86,21 @@ label {
 }
 @media screen and (max-width: 700px){
     .loginParent {
-        width: 100vw;
+        width: $fill-w;
         height: 90vh;
-        margin: 0px;
-        border: 0px;
+        margin: $none;
+        border: $none;
         opacity: 100%;
         background-color: transparent;
-        border-radius: 0px;
+        border-radius: $none;
     }
     .loginBoundaryFlex {
-        width: 100vw;
-        height: 100vh;
-        margin: 0px;
-        border: 0px;
-        border-radius: 0px;
-        background-image: url(../../images/image2.jpg);
+        width: $fill-w;
+        height: $fill-h;
+        margin: $none;
+        border: $none;
+        border-radius: $none;
+        background-image: $back2;
         background-attachment: fixed;
     background-size: cover;
     }

@@ -1,200 +1,198 @@
 @import "../../variables.scss";
 
 .filterContainer {
-    width: 100vw;
-    height: 100vh;
-    padding-top: 85px;
-  }
-
-  .filterSearchBar {
-    width: 100vw;
-    height: 225px;
-    font-size: 15px;
-    margin: 15px 15px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    margin-bottom: 50px;
-  }
-
-
-.currentFilterButton{
-    width: 160px;
-    height: 37px;
-    border: 5px inset $main-view-primary;
-    color: $main-view-primary;
-    font-weight: 500;
-    font-family: $font-stack;
-    border-radius: 15px;
-    font-size: 20px;
-    background-color: $login-text-color;
-    margin: 10px 10px;
-  }
-  
-#mainSubmitButton{
-    width: 220px;
-    height: 47px;
-    border: 5px inset $main-view-primary;
-    color: $main-view-primary;
-    font-weight: 500;
-    font-family: $font-stack;
-    border-radius: 15px;
-    font-size: 25px;
-    background-color: $detail-view-primary;
-    margin: 10px 10px;
-    position: relative;
-    top: 15px;
+  width: $fill-w;
+  height: $fill-h;
+  padding-top: 85px;
 }
 
-.toggleButton{
-    width: 160px;
-    height: 37px;
-    border: 5px inset $main-view-primary;
-    color: $login-text-color;
-    font-weight: 500;
-    font-family: $font-stack;
-    border-radius: 15px;
-    font-size: 20px;
-    background-color: $detail-view-primary;
-    margin: 10px 10px;
-  }
-
-
-  #searchHeader{
-    font-family: $font-stack;
-    font-size: 25px;
-    color: $login-text-color;
-
-  }
-
-  .filterSearchBarInner {
-    width: 750px;
-    height: 215px;
-    border-top: 10px groove $main-view-primary;
-    border-bottom: 10px groove $main-view-primary;
-    border-radius: 15px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    padding: 15px;
-  }
-
-  .inputField {
-    height: 35px;
-    width: 375px;
-    font-family: $font-secondary;
-    border: 4px inset $main-view-primary;
-    padding-left: 5px;
-  }
-
-  
 .filterSearchBar {
-    label {
-      color: $login-text-color;
-      font-family: $font-stack;
-      font-weight: 500;
-      font-size: 25px;
-    }
-    img {
-      width: 130px;
-      margin: 0px 35px;
-      
-    }
-  }
+  width: $fill-w;
+  height: 225px;
+  font-size: 15px;
+  margin: 15px 15px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 50px;
+}
 
-  .filterPhoto {
-    width: 500px;
-    max-height: 400px;
-    border: 10px outset $main-view-primary;
-  }
+.currentFilterButton {
+  width: 120px;
+  height: 37px;
+  border: 5px inset $main-view-primary;
+  color: $main-view-primary;
+  font-weight: 500;
+  font-family: $font-stack;
+  border-radius: 15px;
+  font-size: 18px;
+  background-color: $login-text-color;
+  margin: 20px 10px;
+}
 
-  .displayedTextParent {
-    display: flex;
-    flex-direction: column;
-    align-items: flex-start;
-  
-    p {
-      margin: 10px;
-  
-      span {
-        font-weight: 900;
-        font-size: 15px;
-        margin: 5px;
-      }
-    }
-  
-    h1 {
-      font-size: 25px;
-      font-weight: 800;
-      color: $main-view-primary;
-    }
+#mainSubmitButton {
+  width: 220px;
+  height: 47px;
+  border: 5px inset $main-view-primary;
+  color: $main-view-primary;
+  font-weight: 500;
+  font-family: $font-stack;
+  border-radius: 15px;
+  font-size: 25px;
+  background-color: $detail-view-primary;
+  margin: 10px 10px;
+  -webkit-box-shadow: $glow $main-view-primary;
+  -moz-box-shadow: $glow $main-view-primary;
+  box-shadow: $glow $main-view-primary;
+}
+
+.toggleButton {
+  width: 120px;
+  height: 37px;
+  border: 5px inset $main-view-primary;
+  color: $login-text-color;
+  font-weight: 500;
+  font-family: $font-stack;
+  border-radius: 15px;
+  font-size: 18px;
+  background-color: $detail-view-primary;
+  margin: 20px 10px;
+}
+
+#searchHeader {
+  font-family: $font-stack;
+  font-size: 25px;
+  color: $login-text-color;
+}
+
+.filterSearchBarInner {
+  width: 750px;
+  height: 215px;
+  border-top: 10px groove $main-view-primary;
+  border-bottom: 10px groove $main-view-primary;
+  border-radius: 15px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 15px;
+  -webkit-box-shadow: $glow $main-view-primary;
+  -moz-box-shadow: $glow $main-view-primary;
+  box-shadow: $glow $main-view-primary;
+}
+
+.inputField {
+  height: 35px;
+  width: 375px;
+  font-family: $font-secondary;
+  border: 4px inset $main-view-primary;
+  padding-left: 5px;
+}
+
+.filterSearchBar {
+  label {
+    color: $login-text-color;
+    font-family: $font-stack;
+    font-weight: 500;
+    font-size: 25px;
   }
-  
-  .description {
+  img {
+    width: 130px;
+    margin: 0px 30px;
+  }
+}
+
+.filterPhoto {
+  width: 500px;
+  max-height: 400px;
+  border: 10px outset $main-view-primary;
+}
+
+.displayedTextParent {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+
+  p {
     margin: 10px;
+
+    span {
+      font-weight: 900;
+      font-size: 15px;
+      margin: 5px;
+    }
   }
 
-  .flexContain{
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
+  h1 {
+    font-size: 25px;
+    font-weight: 800;
+    color: $main-view-primary;
   }
-  
+}
+
+.description {
+  margin: 10px;
+}
+
+.flexContain {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
 
 .toggleButton:hover,
 .toggleButton:focus {
-    background: rgb(255, 255, 255);
-    color: $main-view-primary
+  background: $login-text-color;
+  color: $main-view-primary;
 }
 .toggleButton:active {
-    background: rgb(255, 255, 255);
-    color: $main-view-primary
+  background: $login-text-color;
+  color: $main-view-primary;
 }
 
 .toggleButton:focus {
-    outline: 1px solid #fff;
-    outline-offset: -4px;
+  outline: 1px solid #fff;
+  outline-offset: -4px;
 }
 
 .toggleButton:active {
-    transform: scale(0.99);
+  transform: scale(0.99);
 }
 
 .currentFilterButton:hover,
 .currentFilterButton:focus {
-    background: rgb(255, 255, 255);
-    color: $main-view-primary
+  background: $login-text-color;
+  color: $main-view-primary;
 }
 .currentFilterButton:active {
-    background: rgb(255, 255, 255);
-    color: $main-view-primary
+  background: $login-text-color;
+  color: $main-view-primary;
 }
 
 .currentFilterButton:focus {
-    outline: 1px solid #fff;
-    outline-offset: -4px;
+  outline: 1px solid #fff;
+  outline-offset: -4px;
 }
 
 .currentFilterButton:active {
-    transform: scale(0.99);
+  transform: scale(0.99);
 }
 
 #mainSubmitButton:hover,
 #mainSubmitButton:focus {
-    background: rgb(0, 0, 0);
-    color: $main-view-primary
+  background: rgb(0, 0, 0);
+  color: $main-view-primary;
 }
 #mainSubmitButton:active {
-    background: rgb(255, 255, 255);
-    color: $main-view-primary
+  background: $login-text-color;
+  color: $main-view-primary;
 }
 
 #mainSubmitButton:focus {
-    outline: 1px solid #fff;
-    outline-offset: -4px;
+  outline: 1px solid #fff;
+  outline-offset: -4px;
 }
 
 #mainSubmitButton:active {
-    transform: scale(0.99);
+  transform: scale(0.99);
 }

@@ -53,7 +53,7 @@
 
 .postButton:hover,
 .postButton:focus {
-    background: rgb(29, 29, 29);
+    background: $post-button-hover;
 }
 
 .postButton:focus {
@@ -73,17 +73,17 @@ body {
 
 #uberAlles {
     display: flex;
-    width: 100vw;
-    height: 100vh;
+    width: $fill-w;
+    height: $fill-h;
     justify-content: center;
-    background-image: url(../../images/image4.jpg);
+    background-image: $back4;
     background-attachment: fixed;
     background-size: cover;
 }
 
 #spacer{
     height: 85px;
-    width: 100vw;
+    width: $fill-w;
 }
 
 
@@ -111,7 +111,7 @@ body {
     #postParent {
         display: flex;
         flex-direction: column;
-        border: none;
+        border: $none;
         background-color: transparent;
         padding-top: 185px;
         opacity: 1;
@@ -119,23 +119,23 @@ body {
 }
 @media screen and (max-width: 700px){
     #postParent {
-        width: 100vw;
-        height: 100vh;
-        margin: 0px;
-        border: 0px;
+        width: $fill-w;
+        height: $fill-h;
+        margin: $none;
+        border: $none;
         opacity: 100%;
         background-color: transparent;
-        border-radius: 0px;
+        border-radius: $none;
     }
 
     #uberAlles {
-        width: 100vw;
-        height: 100vh;
-        margin: 0px;
-        border: 0px;
-        border-radius: 0px;
+        width: $fill-w;
+        height: $fill-h;
+        margin: $none;
+        border: $none;
+        border-radius: $none;
         background-color: transparent;
-        background-image: url(../../images/image4.jpg);
+        background-image: $back4;
         background-attachment: fixed;
         background-size: cover;
     }

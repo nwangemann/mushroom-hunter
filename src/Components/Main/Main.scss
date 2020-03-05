@@ -42,16 +42,16 @@
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    background-image: url(../../images/image1.jpg);
+    background-image: $back1;
     background-attachment: fixed;
     background-size: cover;
-    width: 100vw;
+    width: $fill-w;
 }
 
 
 #spaceTaker {
     height: 85px;
-    width: 100vw;
+    width: $fill-w;
 }
 
 .mainViewButton {
@@ -112,7 +112,7 @@
         justify-content: center;
         align-items: center;
         margin: 35px;
-        width: 100vw;
+        width: $fill-w;
         height: 60vw;
         font-family: 'Spartan';
     }

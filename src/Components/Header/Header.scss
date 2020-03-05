@@ -1,7 +1,7 @@
 @import '../../variables.scss';
 
 #headerParent {
-    width: 100vw;
+    width: $fill-w;
     height: 85px;
     background-color: $primary-login-color;
     display: flex;
@@ -65,7 +65,7 @@
 
 .subnav_links {
     text-decoration: none;
-    color: black;
+    color: $primary-login-color;
 }
 
 .navButton {
@@ -74,8 +74,8 @@
     font-weight: 300;
     font-family: $font-stack;
     font-size: 15px;
-    border: 0;
-    padding: 0;
+    border: $none;
+    padding: $none;
 }
 
 h3{
