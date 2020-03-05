@@ -3,7 +3,7 @@ import "./Filter.scss";
 import axios from "axios";
 import { connect } from "react-redux";
 import { getSession } from "../../redux/reducer";
-import logo1 from "../../images/logo1.png";
+import logo2 from "../../images/logo2.png";
 
 class Filter extends Component {
   constructor(props) {
@@ -130,7 +130,7 @@ class Filter extends Component {
       <div className="filterContainer">
         <div className="filterSearchBar">
           <div className="filterSearchBarInner">
-            <img src={logo1} alt="mushroomIDExample" className="guideLogo" />
+            <img src={logo2} alt="mushroomIDExample" className="guideLogo" />
             <div>
             <form
              onSubmit={e => {
@@ -188,7 +188,7 @@ class Filter extends Component {
               </div>
             </form>
             </div>
-              <img src={logo1} alt="mushroomIDExample" className="guideLogo" />
+              <img src={logo2} alt="mushroomIDExample" className="guideLogo" />
           </div>
         </div>
         {mappedGuide}
