@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import "./Post.scss";
 import { connect } from "react-redux";
-import { removeLoginView } from "../../redux/reducer";
+import { removeLoginView, removeMarkerStyle, addMarkerStyle } from "../../redux/reducer";
 import Calendar from "react-calendar";
 import axios from "axios";
 import MapContainer from "../Map/Map";
@@ -12,7 +12,7 @@ class Post extends Component {
 
     this.state = {
       species: "",
-      location: "",
+      location: '',
       edible: "",
       date: new Date(),
       description: "",
@@ -26,6 +26,10 @@ class Post extends Component {
     this.props.removeLoginView();
   }
 
+  componentWillUnmount(){
+    this.props.removeMarkerStyle();
+  }
+
   handleChange = date => this.setState({ date });
 
   changeHandler = e => {
@@ -35,9 +39,9 @@ class Post extends Component {
   };
 
   submitPost = async () => {
+    console.log('this.props', this.props)
     const {
       species,
-      location,
       edible,
       date,
       description,
@@ -46,21 +50,31 @@ class Post extends Component {
     } = this.state;
     let newPost = {
       species,
-      location,
+      loc_x: this.props.selectedLocationMarker.loc_x,
+      loc_y: this.props.selectedLocationMarker.loc_y,
       edible,
       date,
       description,
       image_url
     };
     await axios.post(`/api/post/${user_id}`, newPost);
+    this.props.removeMarkerStyle();
     this.props.history.push("/main");
   };
 
   cancel = () => {
+    this.props.removeMarkerStyle();
     this.props.history.push("/main");
   };
 
+  toggleLocation = () => {
+    this.setState({
+      toggleMap: !this.state.toggleMap
+    });
+  };
+
   setLocation = () => {
+    this.props.addMarkerStyle();
     this.setState({
       toggleMap: !this.state.toggleMap
     });
@@ -98,17 +112,18 @@ class Post extends Component {
                   </div>
                   <div className="formElem">
                     <label>Location:</label>
-                    <input
-                      onChange={this.changeHandler}
-                      type="text"
-                      name="location"
-                      value={this.state.location}
-                    />
-                  </div>
-                  <div className="formElem">
-                    <p onClick={this.setLocation} className="mapToggle">
-                      Select Location From Map!
+                    {this.props.markerSet
+                    ?
+                    <div className="animationContain">
+                    <p onClick={this.toggleLocation} className="mapToggle inPostLinkButton animationRunner">
+                      Location Set!
                     </p>
+                    </div>
+                    :
+                    <p onClick={this.toggleLocation} className="mapToggle inPostLinkButton">
+                    Select Location From Map!
+                  </p>
+                  }      
                   </div>
                   <div className="formElem">
                     <label>Edibility:</label>
@@ -170,7 +185,9 @@ class Post extends Component {
 const mapStateToProps = state => state;
 
 const mapDispatchToProps = {
-  removeLoginView
+  removeLoginView,
+  removeMarkerStyle,
+  addMarkerStyle
 };
 
 export default connect(mapStateToProps, mapDispatchToProps)(Post);

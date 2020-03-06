@@ -3,8 +3,9 @@ import "./Detail.scss";
 import axios from "axios";
 import { connect } from "react-redux";
 import { Redirect, Link } from "react-router-dom";
+import { getSession, setLocationMarker, removeMarkerStyle, addMarkerStyle } from "../../redux/reducer";
 import Calendar from "react-calendar";
-import { getSession } from "../../redux/reducer";
+import MapContainer from "../Map/Map";
 
 class Detail extends Component {
   constructor(props) {
@@ -13,13 +14,15 @@ class Detail extends Component {
     this.state = {
       post: [],
       species: "",
-      location: "",
+      loc_x: "",
+      loc_y: "",
       edible: "",
       date: "",
       description: "",
       image_url: "",
       user_id: this.props.user.user_id,
-      editPostToggle: false
+      editPostToggle: false,
+      toggleMap: false
     };
   }
 
@@ -39,37 +42,27 @@ class Detail extends Component {
     this.setState({
       editPostToggle: true
     });
-    console.log("state on toggle", this.state);
   };
 
   cancelToggle = () => {
+    this.props.removeMarkerStyle();
     this.setState({
       editPostToggle: false
     });
   };
 
   editPost = () => {
-    const {
-      species,
-      location,
-      edible,
-      date,
-      description,
-      image_url
-    } = this.state;
+    const { species, edible, date, description, image_url } = this.state;
     let post_id = this.state.post[0].post_id;
     let updatedPost = {
       species,
-      location,
+      loc_x: this.props.selectedLocationMarker.loc_x,
+      loc_y: this.props.selectedLocationMarker.loc_y,
       edible,
       date,
       description,
       image_url
     };
-    console.log("pre-submit post body", updatedPost);
-    console.log("pre-submit post_id", post_id);
-    console.log("this.state.post", this.state.post);
-
     axios
       .put(`/api/edit/${post_id}`, updatedPost)
       .then(res => {
@@ -92,7 +85,8 @@ class Detail extends Component {
         this.setState({
           post: post.data,
           species: post.data[0].species,
-          location: post.data[0].location,
+          loc_x: post.data[0].loc_x,
+          loc_y: post.data[0].loc_y,
           edible: post.data[0].edible,
           previousDate: post.data[0].date,
           description: post.data[0].description,
@@ -108,15 +102,28 @@ class Detail extends Component {
     this.props.history.push("/main");
   };
 
+  toggleLocation = () => {
+    this.setState({
+      toggleMap: !this.state.toggleMap
+    });
+  };
+
+  setLocation = () => {
+    this.props.addMarkerStyle();
+    this.setState({
+      toggleMap: !this.state.toggleMap
+    });
+  };
+
   render() {
     const mappedPost = this.state.post.map(post => {
       return (
         <div key={post.post_id} className="detailContainer">
           <div className="dashboardText">
-            <h2>Species:   {post.species}</h2>
-            <h2>Edible:   {post.edible}</h2>
-            <h2>Date:   {post.date}</h2>
-            <p id="descriptionElem">Description:   {post.description}</p>
+            <h2>Species: {post.species}</h2>
+            <h2>Edible: {post.edible}</h2>
+            <h2>Date: {post.date}</h2>
+            <p id="descriptionElem">Description: {post.description}</p>
             <button
               className="detailButton"
               onClick={this.deletePost}
@@ -129,7 +136,9 @@ class Detail extends Component {
             </button>
             <Link to="/main">
               <div className="flexParent">
-                <button className="detailButton" id="exitButton">Exit Detail View</button>
+                <button className="detailButton" id="exitButton">
+                  Exit Detail View
+                </button>
               </div>
             </Link>
           </div>
@@ -145,75 +154,100 @@ class Detail extends Component {
           <div className="detailParent">
             {this.state.editPostToggle ? (
               <div className="uberAlles">
-                <div id="detailParent">
-                  <div className="detailFormParent">
-                    <form
-                      onSubmit={e => {
-                        e.preventDefault();
-                        this.editPost();
-                      }}
-                    >
-                      <div className="formElem">
-                        <label>Species:</label>
-                        <input
-                          onChange={this.changeHandler}
-                          type="text"
-                          name="species"
-                          value={this.state.species}
-                        />
+                {this.state.toggleMap ? (
+                  <div className="mapHouser">
+                    <MapContainer setLocation={this.setLocation} />
+                    <button onClick={this.setLocation} className="mapButton">
+                      Set Location!
+                    </button>
+                  </div>
+                ) : (
+                  <div id="detailParent">
+                    <div className="detailFormParent">
+                      <form
+                        onSubmit={e => {
+                          e.preventDefault();
+                          this.editPost();
+                        }}
+                      >
+                        <div className="formElem">
+                          <label>Species:</label>
+                          <input
+                            onChange={this.changeHandler}
+                            type="text"
+                            name="species"
+                            value={this.state.species}
+                          />
+                        </div>
+                        <div className="formElem">
+                          <label>Location:</label>
+                          {this.props.markerSet ? (
+                            <div className="animationContain">
+                              <p
+                                onClick={this.toggleLocation}
+                                className="mapToggle inPostLinkButton animationRunner"
+                              >
+                                Location Set!
+                              </p>
+                            </div>
+                          ) : (
+                            <p
+                              onClick={this.toggleLocation}
+                              className="mapToggle inPostLinkButton"
+                            >
+                              Select Location From Map!
+                            </p>
+                          )}
+                        </div>
+                        <div className="formElem">
+                          <label>Edibility:</label>
+                          <input
+                            onChange={this.changeHandler}
+                            type="text"
+                            name="edible"
+                            value={this.state.edible}
+                          />
+                        </div>
+                        <div className="formElem">
+                          <label>Image URL:</label>
+                          <input
+                            onChange={this.changeHandler}
+                            type="text"
+                            name="image_url"
+                            value={this.state.image_url}
+                          />
+                        </div>
+                        <div className="formElem">
+                          <label>Description:</label>
+                          <br></br>
+                          <textarea
+                            id="descriptionInputField"
+                            onChange={this.changeHandler}
+                            type="text"
+                            name="description"
+                            value={this.state.description}
+                          />
+                        </div>
+                        <div id="buttonContain">
+                          <input
+                            className="detailButton"
+                            type="submit"
+                            value="Submit Post"
+                          />
+                          <button
+                            className="detailButton"
+                            onClick={this.cancelToggle}
+                          >
+                            Cancel
+                          </button>
+                        </div>
+                      </form>
+                      <div className="calendarParent">
+                        <Calendar onChange={this.handleChange} />
                       </div>
-                      <div className="formElem">
-                        <label>Location:</label>
-                        <input
-                          onChange={this.changeHandler}
-                          type="text"
-                          name="location"
-                          value={this.state.location}
-                        />
-                      </div>
-                      <div className="formElem">
-                        <label>Edibility:</label>
-                        <input
-                          onChange={this.changeHandler}
-                          type="text"
-                          name="edible"
-                          value={this.state.edible}
-                        />
-                      </div>
-                      <div className="formElem">
-                        <label>Image URL:</label>
-                        <input
-                          onChange={this.changeHandler}
-                          type="text"
-                          name="image_url"
-                          value={this.state.image_url}
-                        />
-                      </div>
-                      <div className="formElem">
-                        <label>Description:</label>
-                        <br></br>
-                        <textarea
-                          id="descriptionInputField"
-                          onChange={this.changeHandler}
-                          type="text"
-                          name="description"
-                          value={this.state.description}
-                        />
-                      </div>
-                      <div id="buttonContain">
-                      <input
-                        className="detailButton"
-                        type="submit"
-                        value="Submit Post"
-                      />
-                    <button className="detailButton" onClick={this.cancelToggle}>Cancel</button>
                     </div>
-                    </form>
-                  <div className="calendarParent">
-                    <Calendar onChange={this.handleChange} />
                   </div>
-                  </div>
-                </div>
+                )}
               </div>
             ) : (
               <div className="flexParent">{mappedPost}</div>
@@ -230,7 +264,10 @@ class Detail extends Component {
 const mapStateToProps = state => state;
 
 const mapDispatchToProps = {
-  getSession
+  getSession,
+  setLocationMarker,
+  removeMarkerStyle,
+  addMarkerStyle
 };
 
 export default connect(mapStateToProps, mapDispatchToProps)(Detail);

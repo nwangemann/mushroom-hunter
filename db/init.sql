@@ -13,13 +13,15 @@ VALUES
 CREATE TABLE posts (
     post_id SERIAL PRIMARY KEY,
     species TEXT,
-    location TEXT,
+    loc_x NUMERIC,
+    loc_y NUMERIC,
     edible TEXT,
     date TEXT,
     description TEXT,
     image_url TEXT,
     user_id INT REFERENCES users(user_id)
 );
+
 
 INSERT INTO posts(species, location, edible, date, description, image_url, user_id)
 VALUES 

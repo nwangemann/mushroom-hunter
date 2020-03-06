@@ -1,6 +1,8 @@
 import React, { Component } from "react";
 import { Map, GoogleApiWrapper, Marker } from "google-maps-react";
 import "./Map.scss";
+import { connect } from 'react-redux'
+import {setLocationMarker} from '../../redux/reducer'
 
 const mapStyles = {
   width: "100%",
@@ -16,11 +18,11 @@ class MapContainer extends Component {
       loc_x: 45.5236111,
       loc_y: -122.675,
       activeMarker: {},
-      selectedPlace: {},
+      selectedLocation: {},
       loc_rendered: false,
       showingInfoWindow: false,
       mushroomLocations: [
-        { lat: 40.8187372, lng: -124.1864518 },
+        { latitude: 40.8187372, longitude: -124.1864518 },
         { latitude: 41.7754084036633, longitude: -124.110145568848 },
         { latitude: 45.5236111, longitude: -122.675 },
         { latitude: 45.4609359, longitude: -123.9679079 },
@@ -49,6 +51,13 @@ class MapContainer extends Component {
       loc_y: clickEven.latLng.lng()
     });
     map.setCenter({ lat: clickEven.latLng.lat(), lng: clickEven.latLng.lng() });
+    this.setState({
+        selectedLocation: {
+            loc_x: clickEven.latLng.lat(),
+            loc_y: clickEven.latLng.lng()
+          }
+    })
+    this.props.setLocationMarker(this.state.selectedLocation)
     //   this.setState({
     //       loc_x: clickEven.Za.x,
     //       loc_y: clickEven.Za.y
@@ -88,7 +97,13 @@ class MapContainer extends Component {
       loc_x: map.center.lat(),
       loc_y: map.center.lng()
     });
-    console.log("state", this.state);
+    this.setState({
+        selectedLocation: {
+            loc_x: map.center.lat(),
+            loc_y: map.center.lng()
+          }
+    })
+    this.props.setLocationMarker(this.state.selectedLocation)
   };
 
   render() {
@@ -119,6 +134,17 @@ class MapContainer extends Component {
   }
 }
 
-export default GoogleApiWrapper({
-  apiKey: "AIzaSyClSup2EHLu9H1RPlkiQgYdEG2okknabUE"
-})(MapContainer);
+const mapStateToProps = state => state;
+
+const mapDispatchToProps = {
+  setLocationMarker
+};
+
+export default connect(
+    mapStateToProps,
+    mapDispatchToProps
+)(
+    GoogleApiWrapper({
+        apiKey: "AIzaSyClSup2EHLu9H1RPlkiQgYdEG2okknabUE"
+    })(MapContainer)
+)

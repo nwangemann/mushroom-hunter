@@ -5,17 +5,43 @@ let initialState = {
   loading: false,
   loginView: true,
   guideView: false,
-  detailViewPostID: ""
+  detailViewPostID: "",
+  selectedLocationMarker: {},
+  markerSet: false
 };
 
 const LOGOUT = "LOGOUT";
-const ADD_GUIDE_VIEW = "ADD_GUIDE_VIEW"
-const REMOVE_GUIDE_VIEW = "REMOVE_GUIDE_VIEW"
+const LOCATION_MARKER = "LOCATION_MARKER";
+const REMOVE_MARKER_STYLE = "REMOVE_MARKER_STYLE"
+const ADD_MARKER_STYLE = "ADD_MARKER_STYLE"
+const ADD_GUIDE_VIEW = "ADD_GUIDE_VIEW";
+const REMOVE_GUIDE_VIEW = "REMOVE_GUIDE_VIEW";
 const ADD_LOGIN_VIEW = "ADD_LOGIN_VIEW";
 const REMOVE_LOGIN_VIEW = "REMOVE_LOGIN_VIEW";
 const SUBMIT_USER = "SUBMIT_USER";
 const GET_SESSION = "GET_SESSION";
 const SET_DETAIL_ID = "SET_DETAIL_ID";
+
+
+export function setLocationMarker(location) {
+  return {
+    type: LOCATION_MARKER,
+    payload: location
+  };
+}
+
+export function removeMarkerStyle(){
+  return {
+    type: REMOVE_MARKER_STYLE,
+    payload: { markerSet: false }
+  }
+}
+export function addMarkerStyle(){
+  return {
+    type: ADD_MARKER_STYLE,
+    payload: { markerSet: true }
+  }
+}
 
 export function getDetailViewID(id) {
   return {
@@ -69,25 +95,28 @@ export function removeGuideView() {
 
 export function getSession() {
   let user = axios.get("/auth/userSession");
-  console.log(user);
   return {
     type: GET_SESSION,
     payload: user.data
   };
 }
 
-
-
 export default function reducer(state = initialState, action) {
   switch (action.type) {
     case LOGOUT:
-      return { ...state, loginView: true };
+      return { ...state, loginView: true, user: {} };
     case SET_DETAIL_ID:
       return { ...state, detailViewPostID: action.payload };
-      case ADD_GUIDE_VIEW:
-        return { ...state, loginView: true, guideView: true };
-      case REMOVE_GUIDE_VIEW:
-        return { ...state, guideView: false };
+    case LOCATION_MARKER:
+      return { ...state, selectedLocationMarker: action.payload, markerSet: true };
+      case REMOVE_MARKER_STYLE:
+        return { ...state, markerSet: false };
+      case ADD_MARKER_STYLE:
+        return { ...state, markerSet: true };
+    case ADD_GUIDE_VIEW:
+      return { ...state, loginView: true, guideView: true };
+    case REMOVE_GUIDE_VIEW:
+      return { ...state, guideView: false };
     case REMOVE_LOGIN_VIEW:
       return { ...state, loginView: false };
     case ADD_LOGIN_VIEW:

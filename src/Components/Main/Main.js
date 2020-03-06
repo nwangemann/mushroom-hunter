@@ -22,7 +22,6 @@ class Main extends Component {
   componentDidMount() {
     this.props.getSession();
     this.props.removeLoginView();
-    // console.log('main user session check', this.props)
     this.getUserPosts(this.props.user.user_id);
   }
 

@@ -85,10 +85,6 @@ body {
     justify-content: center;
 }
 
-.mapButton{
-    
-}
-
 #uberAlles {
     display: flex;
     width: $fill-w;
@@ -141,6 +137,47 @@ body {
     font-size: 20px;
     font-weight: 600;
 }
+
+.inPostLinkButton{
+    margin-left: 10px;
+}
+
+.animationRunner{
+    animation: toast-success 7s infinite;
+}
+
+.animationContain{
+    width: 200px;
+    height: 40px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+@keyframes toast-success {
+    0% {
+        background-color: $login-text-color;
+        color: $main-view-primary;
+    }
+    25%{
+        color: $detail-view-primary;
+        font-size: 13px;
+    }
+    50% {
+        background-color: $detail-view-primary;
+        color: $main-view-primary;
+        font-size: 15px;
+    }
+    75%{
+        color: $main-view-primary;
+        font-size: 13px;
+    }
+    100% {
+        background-color: $login-text-color;
+        color: $main-view-primary;
+    }
+}
+
 .mapButton:hover {
     background-color: $detail-view-hover;
     cursor: $click;
