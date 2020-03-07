@@ -38,5 +38,12 @@ module.exports = {
         db.get_post(post_id).then(post => {
             res.status(200).send(post)
         })
+    },
+    getPostCoordinates: (req, res, next) => {
+        const db = req.app.get('db')
+        let {user_id} = req.params
+        db.get_coordinates(user_id).then(coordinates => {
+            res.status(200).send(coordinates)
+        })
     }
 }

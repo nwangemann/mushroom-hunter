@@ -3,6 +3,8 @@ import { Map, GoogleApiWrapper, Marker } from "google-maps-react";
 import "./Map.scss";
 import { connect } from 'react-redux'
 import {setLocationMarker} from '../../redux/reducer'
+import axios from 'axios';
+
 
 const mapStyles = {
   width: "100%",
@@ -35,7 +37,9 @@ class MapContainer extends Component {
     };
   }
 
-  componentDidMount() {}
+  componentDidMount() {
+    // this.getCoordinates();
+  }
 
   showPosition = position => {
     this.setState({
@@ -44,6 +48,26 @@ class MapContainer extends Component {
       locRendered: true
     });
   };
+
+  getCoordinates = () => {
+    let user_id = this.props.user.user_id
+    axios.get(`/api/coordinates/${user_id}`).then(coordinates => {
+        console.log(coordinates)
+        let coordsArray = []
+        let workingArray = coordinates.data
+        for (let i = 0; i < coordsArray.length; i++){
+            let objectConstruct = {
+                loc_x: workingArray[i].loc_x,
+                loc_y: workingArray[i].loc_y
+            }
+            coordsArray.push(objectConstruct)
+        }
+        console.log('coordsArray', coordsArray)
+        this.setState({
+            mushroomLocations: coordsArray
+        })
+    }).catch(err => console.log(err))
+  }
 
   saveCoords = (mapProps, map, clickEven) => {
     this.setState({
@@ -145,6 +169,6 @@ export default connect(
     mapDispatchToProps
 )(
     GoogleApiWrapper({
-        apiKey: "AIzaSyClSup2EHLu9H1RPlkiQgYdEG2okknabUE"
+        apiKey: `AIzaSyClSup2EHLu9H1RPlkiQgYdEG2okknabUE`
     })(MapContainer)
 )
