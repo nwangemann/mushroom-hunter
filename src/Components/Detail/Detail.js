@@ -17,6 +17,7 @@ class Detail extends Component {
       loc_x: "",
       loc_y: "",
       edible: "",
+      previousDate: '',
       date: "",
       description: "",
       image_url: "",
@@ -53,6 +54,7 @@ class Detail extends Component {
 
   editPost = () => {
     const { species, edible, date, description, image_url } = this.state;
+    console.log('date when nothing is selected', date)
     let post_id = this.state.post[0].post_id;
     let updatedPost = {
       species,
@@ -122,6 +124,9 @@ class Detail extends Component {
           <div className="dashboardText">
             <h2>Species: {post.species}</h2>
             <h2>Edible: {post.edible}</h2>
+            <h2 id="locationElem">Location: 
+              latitude:{post.loc_x}°, 
+              longitude:{post.loc_y}°</h2>
             <h2>Date: {post.date}</h2>
             <p id="descriptionElem">Description: {post.description}</p>
             <button

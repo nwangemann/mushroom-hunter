@@ -79,6 +79,11 @@ class Header extends Component {
         {this.props.loginView ? null : (
           <div id="buttonParent">
             <div className="headerElem notMobile">
+              <Link to="/map" className="subnav_links">
+                <p className="headerText">My Map</p>
+              </Link>
+            </div>
+            <div className="headerElem notMobile">
               <Link to="/guide" className="subnav_links">
                 <p className="headerText">Identification Guide</p>
               </Link>

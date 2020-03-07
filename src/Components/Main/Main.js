@@ -57,6 +57,9 @@ class Main extends Component {
             <div>
               <h2 className="textBoxElem">Species: {post.species}</h2>
               <h2 className="textBoxElem">Edible: {post.edible}</h2>
+              <h2 className="textBoxElem locationElement">Location: 
+              latitude:{post.loc_x}°, 
+              longitude:{post.loc_y}°</h2>
               <h2 className="textBoxElem">Date: {post.date}</h2>
               <p className="textBoxElem">Description: {post.description}</p>
             </div>

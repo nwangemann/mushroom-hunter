@@ -112,6 +112,22 @@ align-items: center;
     margin: 15px 15px;
 }
 
+.mapButton{
+    position: relative;
+    bottom: 300px;
+    background-color: $primary-login-color;
+    color: $main-view-primary;
+    font-family: $font-stack;
+    border: 4px inset $main-view-primary;
+    border-radius: 15px;
+    box-shadow: $glow $main-view-primary;
+    padding: 1em 1.5em;
+    position: relative;
+    font-size: 20px;
+    font-weight: 600;
+}
+
+
 .mapToggle{
     color: $main-view-primary;
     font-family: $font-stack;
@@ -135,6 +151,17 @@ align-items: center;
     top: 5px;
   }
   
+
+.mapButton:hover {
+    background-color: $detail-view-hover;
+    cursor: $click;
+  }
+.mapButton:active {
+    box-shadow: none;
+    position: relative;
+    bottom: 295px;
+}
+
 .mapHouser{
     display: flex;
     width: $fill-w;
@@ -155,6 +182,10 @@ align-items: center;
 
 .inPostLinkButton{
     margin-left: 10px;
+}
+
+#locationElem{
+    font-size: 12px;
 }
 
 @keyframes toast-success {

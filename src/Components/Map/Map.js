@@ -2,7 +2,7 @@ import React, { Component } from "react";
 import { Map, GoogleApiWrapper, Marker } from "google-maps-react";
 import "./Map.scss";
 import { connect } from 'react-redux'
-import {setLocationMarker} from '../../redux/reducer'
+import {setLocationMarker, removeMarkerStyle} from '../../redux/reducer'
 import axios from 'axios';
 
 
@@ -41,6 +41,10 @@ class MapContainer extends Component {
     // this.getCoordinates();
   }
 
+  componentWillUnmount(){
+    this.props.removeMarkerStyle();
+  }
+
   showPosition = position => {
     this.setState({
       loc_x: position.coords.latitude,
@@ -74,7 +78,7 @@ class MapContainer extends Component {
       loc_x: clickEven.latLng.lat(),
       loc_y: clickEven.latLng.lng()
     });
-    map.setCenter({ lat: clickEven.latLng.lat(), lng: clickEven.latLng.lng() });
+    // map.setCenter({ lat: clickEven.latLng.lat(), lng: clickEven.latLng.lng() });
     this.setState({
         selectedLocation: {
             loc_x: clickEven.latLng.lat(),
@@ -117,17 +121,17 @@ class MapContainer extends Component {
   };
 
   centerMoved = (mapProps, map) => {
-    this.setState({
-      loc_x: map.center.lat(),
-      loc_y: map.center.lng()
-    });
-    this.setState({
-        selectedLocation: {
-            loc_x: map.center.lat(),
-            loc_y: map.center.lng()
-          }
-    })
-    this.props.setLocationMarker(this.state.selectedLocation)
+    // this.setState({
+    //   loc_x: map.center.lat(),
+    //   loc_y: map.center.lng()
+    // });
+    // this.setState({
+    //     selectedLocation: {
+    //         loc_x: map.center.lat(),
+    //         loc_y: map.center.lng()
+    //       }
+    // })
+    // this.props.setLocationMarker(this.state.selectedLocation)
   };
 
   render() {
@@ -141,17 +145,8 @@ class MapContainer extends Component {
           style={mapStyles}
           initialCenter={{ lat: this.state.loc_x, lng: this.state.loc_y }}
         >
-          <Marker
-            position={{ lat: this.state.loc_x, lng: this.state.loc_y }}
-            icon={{
-              url:
-                "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fi.pinimg.com%2Foriginals%2F86%2Ffd%2F17%2F86fd17769a3b2537d2b028601cda7b92.png&f=1&nofb=1",
-              anchor: new this.props.google.maps.Point(48, 48),
-              scaledSize: new this.props.google.maps.Size(48, 48)
-            }}
-          />
           {this.displayMarkers()}
-          {/* {this.displayCurrentMarker()} */}
+          {this.displayCurrentMarker()}
         </Map>
       </div>
     );
@@ -161,7 +156,8 @@ class MapContainer extends Component {
 const mapStateToProps = state => state;
 
 const mapDispatchToProps = {
-  setLocationMarker
+  setLocationMarker,
+  removeMarkerStyle
 };
 
 export default connect(

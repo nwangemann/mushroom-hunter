@@ -1,0 +1,9 @@
+@import '../../variables.scss';
+
+
+.mapHouseContainer{
+    width: $fill-w;
+    height: $fill-h;
+    padding-top: 85px;
+    display: flex;
+}

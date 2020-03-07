@@ -28,7 +28,9 @@ module.exports = {
         const db = req.app.get("db")
         let {post_id} = req.params
         const {species, loc_x, loc_y, edible, date, description, image_url} = req.body
-        db.edit_post(species, loc_x, loc_y, edible, date, description, image_url, post_id).then(updatedPost => {
+        let newDate = date.split('T', 1)
+        let newestDate = newDate[0]
+        db.edit_post(species, loc_x, loc_y, edible, newestDate, description, image_url, post_id).then(updatedPost => {
             res.status(200).send(updatedPost)
         })
     }, 
