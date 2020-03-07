@@ -29,7 +29,8 @@ class MapHouse extends Component {
       <div className="mapHouseContainer">
        
               <MapContainer />
-             <button onClick={this.cancel}>Exit</button>
+             <button 
+             onClick={this.cancel}>Exit</button>
       </div>
     );
   }

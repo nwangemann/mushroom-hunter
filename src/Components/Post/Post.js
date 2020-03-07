@@ -83,14 +83,19 @@ class Post extends Component {
   render() {
     return (
       <div>
-        <div id="spacer"></div>
+        <div id={
+          this.state.toggleMap ?
+          "spaceHide"
+          :
+          "spacer"
+        }></div>
         <div id="uberAlles">
           {this.state.toggleMap ? (
             <div className="mapHouser">
-              <MapContainer setLocation={this.setLocation} />
               <button onClick={this.setLocation} className="mapButton">
                 Set Location!
               </button>
+              <MapContainer setLocation={this.setLocation} />
             </div>
           ) : (
             <div id="postParent">

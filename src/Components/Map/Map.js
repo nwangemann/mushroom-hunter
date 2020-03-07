@@ -38,7 +38,7 @@ class MapContainer extends Component {
   }
 
   componentDidMount() {
-    // this.getCoordinates();
+    this.getCoordinates();
   }
 
   componentWillUnmount(){
@@ -54,12 +54,13 @@ class MapContainer extends Component {
   };
 
   getCoordinates = () => {
-    let user_id = this.props.user.user_id
+    let {user_id} = this.props.user
     axios.get(`/api/coordinates/${user_id}`).then(coordinates => {
-        console.log(coordinates)
+        console.log('coordinates in getcoordinates', coordinates)
         let coordsArray = []
         let workingArray = coordinates.data
-        for (let i = 0; i < coordsArray.length; i++){
+        for (let i = 0; i < workingArray.length; i++){
+          console.log('workingArray[i]', workingArray[i])
             let objectConstruct = {
                 loc_x: workingArray[i].loc_x,
                 loc_y: workingArray[i].loc_y
@@ -94,6 +95,7 @@ class MapContainer extends Component {
 
   displayMarkers = () => {
     return this.state.mushroomLocations.map((location, index) => {
+      console.log('display markers function', location)
       return (
         <Marker
           key={index}

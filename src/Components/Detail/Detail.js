@@ -54,6 +54,7 @@ class Detail extends Component {
 
   editPost = () => {
     const { species, edible, date, description, image_url } = this.state;
+    //possible if statement for empty date return being sent back as the previousdate, while updates to the date are identified and added to response object
     console.log('date when nothing is selected', date)
     let post_id = this.state.post[0].post_id;
     let updatedPost = {
@@ -161,10 +162,10 @@ class Detail extends Component {
               <div className="uberAlles">
                 {this.state.toggleMap ? (
                   <div className="mapHouser">
-                    <MapContainer setLocation={this.setLocation} />
                     <button onClick={this.setLocation} className="mapButton">
                       Set Location!
                     </button>
+                    <MapContainer setLocation={this.setLocation} />
                   </div>
                 ) : (
                   <div id="detailParent">

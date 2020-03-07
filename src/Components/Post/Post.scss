@@ -100,6 +100,11 @@ body {
     width: $fill-w;
 }
 
+#spaceHide{
+    height: 0px;
+    width: $fill-w;
+}
+
 .mapToggle{
     color: $main-view-primary;
     font-family: $font-stack;
@@ -124,8 +129,6 @@ body {
   }
   
 .mapButton{
-    position: relative;
-    bottom: 300px;
     background-color: $primary-login-color;
     color: $main-view-primary;
     font-family: $font-stack;
@@ -133,9 +136,12 @@ body {
     border-radius: 15px;
     box-shadow: $glow $main-view-primary;
     padding: 1em 1.5em;
-    position: relative;
+    position: fixed;
+    top: 150px;
     font-size: 20px;
     font-weight: 600;
+    height: 150px;
+    z-index: 5;
 }
 
 .inPostLinkButton{
