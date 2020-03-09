@@ -37,7 +37,7 @@ class Header extends Component {
     this.props.history.push("/main");
   };
 
-  redirectToMyPosts = () => {
+  redirectToMyMap = () => {
     this.props.history.push("/map");
   };
 
