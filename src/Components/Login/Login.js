@@ -82,7 +82,8 @@ class Login extends Component {
                 />
               </div>
               {this.state.loginFail ? (
-                <div className="formElem">
+                <div className="formElem failBox">
+                  <div>
                   <label>Password:</label>
                   <input
                     onChange={this.changeHandler}
@@ -90,7 +91,8 @@ class Login extends Component {
                     name="password"
                     value={this.state.password}
                   />
-                  <div>
+                  </div>
+                  <div className="errorMsgParent">
                   <p className="errorFail">
                     Incorrect username and/or password
                   </p>
@@ -154,7 +156,7 @@ class Login extends Component {
                 />
               </div>
               {this.state.registerFail ? (
-                <div>
+                <div className="failBox">
                   <div className="formElem">
                     <label>Password:</label>
                     <input
@@ -164,7 +166,7 @@ class Login extends Component {
                       value={this.state.password}
                     />
                   </div>
-                  <div>
+                  <div className="errorMsgParent">
                   <p className="errorFail">
                     This email already exists. Please register with an alternate
                     email.

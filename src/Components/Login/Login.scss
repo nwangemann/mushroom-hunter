@@ -63,13 +63,37 @@ label {
     align-items: center;
 }
 
+.failBox{
+    display: flex;
+    flex-direction: column;
+}
+
 .errorFail {
     color: $error;
+    animation: fail-response 6s infinite;
+    margin: 0px 10px;
+    padding-top: 7px;
+}
+
+.errorMsgParent{
+    height: 25px;
 }
 
 .loginTitleText {
     font-size: 30px;
 }
+
+@keyframes fail-response {
+    0%, 100% {
+      color: $error;
+      font-size: 19px;
+    }
+    50% {
+      color: red;
+      font-size: 17px;
+      text-shadow: 2px 2px 5px red;
+    }
+  }
 
 @media screen and (max-width: 900px){
     .loginParent {
