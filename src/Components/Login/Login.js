@@ -60,6 +60,28 @@ class Login extends Component {
       });
   };
 
+  toggleViewToRegister = () => {
+    this.setState({
+      register: true,
+      username: "",
+      email: "",
+      password: "",
+      registerFail: false,
+      loginFail: false
+    })
+  }
+
+  toggleViewToLogin = () => {
+    this.setState({
+      register: false,
+      username: "",
+      email: "",
+      password: "",
+      loginFail: false,
+      registerFail: false
+    })
+  }
+
   render() {
     return (
       <div className="loginBoundaryFlex">
@@ -118,7 +140,7 @@ class Login extends Component {
             <div className="formElem">
               <button
                 className="loginButton"
-                onClick={() => this.setState({ register: true })}
+                onClick={this.toggleViewToRegister}
               >
                 Register
               </button>
@@ -194,7 +216,7 @@ class Login extends Component {
             <div className="formElem">
             <button
               className="loginButton"
-              onClick={() => this.setState({ register: false })}
+              onClick={this.toggleViewToLogin}
             >
               Login
             </button>
