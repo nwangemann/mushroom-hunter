@@ -55,16 +55,30 @@ class Detail extends Component {
   };
 
   editPost = () => {
-    const { species, edible, date, description, image_url } = this.state;
-    //possible if statement for empty date return being sent back as the previousdate, while updates to the date are identified and added to response object
-    console.log('date when nothing is selected', date)
+    const { species, edible, date, loc_x, loc_y, description, image_url, previousDate } = this.state;
+    let finalDate
+    let finalLocX
+    let finalLocY
+    if(date.length < 1){
+     finalDate = previousDate
+    } else {
+      finalDate = date
+    }
     let post_id = this.state.post[0].post_id;
+    console.log('this.props.selectedLocaitonMakert', this.props.selectedLocationMarker)
+    if(this.props.selectedLocationMarker.loc_x){
+       finalLocX = this.props.selectedLocationMarker.loc_x
+       finalLocY = this.props.selectedLocationMarker.loc_y
+      } else {
+        finalLocX = loc_x
+        finalLocY = loc_y
+      }
     let updatedPost = {
       species,
-      loc_x: this.props.selectedLocationMarker.loc_x,
-      loc_y: this.props.selectedLocationMarker.loc_y,
+      loc_x: finalLocX,
+      loc_y: finalLocY,
       edible,
-      date,
+      date: finalDate,
       description,
       image_url
     };
