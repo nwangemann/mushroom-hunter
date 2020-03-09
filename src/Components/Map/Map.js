@@ -4,6 +4,7 @@ import "./Map.scss";
 import { connect } from 'react-redux'
 import {setLocationMarker, removeMarkerStyle} from '../../redux/reducer'
 import axios from 'axios';
+require('dotenv').config();
 
 
 const mapStyles = {
@@ -181,6 +182,6 @@ export default connect(
     mapDispatchToProps
 )(
     GoogleApiWrapper({
-        apiKey: ``
+        apiKey: `${process.env.REACT_APP_GOOGLE_API_KEY}`
     })(MapContainer)
 )
