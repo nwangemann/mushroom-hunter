@@ -23,6 +23,7 @@ class MapContainer extends Component {
       selectedLocation: {},
       loc_rendered: false,
       showingInfoWindow: false,
+      myLocations: [],
       mushroomLocations: [
         { latitude: 40.8187372, longitude: -124.1864518 },
         { latitude: 41.7754084036633, longitude: -124.110145568848 },
@@ -69,7 +70,7 @@ class MapContainer extends Component {
         }
         console.log('coordsArray', coordsArray)
         this.setState({
-            mushroomLocations: coordsArray
+            myLocations: coordsArray
         })
     }).catch(err => console.log(err))
   }
@@ -95,7 +96,6 @@ class MapContainer extends Component {
 
   displayMarkers = () => {
     return this.state.mushroomLocations.map((location, index) => {
-      console.log('display markers function', location)
       return (
         <Marker
           key={index}
@@ -137,6 +137,19 @@ class MapContainer extends Component {
   };
 
   render() {
+    const mappedLocations = this.state.myLocations.map((location, index) => {
+      return (
+        <Marker
+          key={index}
+          id={index}
+          position={{
+            lat: location.latitude,
+            lng: location.longitude
+          }}
+          onClick={() => console.log("You clicked me!")}
+        />
+      );
+    });
     return (
       <div className="mapContainer">
         <Map
@@ -147,8 +160,9 @@ class MapContainer extends Component {
           style={mapStyles}
           initialCenter={{ lat: this.state.loc_x, lng: this.state.loc_y }}
         >
-          {this.displayMarkers()}
+          {mappedLocations}
           {this.displayCurrentMarker()}
+          {this.displayMarkers()}
         </Map>
       </div>
     );
@@ -167,6 +181,6 @@ export default connect(
     mapDispatchToProps
 )(
     GoogleApiWrapper({
-        apiKey: ``
+        apiKey: `AIzaSyClSup2EHLu9H1RPlkiQgYdEG2okknabUE`
     })(MapContainer)
 )

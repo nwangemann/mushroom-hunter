@@ -145,7 +145,7 @@ h3{
 
 
 
-@media screen and (max-width: 1100px){
+@media screen and (max-width: 1150px){
     #headerParent {
         font-size: 22px;
     }
@@ -154,12 +154,15 @@ h3{
     }
 }
 
-@media screen and (max-width: 1000px){
+@media screen and (max-width: 1100px){
     #headerParent {
         font-size: 20px;
     }
     .headerElem {
         margin: 0px 5px;
+    }
+    h3 {
+        display: none;
     }
 }
 
@@ -174,11 +177,17 @@ h3{
         width: 400px;
         font-size: 20px;
     }
+    h3 {
+        display: none;
+    }
 }
 
 @media screen and (max-width: 900px){
     #headerParent {
         font-size: 25px;
+    }
+    .headerPerm{
+        font-size: 20px;
     }
     h3 {
         display: none;

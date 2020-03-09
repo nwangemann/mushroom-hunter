@@ -11,8 +11,8 @@
     justify-content: center;
     align-items: center;
     margin: 35px;
-    width: 65vw;
-    height: 30vw;
+    width: 70vw;
+    height: 35vw;
     font-family: $font-secondary;
 }
 
@@ -85,10 +85,10 @@
     font-size: 14px;
 }
 
-@media screen and (max-width: 1150px){
+@media screen and (max-width: 1200px){
     .postContainer {
-        width: 75vw;
-        height: 50vh;
+        width: 85vw;
+        height: 70vh;
     }
 }
 

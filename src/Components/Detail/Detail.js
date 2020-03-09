@@ -23,7 +23,8 @@ class Detail extends Component {
       image_url: "",
       user_id: this.props.user.user_id,
       editPostToggle: false,
-      toggleMap: false
+      toggleMap: false,
+      markerSet: false
     };
   }
 
@@ -48,7 +49,8 @@ class Detail extends Component {
   cancelToggle = () => {
     this.props.removeMarkerStyle();
     this.setState({
-      editPostToggle: false
+      editPostToggle: false,
+      markerSet: false
     });
   };
 
@@ -69,14 +71,14 @@ class Detail extends Component {
     axios
       .put(`/api/edit/${post_id}`, updatedPost)
       .then(res => {
-        console.log("updated post response", res);
         this.setState({
           post: res.data
         });
       })
       .catch(err => console.log(err));
     this.setState({
-      editPostToggle: false
+      editPostToggle: false,
+      markerSet: false
     });
   };
 
@@ -114,7 +116,8 @@ class Detail extends Component {
   setLocation = () => {
     this.props.addMarkerStyle();
     this.setState({
-      toggleMap: !this.state.toggleMap
+      toggleMap: !this.state.toggleMap,
+      markerSet: true
     });
   };
 
@@ -192,10 +195,10 @@ class Detail extends Component {
                         </div>
                         <div className="formElem">
                           <label>Location:</label>
-                          {this.props.markerSet ? (
+                          {this.state.markerSet ? (
                             <div className="animationContain">
                               <p
-                                onClick={this.toggleLocation}
+                                onClick={this.setLocation}
                                 className="mapToggle inPostLinkButton animationRunner"
                               >
                                 Location Set!

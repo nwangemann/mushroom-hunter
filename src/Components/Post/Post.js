@@ -18,7 +18,8 @@ class Post extends Component {
       description: "",
       image_url: "",
       user_id: this.props.user.user_id,
-      toggleMap: false
+      toggleMap: false,
+      markerSet: false
     };
   }
 
@@ -58,12 +59,18 @@ class Post extends Component {
       image_url
     };
     await axios.post(`/api/post/${user_id}`, newPost);
+    this.setState({
+      markerSet: false
+    })
     this.props.removeMarkerStyle();
     this.props.history.push("/main");
   };
 
   cancel = () => {
     this.props.removeMarkerStyle();
+    this.setState({
+      markerSet: false
+    })
     this.props.history.push("/main");
   };
 
@@ -76,7 +83,8 @@ class Post extends Component {
   setLocation = () => {
     this.props.addMarkerStyle();
     this.setState({
-      toggleMap: !this.state.toggleMap
+      toggleMap: !this.state.toggleMap,
+      markerSet: true
     });
   };
 
@@ -117,7 +125,7 @@ class Post extends Component {
                   </div>
                   <div className="formElem">
                     <label>Location:</label>
-                    {this.props.markerSet
+                    {this.state.markerSet
                     ?
                     <div className="animationContain">
                     <p onClick={this.toggleLocation} className="mapToggle inPostLinkButton animationRunner">
