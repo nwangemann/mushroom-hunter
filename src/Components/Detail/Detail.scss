@@ -34,6 +34,7 @@ form {
 
 #descriptionElem{
     width: 400px;
+    margin-bottom: 20px;
 }
 
 #buttonContain{
@@ -68,6 +69,10 @@ form {
     width: $fill-w;
 }
 
+.postPhoto{
+    margin-right: 30px;
+}
+
 .detailButton{
     width: 120px;
     height: 30px;
@@ -78,7 +83,11 @@ form {
     border-radius: 15px;
     font-size: 15px;
     background-color: $detail-view-primary;
-    margin: 30px 10px;
+    margin: 10px 10px;
+}
+
+.dashboardElement {
+    margin: 5px 0px;  
 }
 
 #exitButton{
@@ -91,7 +100,7 @@ form {
     border-radius: 15px;
     font-size: 15px;
     background-color: $detail-view-primary;
-    margin: 0px 10px;
+    margin: 10px 10px;
 }
 
 .flexParent{
@@ -106,10 +115,23 @@ align-items: center;
     display: flex;
     flex-direction: column;
     height: inherit;
-    padding-top: 30px;
-    align-items: center;
+    padding-top: 0px;
+    align-items: flex-start;
     justify-content: center;
-    margin: 15px 15px;
+    margin: 15px 25px;
+}
+
+.flexForText{
+    display: flex;
+    flex-direction: column;
+}
+
+.buttonFlexContain {
+    display: flex;
+    flex-direction: column;
+    width: inherit;
+    justify-content: center;
+    align-items: center;
 }
 
 .mapButton{
@@ -273,25 +295,25 @@ button:active {
 
 @media screen and (max-width: 1350px){
     .detailContainer {
-        width: 75vw;
-        height: 65vh;
+        width: 80vw;
+        height: 70vh;
         margin-top: 15vh;
         }
     .detailFormParent {
-        width: 75vw;
-        height: 65vh;
+        width: 80vw;
+        height: 70vh;
         margin-top: 15vh;
         }
 }
 @media screen and (max-width: 1150px){
     .detailContainer {
-        width: 80vw;
-        height: 70vh;
+        width: 85vw;
+        height: 75vh;
         margin-top: 15vh;
    }
     .detailFormParent {
-        width: 85vw;
-        height: 70vh;
+        width: 90vw;
+        height: 75vh;
         margin-top: 15vh;
    }
 }
@@ -314,7 +336,6 @@ button:active {
         flex-direction: column;
         border: none;
         background-color: transparent;
-        padding-top: 185px;
    }
     .detailFormParent {
         width: 95vw;

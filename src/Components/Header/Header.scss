@@ -87,7 +87,6 @@ h3{
 .mobile-menu-show {
     position: relative;
     top: 90px;
-    width: 200px;
     background-color: $primary-login-color;
     width: 300px;
     height: 100px;
@@ -96,7 +95,7 @@ h3{
     border-bottom: 8px groove $main-view-primary;
     border-right: 8px groove $main-view-primary;
     border-top: 8px groove $main-view-primary;
-    font-size: 22px;
+    font-size: 20px;
     display: flex;
     flex-direction: column;
     justify-content: flex-start;
@@ -218,6 +217,12 @@ h3{
         filter: invert(100%);
         height: 75px;
     }
+    .mobile-menu-show {
+        top: 95px;
+       width: 350px;
+       height: 130px;
+       font-size: 20px;
+   }
 }
 
 @media screen and (max-width: 550px){
@@ -230,13 +235,14 @@ h3{
         display: none;
     }
     .mobile-menu-show {
+        top: 95px;
         width: 500px;
-        height: 120px;
+        height: 130px;
         font-size: 20px;
     }
     .hamburgerShowing{
         position: relative;
-        left: 170px;
+        left: 220px;
         display: inline-block;
         -webkit-filter: invert(100%);
         filter: invert(100%);
@@ -262,7 +268,7 @@ h3{
 @media screen and (max-width: 500px){
     .hamburgerShowing{
         position: relative;
-        left: 150px;
+        left: 250px;
         display: inline-block;
         -webkit-filter: invert(100%);
         filter: invert(100%);
@@ -273,8 +279,9 @@ h3{
         left: 75px;
      }
      .mobile-menu-show {
-        width: 450px;
-        height: 120px;
+         top: 100px;
+        width: 950px;
+        height: 130px;
         font-size: 20px;
     }
 }
@@ -282,7 +289,7 @@ h3{
 @media screen and (max-width: 425px){
     .hamburgerShowing{
         position: relative;
-        left: 125px;
+        left: 203px;
         display: inline-block;
         -webkit-filter: invert(100%);
         filter: invert(100%);
@@ -293,7 +300,8 @@ h3{
         left: 68px;
      }
      .mobile-menu-show {
-        width: 400px;
+         top: 95px;
+        width: 1200px;
         height: 120px;
         font-size: 20px;
     }
@@ -304,7 +312,7 @@ h3{
 @media screen and (max-width: 350px){
     .hamburgerShowing{
         position: relative;
-        left: 100px;
+        left: 170px;
         display: inline-block;
         -webkit-filter: invert(100%);
         filter: invert(100%);
@@ -312,10 +320,10 @@ h3{
     }
     .headerLogoShowing {
        position: relative;
-       left: 55px;
+       left: 115px;
     }
     .mobile-menu-show {
-        width: 300px;
+        width: 1000px;
         height: 120px;
         font-size: 20px;
     }

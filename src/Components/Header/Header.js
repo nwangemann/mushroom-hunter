@@ -37,6 +37,10 @@ class Header extends Component {
     this.props.history.push("/main");
   };
 
+  redirectToMyPosts = () => {
+    this.props.history.push("/map");
+  };
+
   toggleMenuFunc = () => {
     this.setState({ toggleMenu: !this.state.toggleMenu }, () => {
       document.addEventListener("click", this.closeMenu);
@@ -150,6 +154,10 @@ class Header extends Component {
 
           <button onClick={this.redirectToMyPosts} className="navButton">
             My Posts
+          </button>
+
+          <button onClick={this.redirectToMyMap} className="navButton">
+            My Map
           </button>
 
           <button onClick={this.redirectToGuide} className="navButton">

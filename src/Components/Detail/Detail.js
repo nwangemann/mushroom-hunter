@@ -122,14 +122,17 @@ class Detail extends Component {
     const mappedPost = this.state.post.map(post => {
       return (
         <div key={post.post_id} className="detailContainer">
+          <div className="flexForText">
           <div className="dashboardText">
-            <h2>Species: {post.species}</h2>
-            <h2>Edible: {post.edible}</h2>
-            <h2 id="locationElem">Location: 
+            <h2 className="dashboardElement" >Species: {post.species}</h2>
+            <h2 className="dashboardElement" >Edible: {post.edible}</h2>
+            <h2 className="dashboardElement"  id="locationElem">Location: 
               latitude:{post.loc_x}°, 
               longitude:{post.loc_y}°</h2>
-            <h2>Date: {post.date}</h2>
-            <p id="descriptionElem">Description: {post.description}</p>
+            <h2 className="dashboardElement" >Date: {post.date}</h2>
+            <p  className="dashboardElement" id="descriptionElem">Description: {post.description}</p>
+            </div>
+            <div className="buttonFlexContain">
             <button
               className="detailButton"
               onClick={this.deletePost}
@@ -147,6 +150,8 @@ class Detail extends Component {
                 </button>
               </div>
             </Link>
+      
+          </div>
           </div>
           <div>
             <img className="postPhoto" alt="mushroom" src={post.image_url} />
