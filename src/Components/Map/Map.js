@@ -181,6 +181,6 @@ export default connect(
     mapDispatchToProps
 )(
     GoogleApiWrapper({
-        apiKey: `AIzaSyClSup2EHLu9H1RPlkiQgYdEG2okknabUE`
+        apiKey: ``
     })(MapContainer)
 )
