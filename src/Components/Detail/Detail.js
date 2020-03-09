@@ -3,7 +3,12 @@ import "./Detail.scss";
 import axios from "axios";
 import { connect } from "react-redux";
 import { Redirect, Link } from "react-router-dom";
-import { getSession, setLocationMarker, removeMarkerStyle, addMarkerStyle } from "../../redux/reducer";
+import {
+  getSession,
+  setLocationMarker,
+  removeMarkerStyle,
+  addMarkerStyle
+} from "../../redux/reducer";
 import Calendar from "react-calendar";
 import MapContainer from "../Map/Map";
 
@@ -17,7 +22,7 @@ class Detail extends Component {
       loc_x: "",
       loc_y: "",
       edible: "",
-      previousDate: '',
+      previousDate: "",
       date: "",
       description: "",
       image_url: "",
@@ -55,24 +60,36 @@ class Detail extends Component {
   };
 
   editPost = () => {
-    const { species, edible, date, loc_x, loc_y, description, image_url, previousDate } = this.state;
-    let finalDate
-    let finalLocX
-    let finalLocY
-    if(date.length < 1){
-     finalDate = previousDate
+    const {
+      species,
+      edible,
+      date,
+      loc_x,
+      loc_y,
+      description,
+      image_url,
+      previousDate
+    } = this.state;
+    let finalDate;
+    let finalLocX;
+    let finalLocY;
+    if (date.length < 1) {
+      finalDate = previousDate;
     } else {
-      finalDate = date
+      finalDate = date;
     }
     let post_id = this.state.post[0].post_id;
-    console.log('this.props.selectedLocaitonMakert', this.props.selectedLocationMarker)
-    if(this.props.selectedLocationMarker.loc_x){
-       finalLocX = this.props.selectedLocationMarker.loc_x
-       finalLocY = this.props.selectedLocationMarker.loc_y
-      } else {
-        finalLocX = loc_x
-        finalLocY = loc_y
-      }
+    console.log(
+      "this.props.selectedLocaitonMakert",
+      this.props.selectedLocationMarker
+    );
+    if (this.props.selectedLocationMarker.loc_x) {
+      finalLocX = this.props.selectedLocationMarker.loc_x;
+      finalLocY = this.props.selectedLocationMarker.loc_y;
+    } else {
+      finalLocX = loc_x;
+      finalLocY = loc_y;
+    }
     let updatedPost = {
       species,
       loc_x: finalLocX,
@@ -140,35 +157,36 @@ class Detail extends Component {
       return (
         <div key={post.post_id} className="detailContainer">
           <div className="flexForText">
-          <div className="dashboardText">
-            <h2 className="dashboardElement" >Species: {post.species}</h2>
-            <h2 className="dashboardElement" >Edible: {post.edible}</h2>
-            <h2 className="dashboardElement"  id="locationElem">Location: 
-              latitude:{post.loc_x}°, 
-              longitude:{post.loc_y}°</h2>
-            <h2 className="dashboardElement" >Date: {post.date}</h2>
-            <p  className="dashboardElement" id="descriptionElem">Description: {post.description}</p>
+            <div className="dashboardText">
+              <h2 className="dashboardElement"><span className="categoryHeader">Species: </span>{post.species}</h2>
+              <h2 className="dashboardElement"><span className="categoryHeader">Edible:</span> {post.edible}</h2>
+              <h2 className="dashboardElement" id="locationElem">
+              <span className="categoryHeader">Location: latitude:</span>{post.loc_x}°, <span className="categoryHeader">longitude:</span>{post.loc_y}°
+              </h2>
+              <h2 className="dashboardElement"><span className="categoryHeader">Date:</span> {post.date}</h2>
+              <p className="dashboardElement" id="descriptionElem">
+              <span className="categoryHeader">Description:</span> {post.description}
+              </p>
             </div>
             <div className="buttonFlexContain">
-            <button
-              className="detailButton"
-              onClick={this.deletePost}
-              value={post.post_id}
-            >
-              Delete
-            </button>
-            <button className="detailButton" onClick={this.editToggle}>
-              Edit Post
-            </button>
-            <Link to="/main">
-              <div className="flexParent">
-                <button className="detailButton" id="exitButton">
-                  Exit Detail View
-                </button>
-              </div>
-            </Link>
-      
-          </div>
+              <button
+                className="detailButton"
+                onClick={this.deletePost}
+                value={post.post_id}
+              >
+                Delete
+              </button>
+              <button className="detailButton" onClick={this.editToggle}>
+                Edit Post
+              </button>
+              <Link to="/main">
+                <div className="flexParent">
+                  <button className="detailButton" id="exitButton">
+                    Exit Detail View
+                  </button>
+                </div>
+              </Link>
+            </div>
           </div>
           <div>
             <img className="postPhoto" alt="mushroom" src={post.image_url} />

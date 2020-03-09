@@ -66,23 +66,23 @@ class Guide extends Component {
           <div className="displayedTextParent">
             <h1>{entry.species}</h1>
             <p>
-              <span>Latin name:</span> {entry.scientific_name}
+              <span className="categoryHead">Latin name:</span> {entry.scientific_name}
             </p>
             <p>
-              <span>Edibility:</span> {entry.edible}
+              <span className="categoryHead">Edibility:</span> {entry.edible}
             </p>
             <p>
-              <span>Eating Notes:</span> {entry.eating_notes}
+              <span className="categoryHead">Eating Notes:</span> {entry.eating_notes}
             </p>
             <p>
-              <span>Season:</span> {entry.season}
+              <span className="categoryHead">Season:</span> {entry.season}
             </p>
             <p>
-              <span>Frequency:</span> {entry.frequency}
+              <span className="categoryHead">Frequency:</span> {entry.frequency}
             </p>
             <div>
               <p>
-                <span>Description:</span>
+                <span className="categoryHead">Description:</span>
               </p>
               <div className="description">{entry.description}</div>
             </div>

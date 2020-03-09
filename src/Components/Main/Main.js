@@ -55,13 +55,13 @@ class Main extends Component {
         <div key={post.post_id} className="postContainer">
           <div className="dashboardText">
             <div>
-              <h2 className="textBoxElem">Species: {post.species}</h2>
-              <h2 className="textBoxElem">Edible: {post.edible}</h2>
-              <h2 className="textBoxElem locationElement">Location: 
-              latitude:{post.loc_x}°, 
-              longitude:{post.loc_y}°</h2>
-              <h2 className="textBoxElem">Date: {post.date}</h2>
-              <p className="textBoxElem">Description: {post.description}</p>
+              <h2 className="textBoxElem"><span className="categoryHeader">Species:</span> {post.species}</h2>
+              <h2 className="textBoxElem"><span className="categoryHeader">Edible:</span> {post.edible}</h2>
+              <h2 className="textBoxElem locationElement"><span className="categoryHeader">Location: </span><span className="categoryHeader">
+              latitude:</span>{post.loc_x}°, 
+              <span className="categoryHeader">longitude:</span>{post.loc_y}°</h2>
+              <h2 className="textBoxElem"><span className="categoryHeader">Date:</span> {post.date}</h2>
+              <p className="textBoxElem"><span className="categoryHeader">Description: </span>{post.description}</p>
             </div>
             <div className="textBoxElem">
               <button

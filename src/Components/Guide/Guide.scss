@@ -109,12 +109,6 @@
 
   p {
     margin: 10px;
-
-    span {
-      font-weight: 900;
-      font-size: 15px;
-      margin: 5px;
-    }
   }
 
   h1 {
@@ -126,6 +120,12 @@
 
 .description {
   margin: 10px;
+}
+
+.categoryHead{
+  font-size: 18px;
+  font-weight: 800;
+  margin: 5px;
 }
 
 @media screen and (max-width: 1000px) {
