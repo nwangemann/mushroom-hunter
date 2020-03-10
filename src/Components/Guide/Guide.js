@@ -62,7 +62,7 @@ class Guide extends Component {
   render() {
     const mappedGuide = this.state.guide.map(entry => {
       return (
-        <div className="entryParent" key={entry.id}>
+        <div className="guideEntryParent" key={entry.id}>
           <div className="displayedTextParent">
             <h1>{entry.species}</h1>
             <p>
@@ -108,7 +108,7 @@ class Guide extends Component {
               e.preventDefault();
               this.search();
             }}>
-              <div className="flexContain">
+              <div className="guideFlexContain">
               <div>
               <input
               className="inputField"

@@ -17,6 +17,19 @@
   margin-bottom: 50px;
 }
 
+.entryParent {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: $fill-w;
+  height: 75vh;
+  border: 10px outset $main-view-primary;
+  font-family: $font-secondary;
+  color: $login-text-color;
+  padding: 25px;
+  background-color: transparent;
+}
+
 .currentFilterButton {
   width: 120px;
   height: 37px;
@@ -168,6 +181,8 @@
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  position: relative;
+  top: 25px;
 }
 
 .toggleButton:hover,
@@ -314,7 +329,7 @@
     .filterSearchBarInner {
       width: $fill-w;
       height: $fill-h;
-      padding-top: 85px;
+      padding-top: 115px;
       border: none;
       box-shadow: none;
     }

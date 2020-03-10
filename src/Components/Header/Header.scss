@@ -277,15 +277,15 @@ h3{
 @media screen and (max-width: 500px){
     .hamburgerShowing{
         position: relative;
-        left: 250px;
+        left: 271px;
         display: inline-block;
         -webkit-filter: invert(100%);
         filter: invert(100%);
-        height: 75px;
+        height: 65px;
     }
     .headerLogoShowing {
         position: relative;
-        left: 75px;
+        left: 133px;
      }
      .mobile-menu-show {
          top: 100px;
@@ -298,15 +298,36 @@ h3{
 @media screen and (max-width: 425px){
     .hamburgerShowing{
         position: relative;
-        left: 203px;
+        left: 243px;
         display: inline-block;
         -webkit-filter: invert(100%);
         filter: invert(100%);
-        height: 75px;
+        height: 65px;
     }
     .headerLogoShowing {
         position: relative;
-        left: 128px;
+        left: 119px;
+     }
+     .mobile-menu-show {
+         top: 95px;
+        width: 1200px;
+        height: 120px;
+        font-size: 20px;
+    }
+}
+
+@media screen and (max-width: 414px){
+    .hamburgerShowing{
+        position: relative;
+        left: 233px;
+        display: inline-block;
+        -webkit-filter: invert(100%);
+        filter: invert(100%);
+        height: 65px;
+    }
+    .headerLogoShowing {
+        position: relative;
+        left: 115px;
      }
      .mobile-menu-show {
          top: 95px;

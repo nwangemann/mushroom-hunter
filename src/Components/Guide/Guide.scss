@@ -6,7 +6,7 @@
   border: 10px outset $main-view-primary;
 }
 
-.entryParent {
+.guideEntryParent {
   display: flex;
   justify-content: center;
   align-items: center;
@@ -87,7 +87,7 @@
   margin: 10px 10px;
 }
 
-.flexContain{
+.guideFlexContain{
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -132,7 +132,7 @@
 //   ::-webkit-input-placeholder {
 //     color: transparent;
 // } 
-  .entryParent {
+  .guideEntryParent {
     display: flex;
     flex-direction: column;
     justify-content: flex-start;
@@ -172,11 +172,17 @@
   }
   .searchBarInner {
     width: 600px;
+    border: $none;
+    box-shadow: $none;
+  }
+  .submitButton{
+    width: 130px;
+    font-size: 15px;
   }
 }
 
 @media screen and (max-width: 700px) {
-  .entryParent {
+  .guideEntryParent {
     display: flex;
     flex-direction: column;
     justify-content: flex-start;
@@ -217,7 +223,16 @@
   } 
   .searchBarInner {
     width: 500px;
-    border: 0;
+    border: $none;
+    box-shadow: $none;
+  }
+
+  .submitButton{
+    width: 130px;
+    font-size: 15px;
+  }
+  .guideLogo{
+    display: none;
   }
 }
 
@@ -235,6 +250,8 @@
   } 
   .searchBarInner {
     width: 400px;
+    border: $none;
+    box-shadow: $none;
   }
   .inputField {
     height: 30px;
@@ -268,6 +285,8 @@
   } 
   .searchBarInner {
     width: 300px;
+    border: $none;
+    box-shadow: $none;
   }
   .inputField {
     height: 30px;
