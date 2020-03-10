@@ -8,6 +8,8 @@ const {getGuideSortName, searchGuide, searchGuideByScientific, searchGuideByEdib
 const {getUserPosts, deletePost, createPost, editPost, getPostDetails, getPostCoordinates} = require('./controller/postCtrl')
 const app = express();
 app.use(express.json());
+const path = require('path');
+
 
 massive(CONNECTION_STRING).then(db => {
   app.set("db", db);
@@ -46,6 +48,12 @@ app.get('/api/search/:search_term', searchGuide)
 app.get('/api/search_scientific/:search_term', searchGuideByScientific)
 app.get('/api/search_edible/:search_term', searchGuideByEdible)
 app.get('/api/search_season/:search_term', searchGuideBySeason)
+
+
+
+app.get('*', (req, res)=>{
+    res.sendFile(path.join(__dirname, '../build/index.html'));
+});
 
 app.listen(SERVER_PORT, () =>
   console.log(`Servin' up some 🔥 🔥 🔥 on Port ${SERVER_PORT}`)
