@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import "./Main.scss";
 import { connect } from "react-redux";
+import logo2 from "../../images/logo4.png";
 // import { Redirect } from "react-router-dom";
 import {
   removeLoginView,
@@ -15,7 +16,8 @@ class Main extends Component {
 
     this.state = {
       posts: [],
-      user_id: this.props.user.user_id
+      user_id: this.props.user.user_id,
+      defaultDisplay: false
     };
   }
 
@@ -23,6 +25,7 @@ class Main extends Component {
     this.props.getSession();
     this.props.removeLoginView();
     this.getUserPosts(this.props.user.user_id);
+    this.triggerDefault();
   }
 
   getUserPosts = () => {
@@ -48,6 +51,16 @@ class Main extends Component {
     this.props.getDetailViewID(id);
     this.props.history.push("/detail");
   };
+
+  triggerDefault = () => {
+    setTimeout(
+      function() {
+          this.setState({defaultDisplay: true});
+      }
+      .bind(this),
+      1000
+  );
+  }
 
   render() {
     console.log('this.state.posts', this.state.posts)
@@ -112,10 +125,18 @@ class Main extends Component {
             <div className="postParent">{mappedPosts}</div>
           </div>
         ) : (
-          <div className="defaultLanding">
+          <div className={
+            this.state.defaultDisplay ?
+            "defaultLanding"
+            :
+            "defaultHide"
+          }>
             <h1 className="defaultLandingText">Create a post to get started!</h1>
-            <h1 className="defaultLandingText">Or check out our identification guide and location map!</h1>
-          </div>
+            <h1 className="defaultLandingText">Or check out:</h1>
+            <h1 className="defaultLandingText">   Identification Guide</h1>
+            <h1 className="defaultLandingText">Location map</h1>
+            <img src={logo2} alt="logo" />
+          </div> 
         )}
       </div>
     );

@@ -26,7 +26,7 @@
 }
 
 .headerWelcome {
-    margin-left: 65px;
+    padding-left: 65px;
     font-size: 15px;
     color: $login-text-color;
 }
@@ -58,7 +58,7 @@
 
 .welcomeBox {
     display: flex;
-    width: 500px;
+    width: 550px;
     align-items: center;
     justify-content: center;
 }
