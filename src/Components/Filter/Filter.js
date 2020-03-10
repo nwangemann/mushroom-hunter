@@ -20,12 +20,21 @@ class Filter extends Component {
   }
 
   componentDidMount() {
+    this.getGuideSortName();
     this.props.addGuideView();
   }
 
   componentWillUnmount() {
     this.props.removeGuideView();
   }
+
+  getGuideSortName = () => {
+    axios.get("/api/guide").then(res => {
+      this.setState({
+        guide: res.data
+      });
+    });
+  };
 
   searchBy = () => {
     let { search } = this.state;
@@ -174,6 +183,7 @@ class Filter extends Component {
                     <p id="searchHeader">Filter By:</p>
                     <div className="buttonFlex">
                       <button
+                        type="button"
                         onClick={this.toggleSpecies}
                         className={
                           this.state.filterBySpecies
@@ -184,6 +194,7 @@ class Filter extends Component {
                         Species
                       </button>
                       <button
+                        type="button"
                         onClick={this.toggleScientific}
                         className={
                           this.state.filterByScientific
@@ -194,6 +205,7 @@ class Filter extends Component {
                         Latin
                       </button>
                       <button
+                        type="button"
                         onClick={this.toggleEdible}
                         className={
                           this.state.filterByEdible
@@ -204,6 +216,7 @@ class Filter extends Component {
                         Edibility
                       </button>
                       <button
+                        type="button"
                         onClick={this.toggleSeason}
                         className={
                           this.state.filterBySeason
