@@ -64,8 +64,7 @@ class Header extends Component {
         ) : (
           <div className="welcomeBox">
             <img
-              className={
-                this.state.toggleMenu ? "headerLogoShowing" : "headerLogo"
+              className={this.state.toggleMenu ? "headerLogoShowing" : "headerLogo"
               }
               alt="logo"
               src="./favicon.ico"

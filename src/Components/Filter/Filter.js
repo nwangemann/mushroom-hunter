@@ -29,7 +29,6 @@ class Filter extends Component {
 
   searchBy = () => {
     let { search } = this.state;
-    console.log("search", search);
     if (this.state.filterByScientific) {
       axios
         .get(`/api/search_scientific/${search}`)
@@ -81,7 +80,6 @@ class Filter extends Component {
     this.setState({
       [e.target.name]: e.target.value
     });
-    console.log("state", this.state);
   };
 
   toggleSpecies = () => {
@@ -163,7 +161,7 @@ class Filter extends Component {
       <div className="filterContainer">
         <div className="filterSearchBar">
           <div className="filterSearchBarInner">
-            <img src={logo2} alt="mushroomIDExample" className="guideLogo" />
+            <img src={logo2} alt="mushroomIDExample" className="filterLogo" />
             <div>
               <form
                 onSubmit={e => {
@@ -242,9 +240,10 @@ class Filter extends Component {
                 </div>
               </form>
             </div>
-            <img src={logo2} alt="mushroomIDExample" className="guideLogo" />
+            <img src={logo2} alt="mushroomIDExample" className="filterLogo" />
           </div>
         </div>
+        <div className="mobileSpace"></div>
         {mappedGuide}
       </div>
     );

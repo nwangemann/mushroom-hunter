@@ -226,3 +226,107 @@
 #mainSubmitButton:active {
   transform: scale(0.99);
 }
+
+
+@media screen and (max-width: 1000px) {
+  
+    .entryParent {
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-start;
+      align-items: center;
+      width: $fill-w;
+      height: 85vh;
+      border: 10px outset $main-view-primary;
+      font-family: $font-secondary;
+      color: $login-text-color;
+      padding: 15px;
+      background-color: transparent;
+    }
+    .filterPhoto {
+      width: 400px;
+      max-height: 300px;
+      border: $none;
+    }
+    .inputField {
+      height: 30px;
+      width: 275px;
+      font-family: $font-secondary;
+      border: 4px inset $main-view-primary;
+      padding-left: 3px;
+    }
+
+    .filterLogo{
+      display: none;
+    }
+  
+    .filterSearchBar {
+      width: $fill-w;
+      margin-left: $none;
+  
+      label {
+        font-size: 25px;
+      }
+
+    }
+    .filterSearchBarInner {
+      width: 600px;
+    }
+  }
+
+
+@media screen and (max-width: 620px) {
+  
+    .entryParent {
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-start;
+      align-items: center;
+      width: $fill-w;
+      height: 85vh;
+      border: 10px outset $main-view-primary;
+      font-family: $font-secondary;
+      color: $login-text-color;
+      padding: 15px;
+      background-color: transparent;
+    }
+    .mobileSpace{
+      height: 240px;
+    }
+
+    .filterPhoto{
+      width: 200px;
+    }
+  
+    .buttonFlex{
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+    }
+    .inputField {
+      height: 30px;
+      width: 275px;
+      font-family: $font-secondary;
+      border: 4px inset $main-view-primary;
+      padding-left: 3px;
+    }
+    .filterSearchBarInner {
+      width: $fill-w;
+      height: $fill-h;
+      padding-top: 85px;
+      border: none;
+      box-shadow: none;
+    }
+    .flexContain{
+      border-top: 10px groove $main-view-primary;
+      border-bottom: 10px groove $main-view-primary;
+      margin-top: 85px;
+      width: 85vw;
+      padding: 10px;
+      -webkit-box-shadow: $glow $main-view-primary;
+      -moz-box-shadow: $glow $main-view-primary;
+      box-shadow: $glow $main-view-primary;
+      border-radius: 15px;
+    }
+  }

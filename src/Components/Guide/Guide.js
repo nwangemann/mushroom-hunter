@@ -110,7 +110,6 @@ class Guide extends Component {
             }}>
               <div className="flexContain">
               <div>
-              {/* <label>Search:</label> */}
               <input
               className="inputField"
                 onChange={this.changeHandler}
