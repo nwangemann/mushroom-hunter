@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import "./Main.scss";
 import { connect } from "react-redux";
-import { Redirect } from "react-router-dom";
+// import { Redirect } from "react-router-dom";
 import {
   removeLoginView,
   getSession,
@@ -50,6 +50,8 @@ class Main extends Component {
   };
 
   render() {
+    console.log('this.state.posts', this.state.posts)
+    console.log('this.state.posts.length', this.state.posts.length)
     const mappedPosts = this.state.posts.map(post => {
       return (
         <div key={post.post_id} className="postContainer">
@@ -104,13 +106,16 @@ class Main extends Component {
     });
     return (
       <div>
-        {this.props.user ? (
+        {(this.state.posts.length > 0) ? (
           <div>
             <div id="spaceTaker"></div>
             <div className="postParent">{mappedPosts}</div>
           </div>
         ) : (
-          <Redirect to="/" />
+          <div className="defaultLanding">
+            <h1 className="defaultLandingText">Create a post to get started!</h1>
+            <h1 className="defaultLandingText">Or check out our identification guide and location map!</h1>
+          </div>
         )}
       </div>
     );

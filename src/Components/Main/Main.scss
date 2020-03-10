@@ -1,6 +1,25 @@
 @import '../../variables.scss';
 
 
+.defaultLanding{
+    width: $fill-w;
+    height: $fill-h;
+    background-image: $back1;
+    background-attachment: fixed;
+    background-size: cover;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.defaultLandingText{
+    color: $login-text-color;
+    font-family: $font-stack;
+    font-size: 25px;
+    text-shadow: 0px 0px 5px $primary-login-color;
+}
+
 .postContainer {
     display: flex;
     border: 10px outset $main-view-primary;
