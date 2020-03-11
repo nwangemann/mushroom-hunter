@@ -132,9 +132,9 @@ class Main extends Component {
             "defaultHide"
           }>
             <h1 className="defaultLandingText">Create a post to get started!</h1>
-            <h1 className="defaultLandingText">Or check out:</h1>
+            {/* <h1 className="defaultLandingText">Or check out:</h1>
             <h1 className="defaultLandingText">   Identification Guide</h1>
-            <h1 className="defaultLandingText">Location map</h1>
+            <h1 className="defaultLandingText">Location map</h1> */}
             <img src={logo2} alt="logo" />
           </div> 
         )}
