@@ -176,7 +176,7 @@
         height: 60vh;
     }
     .postPhoto {
-        max-width: 500px;
+        max-width: 550px;
         border: 8px outset $main-view-primary;
         border-radius: 15px;
         margin: 15px 15px;
@@ -190,7 +190,7 @@
         height: 70vh;
     }
     .postPhoto {
-        max-width: 350px;
+        max-width: 450px;
         border: 8px outset $main-view-primary;
         border-radius: 15px;
         margin: 15px 15px;
@@ -202,6 +202,12 @@
     .postContainer {
         width: 85vw;
         height: 70vh;
+    }
+    .postPhoto {
+        max-width: 400px;
+        border: 8px outset $main-view-primary;
+        border-radius: 15px;
+        margin: 15px 15px;
     }
 }
 
