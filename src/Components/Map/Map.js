@@ -58,18 +58,15 @@ class MapContainer extends Component {
   getCoordinates = () => {
     let {user_id} = this.props.user
     axios.get(`/api/coordinates/${user_id}`).then(coordinates => {
-        console.log('coordinates in getcoordinates', coordinates)
         let coordsArray = []
         let workingArray = coordinates.data
         for (let i = 0; i < workingArray.length; i++){
-          console.log('workingArray[i]', workingArray[i])
             let objectConstruct = {
                 loc_x: workingArray[i].loc_x,
                 loc_y: workingArray[i].loc_y
             }
             coordsArray.push(objectConstruct)
         }
-        console.log('coordsArray', coordsArray)
         this.setState({
             myLocations: coordsArray
         })

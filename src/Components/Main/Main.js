@@ -47,7 +47,6 @@ class Main extends Component {
 
   setDetail = e => {
     let id = e.target.value;
-    console.log("setdetail ID", id);
     this.props.getDetailViewID(id);
     this.props.history.push("/detail");
   };
@@ -63,8 +62,6 @@ class Main extends Component {
   }
 
   render() {
-    console.log('this.state.posts', this.state.posts)
-    console.log('this.state.posts.length', this.state.posts.length)
     const mappedPosts = this.state.posts.map(post => {
       return (
         <div key={post.post_id} className="postContainer">

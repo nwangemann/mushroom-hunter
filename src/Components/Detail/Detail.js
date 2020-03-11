@@ -79,10 +79,6 @@ class Detail extends Component {
       finalDate = date;
     }
     let post_id = this.state.post[0].post_id;
-    console.log(
-      "this.props.selectedLocaitonMakert",
-      this.props.selectedLocationMarker
-    );
     if (this.props.selectedLocationMarker.loc_x) {
       finalLocX = this.props.selectedLocationMarker.loc_x;
       finalLocY = this.props.selectedLocationMarker.loc_y;
