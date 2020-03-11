@@ -148,6 +148,56 @@
     font-size: 14px;
 }
 
+
+.postPhoto {
+    max-width: 350px;
+    border: 8px outset $main-view-primary;
+    border-radius: 15px;
+    margin: 15px 15px;
+}
+
+@media screen and (max-width: 3500px){
+    .postContainer {
+        width: 75vw;
+        height: 60vh;
+    }
+    .postPhoto {
+        max-width: 750px;
+        border: 8px outset $main-view-primary;
+        border-radius: 15px;
+        margin: 15px 15px;
+    }
+    
+}
+
+@media screen and (max-width: 1750px){
+    .postContainer {
+        width: 85vw;
+        height: 60vh;
+    }
+    .postPhoto {
+        max-width: 550px;
+        border: 8px outset $main-view-primary;
+        border-radius: 15px;
+        margin: 15px 15px;
+    }
+    
+}
+
+@media screen and (max-width: 1550px){
+    .postContainer {
+        width: 85vw;
+        height: 70vh;
+    }
+    .postPhoto {
+        max-width: 350px;
+        border: 8px outset $main-view-primary;
+        border-radius: 15px;
+        margin: 15px 15px;
+    }
+    
+}
+
 @media screen and (max-width: 1200px){
     .postContainer {
         width: 85vw;
