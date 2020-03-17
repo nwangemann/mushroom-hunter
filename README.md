@@ -1,6 +1,6 @@
 # **Personal Project**
 
-## Mushroom Hunter/ alt (FungEye?)
+## Mushroom Hunter
 
 <ul>
 MVP (minimum viable product): 
