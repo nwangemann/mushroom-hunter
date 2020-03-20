@@ -9,15 +9,12 @@ MVP (minimum viable product):
 <li>Able to post an informational log for found mushrooms</li>
 <li>Stores posts to user session/profile</li>
 <li>User is able to edit and delete submitted posts</li>
-
+- User is able to geotag location of found mushroom using the Google Maps API (and corresponding geotagging API available through Google Maps)
+- User is able to select species of mushroom from list and have information display, giving specifics regarding species
 </ul>
 
-ICEBOX 1.0 (barely icebox)
+ICEBOX 
 
-- User is able to geotag location of found mushroom using the Google Maps API (and corresponding geotagging API available through Google Maps)
-- User is able to select species of mushroom from list and have information pulled from Trefle (plant API) display, giving specifics regarding species
-
-ICEBOX 2.0 (true icebox)
 
 - A page which displays ALL posts stored within the database
 - User can filter and search through existing posts based on location/species/other identifying parameters. 
