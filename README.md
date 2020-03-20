@@ -23,18 +23,6 @@ ICEBOX 2.0 (true icebox)
 - User can filter and search through existing posts based on location/species/other identifying parameters. 
 
 
-**My Path To Points**
-- Responsive Design (20 Points)
-- Redux (20 Points)
-- Authentication (10 Points)
-- Presentation (10 Points)
-- Hosting (10 Points)
-- Other Technologies --Sass-- (10 points)
-
-Total 80 Points
-
-- Other Technologies (Google Maps API/Trefle API)
-
 ***Client***
 <br/><br/>
 *dependencies*
@@ -124,10 +112,6 @@ CREATE TABLE posts (
     user_id INT REFERENCES users(user_id)
 );
 
-INSERT INTO posts(species, location, edible, date, description, image_url, user_id)
-VALUES 
-('Chantrelle', 'LocationTest', 'Yes', '12/20/19', 'This is a fun little sample description', 'https://img.webmd.com/dtmcms/live/webmd/consumer_assets/site_images/articles/health_tools/all_about_mushrooms_slideshow/493ss_thinkstock_rf_poisonous_mushroom.jpg', 1),
-('Oyster', 'LocationTest2', 'Yes', '10/20/19', 'This is a second sample description', 'https://img.webmd.com/dtmcms/live/webmd/consumer_assets/site_images/articles/health_tools/all_about_mushrooms_slideshow/493ss_thinkstock_rf_poisonous_mushroom.jpg', 2);
 
 -- basic join format
 SELECT * FROM users u
