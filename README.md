@@ -46,19 +46,6 @@ ICEBOX 2.0 (true icebox)
 - A page which displays ALL posts stored within the database
 - User can filter and search through existing posts based on location/species/other identifying parameters. 
 
-
-**My Path To Points**
-- Responsive Design (20 Points)
-- Redux (20 Points)
-- Authentication (10 Points)
-- Presentation (10 Points)
-- Hosting (10 Points)
-- Other Technologies --Sass-- (10 points)
-
-Total 80 Points
-
-- Other Technologies (Google Maps API/Trefle API)
-
 ***Client***
 <br/><br/>
 *dependencies*
