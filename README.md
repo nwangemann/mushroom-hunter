@@ -5,11 +5,23 @@
 ## Login Page
 ![UI](./public/s1.png?raw=true "Screen shot")
 
-## Login Page
+## Landing Page- Displays posts created by user account
 ![UI](./public/s2.png?raw=true "Screen shot")
 
-## Login Page
+## Map- Previously tagged post locations are marked on the Google Maps API with pins
 ![UI](./public/s3.png?raw=true "Screen shot")
+
+## Map- P
+![UI](./public/s4.png?raw=true "Screen shot")
+
+## Map- P
+![UI](./public/s5.png?raw=true "Screen shot")
+## Map- P
+![UI](./public/s6.png?raw=true "Screen shot")
+## Map- Pr
+![UI](./public/s7.png?raw=true "Screen shot")
+## Map- Pr
+![UI](./public/s8.png?raw=true "Screen shot")
 
 <ul>
 MVP (minimum viable product): 
