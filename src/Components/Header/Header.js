@@ -54,6 +54,7 @@ class Header extends Component {
   };
 
   render() {
+    console.log('this.props.history', this.props.history)
     return (
       <div id="headerParent">
         {this.props.loginView ? (

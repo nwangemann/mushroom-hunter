@@ -1,6 +1,9 @@
 # **Personal Project**
 
-## Mushroom Hunter/ alt (FungEye?)
+## Mushroom Hunter
+
+## Login Page
+![UI](./public/s1.png?raw=true "Screen shot")
 
 <ul>
 MVP (minimum viable product): 
