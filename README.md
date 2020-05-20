@@ -11,16 +11,19 @@
 ## Map- Previously tagged post locations are marked on the Google Maps API with pins
 ![UI](./public/s3.png?raw=true "Screen shot")
 
-## Map- P
+## Map- Detail zoom of a pinned location, full Google Maps API functionality
 ![UI](./public/s4.png?raw=true "Screen shot")
 
-## Map- P
+## Field Guide- Responsive API created and implemented, contains mushroom identification information
 ![UI](./public/s5.png?raw=true "Screen shot")
-## Map- P
+
+## Field Guide- Detailed filter search allows for multiple parameters for searching the guide
 ![UI](./public/s6.png?raw=true "Screen shot")
-## Map- Pr
+
+## Create Post- This page allows a user to create a post, along with a map for setting location information
 ![UI](./public/s7.png?raw=true "Screen shot")
-## Map- Pr
+
+## Detail View- View the details of a post and edit the contents
 ![UI](./public/s8.png?raw=true "Screen shot")
 
 <ul>
