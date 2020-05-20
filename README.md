@@ -1,12 +1,15 @@
 # **Personal Project**
 
 ## Mushroom Hunter
-<<<<<<< HEAD
 
 ## Login Page
 ![UI](./public/s1.png?raw=true "Screen shot")
-=======
->>>>>>> 87d56d9e285505e350eee8bc1c8e42a3bb0ea34d
+
+## Login Page
+![UI](./public/s2.png?raw=true "Screen shot")
+
+## Login Page
+![UI](./public/s3.png?raw=true "Screen shot")
 
 <ul>
 MVP (minimum viable product): 
@@ -15,16 +18,31 @@ MVP (minimum viable product):
 <li>Able to post an informational log for found mushrooms</li>
 <li>Stores posts to user session/profile</li>
 <li>User is able to edit and delete submitted posts</li>
-- User is able to geotag location of found mushroom using the Google Maps API (and corresponding geotagging API available through Google Maps)
-- User is able to select species of mushroom from list and have information display, giving specifics regarding species
+
 </ul>
 
-ICEBOX 
+ICEBOX 1.0 (barely icebox)
 
+- User is able to geotag location of found mushroom using the Google Maps API (and corresponding geotagging API available through Google Maps)
+- User is able to select species of mushroom from list and have information pulled from Trefle (plant API) display, giving specifics regarding species
+
+ICEBOX 2.0 (true icebox)
 
 - A page which displays ALL posts stored within the database
 - User can filter and search through existing posts based on location/species/other identifying parameters. 
 
+
+**My Path To Points**
+- Responsive Design (20 Points)
+- Redux (20 Points)
+- Authentication (10 Points)
+- Presentation (10 Points)
+- Hosting (10 Points)
+- Other Technologies --Sass-- (10 points)
+
+Total 80 Points
+
+- Other Technologies (Google Maps API/Trefle API)
 
 ***Client***
 <br/><br/>
@@ -115,6 +133,10 @@ CREATE TABLE posts (
     user_id INT REFERENCES users(user_id)
 );
 
+INSERT INTO posts(species, location, edible, date, description, image_url, user_id)
+VALUES 
+('Chantrelle', 'LocationTest', 'Yes', '12/20/19', 'This is a fun little sample description', 'https://img.webmd.com/dtmcms/live/webmd/consumer_assets/site_images/articles/health_tools/all_about_mushrooms_slideshow/493ss_thinkstock_rf_poisonous_mushroom.jpg', 1),
+('Oyster', 'LocationTest2', 'Yes', '10/20/19', 'This is a second sample description', 'https://img.webmd.com/dtmcms/live/webmd/consumer_assets/site_images/articles/health_tools/all_about_mushrooms_slideshow/493ss_thinkstock_rf_poisonous_mushroom.jpg', 2);
 
 -- basic join format
 SELECT * FROM users u
