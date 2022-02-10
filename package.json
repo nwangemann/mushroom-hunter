@@ -13,7 +13,7 @@
     "express-session": "^1.17.0",
     "google-maps-react": "^2.0.2",
     "massive": "^6.2.0",
-    "node-sass": "^4.13.1",
+    "node-sass": "^7.0.0",
     "nodemon": "^2.0.2",
     "react": "^16.12.0",
     "react-calendar": "^2.19.2",
